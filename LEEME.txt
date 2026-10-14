@@ -1,0 +1,17 @@
+GUITARRA 12 SEMANAS (app instalable)
+
+PUBLICAR EN NETLIFY
+1. Entrá a https://app.netlify.com/drop e iniciá sesión.
+2. Arrastrá la carpeta "guitarra12" (entera, ya descomprimida) a esa página.
+3. Netlify te da una dirección https. Esa es tu app.
+
+INSTALAR EN EL CELULAR (abrí la dirección en el teléfono)
+- Android (Chrome): menú de los 3 puntos > "Instalar app" o "Agregar a la pantalla principal".
+- iPhone (Safari): botón Compartir > "Agregar a inicio". Tiene que ser Safari.
+
+IMPORTANTE
+- El progreso se guarda en cada dispositivo por separado. No se sincroniza entre teléfono y PC.
+  Usá Progreso > Respaldo para copiar y pegar tu progreso de uno a otro.
+- En iPhone, la app instalada guarda sus datos aparte de Safari. Empezá a usarla desde el ícono instalado.
+- El tutor (chat con Claude) no está en esta versión: solo funciona dentro de Claude.
+- Para actualizar la app: reemplazá los archivos en Netlify y subí el número de CACHE en sw.js (por ejemplo de v3 a v4).

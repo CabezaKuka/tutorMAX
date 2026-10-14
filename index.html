@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guitarra 12 semanas</title>
+<meta name="description" content="Programa de 12 semanas de teoría aplicada y oído para guitarra, con lecciones, ejercicios y seguimiento.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F6F4FC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0920" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Guitarra">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Concepto: escenario de estudio. Fondo violeta noche con luces de color, cada ejercicio con su color y cada función armónica (tónica verde, predominante ámbar, dominante coral) con el mismo color en toda la app. Formas variadas: píldoras, círculos, fichas y barra flotante. */
+:root{--bg:#F6F4FC;--sf:#FFFFFF;--sf2:#EEEAFA;--ink:#1B1532;--mut:#625B80;--line:#E1DBF2;
+--glow1:rgba(106,76,255,.16);--glow2:rgba(214,51,138,.11);
+--pri:#6A4CFF;--pris:#E8E3FF;--prit:#4A2FD0;--g1:#6A4CFF;--g2:#C93A92;--sh1:#4328B8;
+--fT:#0B7F53;--fP:#8F5A00;--fD:#C0303A;
+--dT:#0B7F53;--dP:#9A6000;--dD:#C92F3A;
+--d1:#6A4CFF;--d2:#1570D6;--d3:#D0307F;--d4:#D15300;--d5:#0A8484;
+--ok:#0B7F53;--oks:#D9F3E7;--ko:#C0303A;--kos:#FCE0E2;--brass:#8F5A00;
+--ac:var(--pri);--acs:var(--pris);
+--fd:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;--fb:'Figtree','Segoe UI',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,Menlo,monospace}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0920;--sf:#161230;--sf2:#211B46;--ink:#F3F0FF;--mut:#A9A3C8;--line:#2D2758;--glow1:rgba(124,92,255,.30);--glow2:rgba(214,51,138,.20);--pri:#9585FF;--pris:#2A2360;--prit:#C9BFFF;--sh1:#2E1C8A;--fT:#4FE0AB;--fP:#FFC14D;--fD:#FF8087;--ok:#4FE0AB;--oks:#12342B;--ko:#FF8087;--kos:#43202A;--brass:#FFC14D;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C0920;--sf:#161230;--sf2:#211B46;--ink:#F3F0FF;--mut:#A9A3C8;--line:#2D2758;--glow1:rgba(124,92,255,.30);--glow2:rgba(214,51,138,.20);--pri:#9585FF;--pris:#2A2360;--prit:#C9BFFF;--sh1:#2E1C8A;--fT:#4FE0AB;--fP:#FFC14D;--fD:#FF8087;--ok:#4FE0AB;--oks:#12342B;--ko:#FF8087;--kos:#43202A;--brass:#FFC14D;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(520px 280px at 0% 0%,var(--glow1),transparent 70%),radial-gradient(460px 260px at 100% 8%,var(--glow2),transparent 70%),var(--bg);background-attachment:fixed;color:var(--ink);font:500 calc(17px*var(--z,1))/1.5 var(--fb);padding-inline:16px;padding-block:16px 110px}
+main{max-width:560px;margin:0 auto}
+h1{font:800 27px/1.12 var(--fd);margin:14px 0 6px;text-wrap:balance;letter-spacing:-.01em}
+h1.q{font-size:23px;margin-top:16px}
+h2{font:700 19px/1.2 var(--fd);margin:0}
+p{margin:8px 0}
+b{font-weight:700}
+.sub{color:var(--mut);margin:0 0 4px}
+.eyebrow{display:inline-block;font:700 12px/1 var(--fb);letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;border-radius:999px;color:color-mix(in srgb,var(--c,var(--pri)) 62%,var(--ink));background:var(--sf2);background:color-mix(in srgb,var(--c,var(--pri)) 15%,transparent)}
+.lead{font-size:calc(20px*var(--z,1));line-height:1.55;margin:10px 0 0}
+.m{color:var(--mut)}.sm{font-size:calc(14px*var(--z,1))}.mono{font-family:var(--fm)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}
+.card{background:var(--sf);border:1px solid var(--line);border-radius:26px;padding:18px;margin-top:14px;box-shadow:0 8px 24px -14px rgba(40,20,120,.35)}
+.card.hl{background:var(--pris);border-color:transparent}
+.card.cc{border:2px solid color-mix(in srgb,var(--c) 45%,var(--line))}
+.card.lessn{border-radius:30px 30px 30px 10px}
+.btn{display:block;width:100%;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;border:0;border-radius:999px;padding:16px 22px;font:700 17px var(--fb);cursor:pointer;margin-top:14px;box-shadow:0 5px 0 var(--sh1),0 12px 24px -8px rgba(106,76,255,.55);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--sh1),0 4px 10px -4px rgba(106,76,255,.5)}
+.btn.ghost{background:var(--pris);color:var(--prit);box-shadow:none}
+.btn.ghost:active{transform:scale(.98)}
+.btn.sm{width:auto;display:inline-block;padding:10px 18px;font-size:15px;margin:0;box-shadow:0 3px 0 var(--sh1)}
+.btn.ghost.sm{box-shadow:none}
+.btn:disabled{opacity:.4;cursor:default;box-shadow:none}
+.lnk{background:none;border:0;color:var(--prit);font:700 15px var(--fb);padding:8px 0;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--fP);outline-offset:2px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--sf);color:var(--ink);border:2px solid var(--line);border-radius:22px;padding:12px 16px 12px 12px;margin-top:11px;font:600 calc(17px*var(--z,1)) var(--fb);cursor:pointer;transition:transform .08s,border-color .15s}
+.opt:active{transform:scale(.985)}
+.opt .lt{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--c,var(--pri)) 16%,var(--sf));color:color-mix(in srgb,var(--c,var(--pri)) 65%,var(--ink));font:700 15px var(--fm)}
+.opt .ot{min-width:0;overflow-wrap:anywhere}
+.opt.mono .ot{font-family:var(--fm)}
+.opt.ok{background:var(--oks);border-color:var(--ok)}.opt.ok .lt{background:var(--dT);color:#fff}
+.opt.ko{background:var(--kos);border-color:var(--ko)}.opt.ko .lt{background:var(--dD);color:#fff}
+.fb{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:22px;margin-top:14px}.fb.g{background:var(--oks)}.fb.b{background:var(--kos)}
+.fb .fi{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 16px var(--fb)}.fb.g .fi{background:var(--dT)}.fb.b .fi{background:var(--dD)}
+.fb div{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{--f:var(--pri);font:700 16px var(--fm);padding:10px 16px;border-radius:999px;border:2px solid var(--line);background:var(--sf);color:var(--ink);cursor:pointer;transition:transform .08s}
+.chip:active{transform:scale(.94)}
+.chip small{font:700 11px var(--fb);opacity:.75;margin-right:4px}
+.chip sup{font:700 10px var(--fb);margin-left:3px;opacity:.85}
+.chip.fT{--f:var(--dT);border-color:var(--dT);background:color-mix(in srgb,var(--dT) 14%,var(--sf));color:var(--fT)}
+.chip.fP{--f:var(--dP);border-color:var(--dP);background:color-mix(in srgb,var(--dP) 14%,var(--sf));color:var(--fP)}
+.chip.fD{--f:var(--dD);border-color:var(--dD);background:color-mix(in srgb,var(--dD) 14%,var(--sf));color:var(--fD)}
+.chip.on{background:linear-gradient(135deg,var(--g1),var(--g2));border-color:transparent;color:#fff}
+.chip.fT.on,.chip.fP.on,.chip.fD.on{background:var(--f);border-color:var(--f);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:13.5px;color:var(--mut)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.shape{display:flex;gap:16px;align-items:center;min-height:170px;color:var(--ink)}
+.shape svg{flex:none}
+.bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;border-radius:999px;background:var(--c,var(--pri))}
+.seg{display:flex;gap:5px;flex:1}.seg i{flex:1;height:9px;border-radius:999px;background:var(--line);transition:flex .2s,background .2s}
+.seg i.d{background:var(--dT)}.seg i.x{background:var(--dD)}.seg i.c{background:var(--c,var(--pri));flex:2}
+.seg.st i.d{background:var(--c,var(--pri))}
+/* Cabecera de estudio */
+.hero{position:relative;overflow:hidden;border-radius:30px 30px 30px 8px;padding:18px 18px 16px;color:#fff;background:linear-gradient(135deg,#5B3DF0 0%,#9B3FD0 55%,#E0409A 100%);box-shadow:0 14px 30px -14px rgba(106,76,255,.7)}
+.hero::before{content:"";position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero::after{content:"";position:absolute;right:56px;bottom:-60px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.09)}
+.hero>*{position:relative;z-index:1}
+.hrow{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.hk{font:700 12px var(--fb);letter-spacing:.09em;text-transform:uppercase;opacity:.85}
+.ht{font:800 21px/1.15 var(--fd);margin-top:5px;text-wrap:balance}
+.hr{position:relative;flex:none;width:60px;height:60px}.hr .ring{position:absolute;inset:0}.hr b{position:absolute;inset:0;display:grid;place-items:center;font:700 13px var(--fm)}
+.hfoot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}
+.pips{display:flex;gap:5px;flex-wrap:wrap}.pips i{width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.28)}.pips i.d{background:#fff}.pips i.c{background:transparent;box-shadow:0 0 0 3px #fff}
+.pl{flex:none;background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:999px;padding:8px 14px;font:700 14px var(--fb);cursor:pointer}
+.stp{margin-top:16px}
+.task{display:flex;gap:12px;margin-top:12px}
+.bl{flex:none;width:34px;height:34px;border-radius:50%;background:color-mix(in srgb,var(--c,var(--pri)) 17%,var(--sf));color:color-mix(in srgb,var(--c,var(--pri)) 65%,var(--ink));font:700 16px/34px var(--fm);text-align:center}
+.bl.A{--c:var(--d1)}.bl.B{--c:var(--d3)}
+.tm{font:700 52px var(--fm);text-align:center;margin:4px 0;letter-spacing:-.02em}
+.two{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:4px}
+.rate{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
+.rb{aspect-ratio:1;border-radius:50%;border:2px solid var(--line);background:var(--sf);color:var(--ink);font:700 20px var(--fm);cursor:pointer;transition:transform .1s}
+.rb:active{transform:scale(.92)}
+.rb.on{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;border-color:transparent;transform:scale(1.08)}
+.ck{display:flex;gap:12px;align-items:center;margin-top:10px}.ck input{width:24px;height:24px;accent-color:var(--pri)}
+.row{display:grid;grid-template-columns:104px 1fr 46px;gap:10px;align-items:center;margin-top:12px;font-size:15px}
+.row b{text-align:right;font-family:var(--fm);font-size:14px}
+.wk{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}
+.wk i{aspect-ratio:1;display:grid;place-items:center;font:700 14px var(--fm);border-radius:50%;border:2px solid var(--line);font-style:normal}
+.wk i.d{background:var(--dT);color:#fff;border-color:var(--dT)}.wk i.c{border-color:var(--pri);color:var(--prit)}
+input[type=text],input[type=number],select,textarea{width:100%;font:500 17px var(--fb);padding:13px 16px;border:2px solid var(--line);border-radius:18px;background:var(--bg);color:var(--ink);margin-top:10px}
+textarea{resize:vertical}
+details>summary{cursor:pointer;list-style:none}details>summary::-webkit-details-marker{display:none}
+.msg{white-space:pre-wrap;margin-top:12px;padding:14px 16px;border-radius:22px 22px 22px 6px;background:var(--sf);border:1px solid var(--line)}.msg.u{background:var(--pris);border-color:transparent;border-radius:22px 22px 6px 22px}
+.st{margin:8px 0 0;padding-left:20px}.st li{margin:9px 0}
+/* Barra flotante */
+.tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 6px);max-width:560px;margin:0 auto 6px;display:flex;gap:2px;padding:6px;background:color-mix(in srgb,var(--sf) 92%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;box-shadow:0 10px 26px -10px rgba(30,10,100,.45);z-index:5}
+.tb{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;border-radius:999px;color:var(--mut);font:700 12.5px var(--fb);padding:7px 0 6px;cursor:pointer;transition:background .15s,color .15s}
+.tb svg{width:22px;height:22px}
+.tb.on{color:#fff;background:linear-gradient(135deg,var(--g1),var(--g2))}
+/* Quiz */
+.qs{margin-top:6px}
+.qtop{display:flex;align-items:center;gap:12px;margin-top:6px}
+.xb{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:var(--sf2);color:var(--mut);display:grid;place-items:center;cursor:pointer}
+.cmb{flex:none;display:flex;align-items:center;gap:4px;padding:6px 12px 6px 8px;border-radius:999px;background:var(--dP);color:#fff;font:700 15px var(--fm)}
+.cmb svg{width:18px;height:18px}
+.qcard{margin-top:14px;padding:18px;border-radius:28px 28px 28px 8px;background:color-mix(in srgb,var(--c) 11%,var(--sf));border:2px solid color-mix(in srgb,var(--c) 30%,var(--line))}
+.qcard h1{margin:10px 0 0}
+.res{text-align:center;margin-top:10px}
+.rg{position:relative;width:160px;height:160px;margin:12px auto 0}.rg .ring{position:absolute;inset:0}
+.rn{position:absolute;inset:0;display:grid;place-content:center}.rn b{font:800 52px/1 var(--fd)}.rn span{color:var(--mut);font-size:14px}
+.res .card{text-align:left}
+/* Fichas de práctica */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.tile{position:relative;overflow:hidden;text-align:left;display:flex;flex-direction:column;gap:4px;min-height:150px;padding:16px;border:2px solid color-mix(in srgb,var(--c) 35%,var(--line));border-radius:28px;background:var(--sf);background:color-mix(in srgb,var(--c) 13%,var(--sf));color:var(--ink);font:600 15px var(--fb);cursor:pointer;transition:transform .1s}
+.tile:nth-child(2n){border-radius:28px 28px 8px 28px}.tile:nth-child(3n){border-radius:8px 28px 28px 28px}
+.tile:active{transform:scale(.97)}
+.tile svg.mot{position:absolute;right:-8px;top:-8px;width:78px;height:78px;color:var(--c);opacity:.3}
+.tile b{font:700 18px/1.15 var(--fd);margin-top:auto;padding-top:46px}
+.tile .ac{font-size:13px;color:var(--mut)}
+.tile .go{align-self:flex-start;margin-top:6px;padding:5px 12px;border-radius:999px;background:var(--c);color:#fff;font:700 13px var(--fb)}
+.tile.wide{grid-column:1/-1;min-height:0}
+.tile.wide b{padding-top:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.stat{aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;background:color-mix(in srgb,var(--c) 14%,var(--sf));border:2px solid color-mix(in srgb,var(--c) 40%,var(--line))}
+.stat b{font:800 26px/1 var(--fd)}.stat span{font-size:12px;color:var(--mut);margin-top:4px}
+.row .bar i{background:var(--c,var(--pri))}
+/* Diagramas */
+.dg h2{font-size:18px}
+.dgs{overflow-x:auto;margin:10px -6px 0;padding:0 6px}
+.dgs svg{display:block;width:100%;height:auto}
+.dgs.w svg{min-width:470px}
+.dgs svg text{font-family:var(--fm);fill:var(--ink)}
+.dgs svg .tx{fill:#fff;font-weight:700}
+.dgs .nt{cursor:pointer}
+.dgs .nt:active circle,.dgs .nt:active rect{opacity:.7}
+.dgs .nt.on circle,.dgs .nt.on rect{fill:var(--dP)}
+.kp{margin-top:10px}
+.sg2{display:inline-flex;padding:4px;border-radius:999px;background:var(--sf2);gap:4px}
+.sg{border:0;background:none;color:var(--mut);font:700 14px var(--fb);padding:8px 16px;border-radius:999px;cursor:pointer}
+.sg.on{background:var(--sf);color:var(--ink);box-shadow:0 2px 6px rgba(30,10,100,.2)}
+.kr .chip{padding:8px 12px;font-size:14px}
+.cap{margin:10px 0 0;font-size:15px;color:var(--mut)}
+.pills{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;margin:10px -2px 0}
+.pills .chip{flex:none;font-family:var(--fb)}
+
+.hmeta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-top:14px}
+.flm{display:inline-flex;align-items:center;gap:5px;padding:6px 13px 6px 9px;border-radius:999px;background:rgba(255,255,255,.2);font:700 14px var(--fb)}
+.flm svg{width:17px;height:17px}
+.gl{display:inline-flex;align-items:center;gap:5px;font:700 13px var(--fb)}.gl i{width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.28);display:inline-block}.gl i.d{background:#fff}
+.mt{text-align:center}
+.mbpm{font:800 58px/1 var(--fd)}.mbpm small{font:700 14px var(--fb);color:var(--mut);margin-left:6px}
+.mctl{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.rnd{width:50px;height:50px;border-radius:50%;border:0;background:var(--pris);color:var(--prit);font:700 15px var(--fm);cursor:pointer}
+.rnd:active{transform:scale(.92)}
+.mdot{width:28px;height:28px;border-radius:50%;background:var(--line);margin:14px auto 0}
+.mdot.a{background:var(--dD)}.mdot.b{background:var(--dT)}.mdot.p{animation:pl .22s ease-out}
+@keyframes pl{0%{transform:scale(1.6)}100%{transform:scale(1)}}
+input[type=range]{width:100%;accent-color:var(--pri);margin-top:12px}
+.wdays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}
+.wdays i{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font:700 12px var(--fm);font-style:normal;border:2px solid var(--line);color:var(--mut)}
+.wdays i.d{background:var(--dP);border-color:var(--dP);color:#fff}.wdays i.t{border-color:var(--pri);color:var(--prit)}
+.chart{display:block;width:100%;height:auto;margin-top:8px}
+.chart text{font-family:var(--fm);fill:var(--mut);font-size:11px}
+.chart .v{fill:var(--ink);font-weight:700;font-size:12px}
+.cfgrow{margin-top:14px}.cfgrow b{display:block;margin-bottom:6px}
+.sg2.wrap{flex-wrap:wrap;border-radius:22px}
+/* Pasos de la sesión con nombre */
+.stepper{display:flex;gap:6px;margin-top:16px}
+.sp{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;color:var(--mut);font:700 12px var(--fb);cursor:default;opacity:1}
+.sp i{display:block;width:100%;height:8px;border-radius:999px;background:var(--line)}
+.sp.d{color:var(--ink);cursor:pointer}.sp.d i{background:var(--dT)}
+.sp.c{color:var(--ink)}.sp.c i{background:var(--c,var(--pri))}
+/* Teoría en ideas cortas */
+.keyc{margin-top:14px;padding:18px;border-radius:26px 26px 26px 8px;background:color-mix(in srgb,var(--g1) 12%,var(--sf));border:2px solid color-mix(in srgb,var(--g1) 32%,var(--line))}
+.keyc .kl{font:700 12px var(--fb);letter-spacing:.09em;text-transform:uppercase;color:var(--prit)}
+.keyc p{font-size:calc(19.5px*var(--z,1));line-height:1.5;margin:6px 0 0}
+.ideas{list-style:none;padding:0;margin:4px 0 0;counter-reset:n}
+.ideas li{position:relative;padding:14px 16px 14px 58px;margin-top:10px;background:var(--sf);border:1px solid var(--line);border-radius:20px;counter-increment:n}
+.ideas li::before{content:counter(n);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--pris);color:var(--prit);font:700 14px var(--fm)}
+.chip .es{display:block;font:600 11.5px var(--fb);opacity:.75;margin-top:1px}
+.chip.out{border-style:dashed;border-color:var(--d3);color:var(--d3);background:color-mix(in srgb,var(--d3) 8%,var(--sf))}
+/* Pasos de práctica tachables y reloj por bloque */
+.bh{display:flex;align-items:center;gap:12px}.bh b{flex:1;min-width:0;font:700 17px/1.25 var(--fd)}
+.tmb{flex:none;border:0;border-radius:999px;padding:8px 13px;background:var(--pris);color:var(--prit);font:700 14px var(--fm);cursor:pointer}
+.tmb.run{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff}
+.stl{list-style:none;padding:0;margin:10px 0 0}
+.stl li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line);cursor:pointer}
+.stl li:first-child{border-top:0}
+.stl .cb{flex:none;width:26px;height:26px;border-radius:9px;border:2px solid var(--line);display:grid;place-items:center;color:#fff;font:700 15px var(--fb);margin-top:1px}
+.stl li.on .cb{background:var(--dT);border-color:var(--dT)}
+.stl li.on .tx2{color:var(--mut);text-decoration:line-through}
+.gh{font:700 13px var(--fb);letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:24px 0 0}
+details.mt summary{text-align:left}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@supports(padding:max(0px)){body{padding-top:max(16px,env(safe-area-inset-top,0px))}}
+</style>
+</head><body>
+<nav id="nv" class="tabs" aria-label="Secciones"></nav>
+<main id="app"></main>
+<script>
+const W=[
+["Tonalidad mayor y acordes diatónicos","Deducir los 7 acordes de una tonalidad mayor (Do, Sol, Re, La, Mi).","Escribir los 7 acordes de 3 tonalidades al azar sin apuntes: ≥19/21 en ≤5 min.",[
+"A: fórmula T–T–S–T–T–T–S; escalas de Do y Sol nombrando notas | B: cantá 1–3–5–8 desde Do; hallá la nota de reposo de una canción tuya",
+"A: apilá terceras: 7 acordes de Do (M m m M M m dim) | B: 3 canciones tuyas: ¿todos sus acordes son de una misma tonalidad?",
+"A: acordes de Sol y Re (F♯, C♯) | B: pasá a grados una canción conocida; cantá cada raíz",
+"A: acordes de La y Mi; raíces en cuerdas 6 y 5 | B: tonalidad tentativa de 3 canciones, con confianza",
+"A: escribí de memoria los 7 acordes de una tonalidad al azar | B: una canción tuya en grados"]],
+["Funciones y progresiones del pop-rock","Tónica, predominante, dominante; patrones I–IV–V, I–V–vi–IV, vi–IV–I–V, I–vi–IV–V.","Pasar a grados 5 progresiones (5/5) y distinguir de oído I–IV–V de I–V–vi–IV en 4 de 5.",[
+"A: C–F–G–C y G–C–D–G; describí cada cambio | B: final de 3 canciones: ¿cierran en I o quedan abiertas?",
+"A: V–I en 4 tonalidades; I–IV–V–I vs I–V–I | B: ¿la frase reposa o queda abierta?",
+"A: I–V–vi–IV en Do, Sol y Re | B: hallá canciones tuyas con ese patrón (en grados)",
+"A: vi–IV–I–V vs I–V–vi–IV | B: pasá 3 canciones tuyas a grados",
+"A: I–vi–IV–V y ii–V–I (solo reconocer) | B: clasificá 5 canciones por patrón"]],
+["Tonalidad menor","Relativa menor y progresiones i–VII–VI, i–VII–VI–V, i–iv–V, i–VI–III–VII.","Acordes diatónicos de 3 tonalidades menores ≥90%; decidir mayor vs relativa menor en 4 de 5 canciones.",[
+"A: relativas (Do↔Lam, Sol↔Mim, Re↔Sim); menor natural | B: elegí una canción tuya menor y hallá su reposo",
+"A: 7 acordes de Lam, Mim y Rem (i ii° III iv v VI VII) | B: cantá las raíces de esa canción",
+"A: menor armónica: v vs V (Am–Dm–E vs Am–Dm–Em) | B: distinguí v de V de oído",
+"A: i–VII–VI, i–VII–VI–V, i–VI–III–VII | B: buscá esos patrones en tu repertorio",
+"A: vi–IV–I–V en Do = i–VI–III–VII en Lam | B: ante una canción ambigua, decidí mayor o menor según dónde reposa"]],
+["Oído I: bajo y raíces","Método bajo → raíz → calidad → tonalidad, con hipótesis antes de verificar.","≥60% de acordes correctos en la estrofa de una canción lenta nueva, en 15 min, con hipótesis previa.",[
+"A: notas en cuerdas 6 y 5 sin mirar | B: con MESA o Moises aislá el bajo de una canción lenta que conocés y tocá sus raíces",
+"A: C–Am y C–F–G cantando la raíz antes | B: sacá el bajo de una estrofa conocida y compará",
+"A: dada una raíz, probá M y m | B: canción nueva lenta: bajo y raíces de 4 cambios",
+"A: grabá 4 acordes y reconstruilos mañana | B: calidades de la canción nueva",
+"A: inversiones C/E y C/G; raíz vs bajo | B: verificá con MESA (después de tu hipótesis) y contá aciertos"]],
+["Oído II: grados y anticipación","Reconocer grados y predecir el próximo cambio.","≥7/10 en el ejercicio 'Oído: grados' (Practicar); predecir ≥5 de 10 cambios en una canción.",[
+"A: cantá grados 1–5 desde Do | B: en canciones tuyas, ¿el cambio va a IV o a V?",
+"A: I–V y V–I cantando raíces | B: pausá antes del cambio y predecí el grado",
+"A: I–IV–V vs I–V–vi–IV sin mirar | B: grados de 5 cambios sin cifrado",
+"A: en menor: i–VII–VI vs i–iv–V | B: predecí cambios en una canción menor",
+"A: misma progresión con otros ritmos | B: canción nueva: tonalidad y raíces; verificá con MESA"]],
+["Transporte y círculo de quintas","Tocar una canción en otra tonalidad conservando los grados.","Transportar 4 grados a 3 tonalidades al azar sin errores en ≤2 min; una sección en otro tono.",[
+"A: círculo de quintas (Do, Sol, Re, La, Mi) | B: transportá mentalmente una progresión tuya",
+"A: I–V–vi–IV en Sol, Re, La, Mi | B: tocala sin papel",
+"A: formas móviles con cejilla (tipo E y A) | B: una canción con cejilla en otra posición",
+"A: transportá una sección de tu repertorio | B: cantala en el nuevo tono",
+"A: transportá una canción menor | B: elegí el tono que mejor te queda"]],
+["Séptimas, inversiones y bajo","Reconocer séptimas y bajos por grados conjuntos.","Tríada vs séptima dominante 8/10 de oído; reconocer un bajo por grados conjuntos en una canción.",[
+"A: maj7, 7 y m7 sobre C, G, D | B: tríada vs séptima de oído",
+"A: G7–C y D7–G | B: reconocé V7 antes de resolver",
+"A: inversiones C, C/E, C/G | B: bajos que no son raíz en una canción",
+"A: tríadas en 3 cuerdas, inversiones cercanas | B: aplicá una a un acompañamiento conocido",
+"A: bajo descendente C–G/B–Am–F | B: detectalo en canciones"]],
+["Acordes ajenos a la tonalidad","Detectar un acorde fuera de la escala y proponer una explicación tentativa.","Dados 5 acordes ajenos, nombrar la nota fuera de escala y su función ≥4/5.",[
+"A: bVII–IV–I (C–B♭–F–C) | B: buscá un bVII en tus canciones",
+"A: C–F–Fm–C (iv prestado) | B: distinguí IV de iv",
+"A: V/V: D7–G7–C | B: reconocé ese movimiento",
+"A: V/vi: E7–Am | B: buscá un caso en una canción real",
+"A: un acorde 'raro' de una canción: ¿qué nota sale? 2 explicaciones | B: anotá confianza y verificá"]],
+["Pentatónica y notas guía","Frases cortas apoyadas en la armonía.","8 compases con ≥80% de frases terminando en nota del acorde (grabación).",[
+"A: pentatónica menor pos. 1, raíces nombradas | B: tocá la melodía de una frase de una canción",
+"A: base Am–F–C–G, frases de 2 compases con pausas | B: repetí motivos",
+"A: terminá cada frase en nota del acorde (3ra o 7ma) | B: compará con una nota de paso",
+"A: pentatónica mayor vs menor sobre una raíz | B: ¿cuál suena mejor en cada base?",
+"A: grabá una base y 3 tomas | B: elegí la mejor y explicá por qué"]],
+["Análisis completo de canciones","Integrar oído, teoría y guitarra en fichas completas.","2 fichas completas con hipótesis verificadas y confianza declarada.",[
+"A: canción 1: tonalidad y estrofa en grados | B: verificá con MESA",
+"A: canción 1: estribillo vs estrofa | B: funciones (T/PD/D)",
+"A: acordes ajenos, inversiones y bajo | B: ficha de la canción 1",
+"A: canción 2 completa | B: ficha de la canción 2",
+"(Opcional) A: Re mayor vs mixolidio (C natural); Re menor vs dórico (B natural) | B: sobre una base estática"]],
+["Sacar canciones nuevas","Consolidar el método con canciones desconocidas.","Promedio ≥70% de acordes en la estrofa; con confianza alta, ≥80% de aciertos.",
+["lenta mayor","lenta menor","media mayor","media menor","mezcla"].map(t=>"A: canción nueva "+t+" (estrofa, 15 min cronometrados) | B: hipótesis → MESA → registrá % y confianza")],
+["Proyecto final","Demostrar autonomía.","Metas propuestas: T1 ≥90%, T3 ≥90%, T5 ≥8/10, T4 ≥70%.",[
+"A: analizá una canción nueva | B: tonalidad, grados y funciones",
+"A: analizá una segunda y compará | B: ficha",
+"A: sacá de oído una tercera | B: hipótesis → MESA",
+"A: transportá una canción completa | B: tocala en el nuevo tono",
+"A: variación de acompañamiento propia | B: sobre una canción analizada"]]];
+const L=[[
+["Entre notas vecinas hay semitono (1 traste) o tono (2). Los semitonos naturales son Mi–Fa y Si–Do. La escala mayor sigue T–T–S–T–T–T–S: Do mayor = Do Re Mi Fa Sol La Si, sin alteraciones. En Sol mayor el 7.º grado queda a un semitono de la tónica, por eso es Fa♯. La tónica es la nota de reposo.",[["¿Cuántos trastes tiene un tono?",["1","2","3"],1],["Patrón de la escala mayor:",["T–T–S–T–T–T–S","T–S–T–T–S–T–T","S–T–T–T–S–T–T"],0],["La nota 7 de Sol mayor es:",["Fa","Fa♯","Sol♯"],1]]],
+["Un acorde se arma apilando terceras sobre cada grado de la escala. En Do mayor: C, Dm, Em, F, G, Am, Bdim (calidades M m m M M m dim). Mayor = 3.ª mayor + 5.ª justa; menor = 3.ª menor; disminuido = 3.ª menor + 5.ª disminuida.",[["El grado 2 de Do mayor es:",["D mayor","Re menor","Re disminuido"],1],["El grado 6 de Do mayor es:",["Am","A","Em"],0],["El acorde disminuido es el grado:",["IV","V","VII"],2]]],
+["Sol mayor: G Am Bm C D Em F♯dim. Re mayor: D Em F♯m G A Bm C♯dim (Fa♯ y Do♯). Al subir una quinta se suma un sostenido nuevo, siempre en el 7.º grado de la nueva tonalidad: es el camino del círculo de quintas.",[["El IV de Sol mayor es:",["C","D","Em"],0],["El V de Re mayor es:",["G","A","Bm"],1],["Re mayor tiene sostenidos en:",["Fa♯ y Do♯","Fa♯ y Sol♯","Do♯ y Sol♯"],0]]],
+["La mayor (3 sostenidos): A Bm C♯m D E F♯m G♯dim. Mi mayor (4): E F♯m G♯m A B C♯m D♯dim. En la guitarra la cuerda 6 al aire es Mi y la 5 es La: con esas dos referencias ubicás la raíz de cualquier acorde.",[["La mayor tiene sostenidos:",["2","3","4"],1],["El vi de La mayor es:",["F♯m","Bm","C♯m"],0],["El V de Mi mayor es:",["A","B","C♯m"],1]]],
+["Los grados van en romanos: mayúscula = mayor (I, IV, V), minúscula = menor (ii, iii, vi), ° = disminuido. C–F–G en Do y G–C–D en Sol son ambos I–IV–V. Para pasar de acordes a grados, hallá la tónica y contá.",[["C–F–G en Do mayor es:",["I–IV–V","I–V–vi","ii–IV–V"],0],["Em en Sol mayor es el grado:",["ii","iii","vi"],2],["El acorde menor del grado 6 se escribe:",["VI","vi","vi°"],1]]]],[
+["Cada acorde cumple una función: tónica (I, vi, iii) = reposo; predominante (IV, ii) = se aleja y prepara; dominante (V, vii°) = tensión que pide volver a I. La dominante tira hacia la tónica porque contiene la sensible (en Do, el Si, que quiere subir a Do).",[["¿Qué función tiene IV?",["Tónica","Predominante","Dominante"],1],["¿Qué acorde genera más tensión en Do mayor?",["C","F","G"],2],["Una frase que termina en V suena:",["Cerrada","Abierta, pide continuar"],1]]],
+["La cadencia V–I es la resolución más fuerte: G→C en Do, D→G en Sol, A→D en Re, E→A en La. I–IV–V–I e I–V–I resuelven igual; el IV solo prepara. Terminar en I da una frase cerrada; terminar en V la deja abierta.",[["El V de La mayor es:",["D","E","F♯m"],1],["G→C en Do mayor es:",["V–I","IV–I","I–V"],0],["D→G en Sol mayor es:",["V–I","I–V","IV–V"],0]]],
+["I–V–vi–IV (C–G–Am–F en Do) es de las progresiones más usadas del pop. Transportar es cambiar de tonalidad conservando los grados: en Sol es G–D–Em–C; en Re, D–A–Bm–G. Si entendés los grados no memorizás cada tonalidad por separado.",[["I–V–vi–IV en Sol mayor:",["G–D–Em–C","G–C–Em–D","G–D–Am–C"],0],["I–V–vi–IV en Re mayor:",["D–A–Bm–G","D–G–Bm–A","D–A–Em–G"],0],["El vi de Do mayor es:",["Am","Dm","Em"],0]]],
+["vi–IV–I–V (Am–F–C–G en Do) usa los mismos acordes que I–V–vi–IV pero arranca en vi. El orden cambia el carácter aunque los acordes sean los mismos: empezar en vi suele sonar más melancólico y empezar en I, más afirmativo.",[["vi–IV–I–V en Do mayor:",["Am–F–C–G","C–G–Am–F","Am–G–F–C"],0],["vi–IV–I–V en Sol mayor:",["Em–C–G–D","Em–D–G–C","Am–C–G–D"],0],["I–V–vi–IV y vi–IV–I–V usan:",["Los mismos acordes","Acordes distintos"],0]]],
+["I–vi–IV–V (C–Am–F–G) es la progresión 'de los 50'. ii–V–I (Dm–G–C) lleva un predominante a la dominante y resuelve; es más común en jazz que en pop-rock, por eso alcanza con reconocerla. Clasificar una canción por patrón es el primer paso para predecir sus cambios.",[["ii–V–I en Do mayor:",["Dm–G–C","Em–G–C","Dm–F–C"],0],["I–vi–IV–V en Do mayor:",["C–Am–F–G","C–Em–F–G","C–Am–G–F"],0],["¿Qué función tiene ii?",["Tónica","Predominante","Dominante"],1]]]],[
+["Cada tonalidad mayor tiene una relativa menor con las mismas notas y otro centro: está 3 semitonos abajo (Do→La, Sol→Mi, Re→Si). La menor natural es la mayor empezada en su 6.º grado: La menor = La Si Do Re Mi Fa Sol. Para distinguir mayor de menor, buscá dónde reposa la melodía.",[["La relativa menor de Sol mayor es:",["Mi menor","La menor","Si menor"],0],["La menor natural tiene:",["0 alteraciones","1 sostenido","1 bemol"],0],["La relativa menor de Re mayor es:",["Si menor","Mi menor","Fa♯ menor"],0]]],
+["Los acordes de La menor natural son los de Do mayor renombrados: Am (i), Bdim (ii°), C (III), Dm (iv), Em (v), F (VI), G (VII). En menor, mayúscula para los acordes mayores (III, VI, VII) y minúscula para los menores (i, iv, v).",[["El VI de La menor es:",["F","G","C"],0],["El VII de La menor es:",["F","G","E"],1],["El III de Mi menor es:",["G","A","D"],0]]],
+["En menor natural el v (Em en La menor) es menor y no tiene sensible: la tensión hacia i es débil. La menor armónica sube el 7.º grado (Sol→Sol♯) y el V pasa a ser mayor (E: Mi–Sol♯–Si), con sensible. Por eso muchas canciones menores cierran con V mayor hacia i.",[["¿Qué nota se altera en la menor armónica?",["El 3.º","El 6.º","El 7.º"],2],["El V de La menor armónica es:",["Em","E","F"],1],["¿Cuál resuelve con más fuerza a Am?",["Em","E"],1]]],
+["Patrones menores comunes (en La menor): i–VII–VI = Am–G–F; i–VII–VI–V = Am–G–F–E (cadencia andaluza); i–VI–III–VII = Am–F–C–G. Esta última usa los mismos acordes que vi–IV–I–V en Do: el centro (Am o C) lo decide dónde reposa la música.",[["i–VII–VI en La menor:",["Am–G–F","Am–F–G","Am–C–G"],0],["Am–G–F–E es:",["i–VII–VI–V","i–VI–VII–V","vi–IV–I–V"],0],["i–VI–III–VII en Mi menor:",["Em–C–G–D","Em–D–G–C","Em–G–C–D"],0]]],
+["Una misma sucesión puede ser mayor o menor según dónde reposa: Am–F–C–G es vi–IV–I–V en Do mayor o i–VI–III–VII en La menor. Para decidir, preguntate en qué acorde se siente el final. Anotá tu hipótesis y tu confianza antes de verificar con MESA.",[["Am–F–C–G; si reposa en C, la tonalidad es:",["Do mayor","La menor"],0],["Am–F–C–G; si reposa en Am:",["Do mayor","La menor"],1],["¿Qué pista sirve para decidir?",["El primer acorde siempre","Dónde reposa la frase","El tempo"],1]]]]];
+
+/* ===== Utilidades y estado ===== */
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const K='gtr12';
+const HT=()=>!!(window.claude&&typeof window.claude.use=='function');
+const DEF=()=>({w:0,s:1,logs:[],crit:{},rec:{},tests:[],q:{},dr:{},hist:[],t4:[],err:[],cfg:{fs:0,th:'auto',snd:true,goal:5}});
+let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+S=Object.assign(DEF(),S&&typeof S=='object'?S:{});
+if(!Array.isArray(S.tests))S.tests=[];if(!Array.isArray(S.t4))S.t4=[];if(!Array.isArray(S.hist))S.hist=[];
+S.cfg=Object.assign({fs:0,th:'auto',snd:true,goal:5},S.cfg&&typeof S.cfg=='object'?S.cfg:{});
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+let tab='est',view='main',QS=null,TC=[],TD='',SEL=null,wipe=0;
+let ST={k:'',i:0,a:[],r:0,so:''};
+const T={blk:'',base:0,left:0,run:0,t0:0};
+
+/* ===== Música: acordes, tonalidades, audio ===== */
+const PC={C:0,D:2,E:4,F:5,G:7,A:9,B:11};
+/* Acordes: tríadas, séptimas (7, maj7, m7) y bajo con barra (C/E). */
+const NPC=n=>(PC[n[0]]+(n[1]=='#'?1:n[1]=='b'?-1:0)+12)%12;
+function parse(ch){const m=ch.match(/^([A-G][#b]?)(maj7|m7|dim|m|7)?(?:\/([A-G][#b]?))?$/);if(!m)return null;return{pc:NPC(m[1]),q:m[2]||'M',r:m[1],bs:m[3]||null,b:m[3]?NPC(m[3]):null}}
+const QI={M:[0,4,7],m:[0,3,7],dim:[0,3,6],'7':[0,4,7,10],maj7:[0,4,7,11],m7:[0,3,7,10]};
+const QSUF={M:'',m:'m',dim:'°','7':'7',maj7:'7M',m7:'m7'},QLONG={M:'mayor',m:'menor',dim:'disminuido','7':'con séptima',maj7:'con séptima mayor',m7:'menor con séptima'};
+const ESN={C:'Do',D:'Re',E:'Mi',F:'Fa',G:'Sol',A:'La',B:'Si'},nES1=n=>ESN[n[0]]+(n[1]=='#'?'♯':n[1]=='b'?'♭':'');
+const esShort=ch=>{if(ch[0]=='~')return nES1(ch.slice(1).replace('+',''));const p=parse(ch);return p?nES1(p.r)+QSUF[p.q]+(p.bs?'/'+nES1(p.bs):''):ch};
+const chordES=ch=>{const p=parse(ch);return p?nES1(p.r)+' '+QLONG[p.q]+(p.bs?', con '+nES1(p.bs)+' en el bajo':''):ch};
+const mf=m=>440*Math.pow(2,(m-69)/12);
+let AC;const ac=()=>{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state=='suspended')AC.resume();return AC};
+function pluck(f,t,d,v){if(S.cfg&&S.cfg.snd===false)return;const c=ac(),g=c.createGain(),g2=c.createGain(),o=c.createOscillator(),p=c.createOscillator();o.type='triangle';p.type='sine';o.frequency.value=f;p.frequency.value=f*2;g2.gain.value=.35;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);p.connect(g2);g2.connect(g);g.connect(c.destination);o.start(t);p.start(t);o.stop(t+d+.05);p.stop(t+d+.05)}
+function chordNotes(ch){const p=parse(ch),r=40+((p.pc-4+12)%12),iv=QI[p.q];if(p.b!=null){const b=40+((p.b-4+12)%12);return[b].concat(iv.map(x=>r+12+x))}return[r,r+iv[2]].concat(iv.map(x=>r+12+x))}
+function playOne(ch,t,d){if(ch=='_')return;if(ch[0]=='~'){const n=ch.slice(1),up=n.slice(-1)=='+',p=parse(n.replace('+',''));pluck(mf(60+p.pc+(up?12:0)),t,Math.min(d,.9),.25)}else chordNotes(ch).forEach((n,i)=>pluck(mf(n),t+i*.03,d,.15))}
+let TMS=[];
+function mark(sel,i){if(!sel)return;document.querySelectorAll(sel+' .chip,'+sel+' .nt').forEach((e,j)=>e.classList.toggle('on',j==i))}
+function stopSeq(){TMS.forEach(clearTimeout);TMS=[]}
+function playSeq(chs,gap,sel){try{stopSeq();const c=ac(),t0=c.currentTime+.05;chs.forEach((ch,i)=>{playOne(ch,t0+i*gap,gap*1.15);TMS.push(setTimeout(()=>mark(sel,i),50+i*gap*1000))});TMS.push(setTimeout(()=>mark(sel,-1),200+chs.length*gap*1000))}catch(e){}}
+
+const KEYS=[
+{id:'C',n:'Do mayor',m:'M',ch:['C','Dm','Em','F','G','Am','Bdim']},
+{id:'G',n:'Sol mayor',m:'M',ch:['G','Am','Bm','C','D','Em','F#dim']},
+{id:'D',n:'Re mayor',m:'M',ch:['D','Em','F#m','G','A','Bm','C#dim']},
+{id:'A',n:'La mayor',m:'M',ch:['A','Bm','C#m','D','E','F#m','G#dim']},
+{id:'E',n:'Mi mayor',m:'M',ch:['E','F#m','G#m','A','B','C#m','D#dim']},
+{id:'F',n:'Fa mayor',m:'M',ch:['F','Gm','Am','Bb','C','Dm','Edim']},
+{id:'Am',n:'La menor',m:'m',ch:['Am','Bdim','C','Dm','Em','F','G'],V:'E'},
+{id:'Em',n:'Mi menor',m:'m',ch:['Em','F#dim','G','Am','Bm','C','D'],V:'B'},
+{id:'Dm',n:'Re menor',m:'m',ch:['Dm','Edim','F','Gm','Am','Bb','C'],V:'A'},
+{id:'Bm',n:'Si menor',m:'m',ch:['Bm','C#dim','D','Em','F#m','G','A'],V:'F#'}];
+const RM=['I','ii','iii','IV','V','vi','vii°'],Rm=['i','ii°','III','iv','v','VI','VII'];
+const SC={C:'C D E F G A B',G:'G A B C D E F#',D:'D E F# G A B C#',A:'A B C# D E F# G#',E:'E F# G# A B C# D#',F:'F G A Bb C D E',Am:'A B C D E F G',Em:'E F# G A B C D',Dm:'D E F G A Bb C',Bm:'B C# D E F# G A'};
+KEYS.forEach(k=>{k.sc=SC[k.id].split(' ')});
+const chordOf=(k,r)=>{const i=(k.m=='M'?RM:Rm).indexOf(r);return i<0?k.V:k.ch[i]};
+const PMaj=['I–IV–V','I–V–vi–IV','vi–IV–I–V','I–vi–IV–V','ii–V–I'],PMin=['i–VII–VI','i–VII–VI–V','i–iv–V','i–VI–III–VII'];
+
+/* Formas de acordes (cuerdas 6 a 1; -1 = no se toca). Solo las que conozco con certeza. */
+const SHP={C:[-1,3,2,0,1,0],D:[-1,-1,0,2,3,2],E:[0,2,2,1,0,0],G:[3,2,0,0,0,3],A:[-1,0,2,2,2,0],Am:[-1,0,2,2,1,0],Em:[0,2,2,0,0,0],Dm:[-1,-1,0,2,3,1],F:[1,3,3,2,1,1],Bm:[-1,2,4,4,3,2],B:[-1,2,4,4,4,2],'F#m':[2,4,4,2,2,2],'C#m':[-1,4,6,6,5,4],'G#m':[4,6,6,4,4,4],Bb:[-1,1,3,3,3,1],Gm:[3,5,5,3,3,3],Bdim:[-1,2,3,4,3,-1]};
+function diag(ch){const f=SHP[ch];if(!f)return'';const pr=f.filter(x=>x>0),mn=Math.min(...pr),mx=Math.max(...pr),base=mx<=5?1:mn,W_=130,H=150,x0=22,y0=30,sx=18,sy=20;
+let s=`<svg viewBox="0 0 ${W_} ${H}" width="150" style="max-width:100%" role="img" aria-label="Forma de ${ch}">`;
+for(let i=0;i<6;i++)s+=`<line x1="${x0+i*sx}" y1="${y0}" x2="${x0+i*sx}" y2="${y0+5*sy}" stroke="currentColor" stroke-opacity=".55"/>`;
+for(let j=0;j<=5;j++)s+=`<line x1="${x0}" y1="${y0+j*sy}" x2="${x0+5*sx}" y2="${y0+j*sy}" stroke="currentColor" stroke-opacity=".55" stroke-width="${j==0&&base==1?3.5:1}"/>`;
+if(base>1)s+=`<text x="2" y="${y0+sy*.7}" font-size="12" fill="currentColor">${base}</text>`;
+f.forEach((v,i)=>{const x=x0+i*sx;if(v<0)s+=`<text x="${x}" y="${y0-9}" text-anchor="middle" font-size="13" fill="currentColor">×</text>`;else if(v==0)s+=`<circle cx="${x}" cy="${y0-12}" r="4" fill="none" stroke="currentColor"/>`;else s+=`<circle cx="${x}" cy="${y0+(v-base+.5)*sy}" r="7" fill="var(--g1)"/>`});
+return s+'</svg>'}
+const shapeHtml=c=>{if(!c)return`<span class=m>Tocá un acorde para oírlo y ver cómo se forma en la guitarra.</span>`;const d=diag(c);return`${d}<div><b class=mono>${esc(c)}</b><br><b>${esc(chordES(c))}</b><br><span class="m sm">${d?'Puntos = dedos. Círculo = cuerda al aire. × = no se toca.':'Todavía no tengo el diagrama de este acorde.'}</span></div>`};
+
+/* Demos de audio por sesión de lección. '~X' = nota suelta, '+' = octava arriba. */
+const DEMO={
+'1.1':[['Escala de Do mayor (sin alteraciones)',['~C','~D','~E','~F','~G','~A','~B','~C+']],['Escala de Sol mayor (notá el Fa♯)',['~G','~A','~B','~C+','~D+','~E+','~F#+','~G+']]],
+'1.2':[['Los 7 acordes de Do mayor',['C','Dm','Em','F','G','Am','Bdim']]],
+'1.3':[['Los acordes de Sol mayor',['G','Am','Bm','C','D','Em','F#dim']],['Los acordes de Re mayor',['D','Em','F#m','G','A','Bm','C#dim']]],
+'1.4':[['Los acordes de La mayor',['A','Bm','C#m','D','E','F#m','G#dim']],['Los acordes de Mi mayor',['E','F#m','G#m','A','B','C#m','D#dim']]],
+'1.5':[['I–IV–V en Do',['C','F','G','C']],['I–IV–V en Sol',['G','C','D','G']]],
+'2.1':[['I–IV–V–I: cierra en reposo',['C','F','G','C']],['I–IV–V: queda abierta',['C','F','G']]],
+'2.2':[['V–I en Do',['G','C']],['V–I en Sol',['D','G']],['V–I en Re',['A','D']],['V–I en La',['E','A']]],
+'2.3':[['I–V–vi–IV en Do',['C','G','Am','F']],['I–V–vi–IV en Sol',['G','D','Em','C']],['I–V–vi–IV en Re',['D','A','Bm','G']]],
+'2.4':[['vi–IV–I–V en Do',['Am','F','C','G']],['I–V–vi–IV en Do (para comparar)',['C','G','Am','F']]],
+'2.5':[['I–vi–IV–V en Do',['C','Am','F','G']],['ii–V–I en Do',['Dm','G','C']]],
+'3.1':[['Do mayor',['C','F','G','C']],['La menor, su relativa',['Am','Dm','E','Am']]],
+'3.2':[['Los acordes de La menor natural',['Am','Bdim','C','Dm','Em','F','G']]],
+'3.3':[['v menor (menor natural)',['Am','Dm','Em','Am']],['V mayor (menor armónica)',['Am','Dm','E','Am']]],
+'3.4':[['i–VII–VI',['Am','G','F']],['i–VII–VI–V',['Am','G','F','E']],['i–VI–III–VII',['Am','F','C','G']]],
+'3.5':[['Am–F–C–G: ¿Do mayor o La menor?',['Am','F','C','G']]]};
+const ORD=['1º','2º','3º','4º','5º','6º','7º'],EQ='Equivalencias: C = Do · D = Re · E = Mi · F = Fa · G = Sol · A = La · B = Si';
+const exScale=k=>k.sc.map((n,i)=>`${ORD[i]} ${n}`).join(' · ');
+function helpHtml(q){let h='';
+if(q.k){const k=q.k,M=k.m=='M';h=`<p class=m>Tonalidad ${k.n}. Las notas de su escala, por lugar:</p><p class=mono>${exScale(k)}</p><p class=m>Cada acorde lleva el nombre de la nota de su lugar. ${M?'En una tonalidad mayor, los lugares 2º, 3º y 6º son acordes menores y el 7º es disminuido (dim).':'En una tonalidad menor, los lugares 1º, 4º y 5º son acordes menores, el 2º es disminuido (dim) y el 3º, 6º y 7º son mayores.'}</p>`}
+else if(q.d=='oido')h='<p class=m>Primero contá cuántos acordes suenan. Con 3 acordes las opciones son pocas; con 4 son otras, así que ya descartás varias. Después fijate si el primer acorde se siente como “casa”.</p>';
+else if(q.d=='ogr')h='<p class=m>Compará con el acorde de casa. El IV se aleja con calma. El V genera tensión y pide volver. El vi suena a casa, pero triste. El ii y el iii son menores y más suaves.</p>';
+else if(q.d=='sept')h='<p class=m>Un acorde con séptima tiene una nota más que le da un “picante”: suena como si pidiera moverse a otro acorde. Una tríada suena estable y cerrada.</p>';
+else if(q.d=='ajenos')h='<p class=m>Escribí la escala de la tonalidad y buscá qué nota del acorde no aparece. bVII e iv vienen prestados de la tonalidad menor. V/V y V/vi son acordes con séptima que llevan al V o al vi.</p>';
+else if(q.d=='penta')h='<p class=m>Pentatónica menor = escala menor sin la 2.ª ni la 6.ª nota. Pentatónica mayor = escala mayor sin la 4.ª ni la 7.ª nota.</p>';
+else h='<p class=m>Para comparar, tocá C (mayor) y Am (menor) en tu guitarra y fijate cómo cambia el color del sonido.</p>';
+return`<div class="card hl">${h}<p class="m sm">${EQ}</p></div>`}
+const GLO=`<details class=card><summary><b>Palabras que se usan</b></summary><p><b>Tono y semitono.</b> Son distancias entre notas. 1 tono = 2 trastes. 1 semitono = 1 traste.</p><p><b>Escala.</b> La serie de 7 notas que forma una tonalidad.</p><p><b>Tonalidad.</b> La escala con la que suena una canción, y su nota de reposo.</p><p><b>Tónica (el I).</b> La nota o el acorde donde la música “llega a casa”.</p><p><b>Grado.</b> El lugar que ocupa una nota o un acorde en la escala: 1º, 2º, 3º… Se escribe con números romanos: I, II, III, IV, V, VI, VII.</p><p><b>Mayúscula y minúscula.</b> I, IV y V son acordes mayores. ii, iii y vi son menores.</p><p><b>Raíz.</b> La nota que da nombre al acorde. En Dm es Re.</p><p><b>Progresión.</b> Una secuencia de acordes.</p><p><b>Relativa menor.</b> La tonalidad menor que usa las mismas notas que una mayor.</p><p><b>dim (disminuido).</b> Un acorde tenso que casi no se usa.</p><p class="m sm">${EQ}</p></details>`;
+const TX={
+'1.1':[
+['A','Armá la escala de Do mayor y la de Sol mayor',[
+'Una escala mayor son 7 notas seguidas. Entre una nota y la siguiente hay 1 tono (2 trastes) o 1 semitono (1 traste). El orden es: tono, tono, semitono, tono, tono, tono, semitono.',
+'Poné un dedo en la cuerda 5, traste 3: es la nota Do. Subí tocando los trastes 3, 5, 7, 8, 10, 12, 14 y 15. Decí en voz alta: Do, Re, Mi, Fa, Sol, La, Si, Do.',
+'Ahora en la cuerda 6: empezá en el traste 3 (Sol) y tocá los trastes 3, 5, 7, 8, 10, 12, 14 y 15. Decí: Sol, La, Si, Do, Re, Mi, Fa♯, Sol. La nota del traste 14 es Fa♯ (Fa sostenido), la única que cambia respecto a Do.']],
+['B','Escuchá la nota donde “descansa” una canción',[
+'Tocá estas 4 notas, una por una, y escuchá cada una: Do (cuerda 5, traste 3), Mi (cuerda 4, traste 2), Sol (cuerda 3, al aire) y Do agudo (cuerda 2, traste 1). Si podés, repetí cada nota con la voz; si no, alcanza con escucharlas.',
+'Elegí una canción que conozcas bien y tarareala hasta el final. Quedate en la última nota que cantás.',
+'Buscá esa nota en la guitarra, probando de a una, hasta que suene igual. Esa es la nota de reposo (se llama tónica): la que suena a “llegué a casa”. No importa si no cantás afinado; lo que importa es escuchar.']]],
+'1.2':[
+['A','Armá los 7 acordes de Do mayor',[
+'Escribí las notas de la escala de Do mayor: Do, Re, Mi, Fa, Sol, La, Si.',
+'Cada acorde se forma con 3 notas: tomás una nota de la escala, saltás una, tomás la siguiente, saltás otra y tomás la siguiente. Ejemplo con Do: Do, Mi, Sol. Con Re: Re, Fa, La. Con Mi: Mi, Sol, Si.',
+'Seguí con Fa, Sol, La y Si. Te tienen que dar estos acordes: C, Dm, Em, F, G, Am y Bdim. Los primeros seis los vas a usar todo el tiempo; el último (Bdim, “disminuido”) casi no se usa, alcanza con saber que existe.',
+'Tocá los seis primeros en orden. Si alguno no te sale, mirá su diagrama en el paso “Escuchalo” de la lección.']],
+['B','Revisá si tus canciones usan estos acordes',[
+'Elegí 3 canciones que sepas tocar y escribí los acordes de cada una.',
+'Fijate si todos los acordes de una canción están en esta lista: C, Dm, Em, F, G, Am. Si es así, esa canción está en Do mayor (o en su relativa, La menor, que vemos en la semana 3).',
+'Anotá cuáles coinciden y cuáles no. Los que no coinciden son de otra tonalidad, y eso es lo que vamos a aprender a reconocer.']]],
+'1.3':[
+['A','Armá los acordes de Sol mayor y Re mayor',[
+'Sol mayor tiene un solo sostenido, Fa♯. Sus acordes son: G, Am, Bm, C, D, Em y F♯dim.',
+'Re mayor tiene dos sostenidos, Fa♯ y Do♯. Sus acordes son: D, Em, F♯m, G, A, Bm y C♯dim.',
+'Tocá los de Sol y después los de Re. Los que no tengas a mano, como Bm y F♯m, se hacen con cejilla (un dedo apoyado sobre varias cuerdas).',
+'Compará las dos listas y mirá cuáles cambian. Son los que llevan una nota con sostenido.']],
+['B','Pasá una canción tuya a números (grados)',[
+'Elegí una canción que sepas tocar y escribí sus acordes.',
+'Buscá el acorde donde la canción descansa, por lo general el último. Ese es el I (el primero de la tonalidad).',
+'Contá desde ahí con la lista de 7 acordes de esa tonalidad y ponele a cada acorde su número: I, ii, iii, IV, V, vi. Ejemplo en Sol mayor: G es I, C es IV y D es V.',
+'Tocá solo la nota más grave de cada acorde (la raíz) y escuchá cómo se mueve.']]],
+'1.4':[
+['A','Armá los acordes de La mayor y Mi mayor',[
+'La mayor tiene tres sostenidos (Fa♯, Do♯ y Sol♯). Sus acordes son: A, Bm, C♯m, D, E, F♯m y G♯dim.',
+'Mi mayor tiene cuatro sostenidos (Fa♯, Do♯, Sol♯ y Re♯). Sus acordes son: E, F♯m, G♯m, A, B, C♯m y D♯dim.',
+'Para ubicar un acorde en el mástil usá dos cuerdas de referencia: la cuerda 6 al aire es Mi y la cuerda 5 al aire es La. Ejemplos: Fa♯ está en la cuerda 6, traste 2; Si, en la cuerda 5, traste 2; Do♯, en la cuerda 5, traste 4.',
+'Tocá los acordes de las dos tonalidades que ya sepas y buscá la raíz de cada uno en esas cuerdas.']],
+['B','Adiviná la tonalidad de 3 canciones',[
+'Elegí 3 canciones y escribí sus acordes.',
+'Para cada una, escribí qué tonalidad creés que es (tu hipótesis) y qué tan seguro estás: poco, medio o mucho.',
+'Después comprobá: el acorde donde descansa la canción suele ser el I. Anotá cuántas acertaste.']]],
+'1.5':[
+['A','Escribí de memoria los 7 acordes de una tonalidad',[
+'Elegí una tonalidad al azar entre Do, Sol, Re, La y Mi. También podés usar el ejercicio “Acordes de la tonalidad” en Practicar.',
+'Sin mirar apuntes, escribí sus 7 acordes en orden.',
+'Comprobá con la lista de la lección y repetí con otras dos tonalidades.']],
+['B','Escribí una canción tuya en grados',[
+'Elegí una canción y escribí sus acordes.',
+'Cambialos por números romanos según la tonalidad. Mayúscula es acorde mayor (I, IV, V) y minúscula es acorde menor (ii, iii, vi).',
+'Tocala leyendo solo los números. Si te trabás, volvé a la lista de acordes de esa tonalidad.']]],
+'2.1':[
+['A','Sentí qué hace cada acorde',[
+'Tocá C, F, G y volvé a C (en Do mayor). En cada cambio fijate qué sentís: C se siente como “casa”, F se aleja de casa y G genera tensión y pide volver.',
+'Repetí en Sol mayor: G, C, D, G.',
+'Esas tres sensaciones tienen nombre: tónica (casa: el I), predominante (se aleja: el IV) y dominante (tensión: el V).']],
+['B','¿La frase queda cerrada o abierta?',[
+'Elegí 3 canciones y escuchá cómo termina una frase de cada una (por ejemplo, el final de una estrofa).',
+'Si al terminar sentís que “se cerró”, el final es en el I. Si sentís que falta algo, el final es en el V.',
+'Anotá cuál es cada una.']]],
+'2.2':[
+['A','Tocá el movimiento V a I en cuatro tonalidades',[
+'V–I significa pasar del acorde número 5 al acorde número 1. Es la forma más fuerte de “volver a casa”.',
+'Tocalo así: G a C (en Do), D a G (en Sol), A a D (en Re) y E a A (en La).',
+'Compará I–IV–V–I con I–V–I: los dos terminan igual de firme. El IV en el medio solo prepara el final.']],
+['B','Escuchá si reposa o queda abierta',[
+'Tocá C y después G: la música queda esperando algo.',
+'Ahora tocá G y después C: la música descansa.',
+'Escuchá frases de canciones tuyas y decidí para cada una si descansa o queda abierta.']]],
+'2.3':[
+['A','Tocá la progresión I–V–vi–IV en tres tonalidades',[
+'I–V–vi–IV significa: acorde 1, acorde 5, acorde 6 y acorde 4, todos de la misma tonalidad. El acorde 6 es menor.',
+'En Do mayor: C, G, Am, F. En Sol mayor: G, D, Em, C. En Re mayor: D, A, Bm, G.',
+'Tocala en las tres, sin cambiar el orden de los números.']],
+['B','Buscá este patrón en tus canciones',[
+'Revisá los acordes de tus canciones y pasalos a números.',
+'Fijate si alguna tiene cuatro acordes que sigan I–V–vi–IV.',
+'Anotá cuáles y en qué tonalidad están.']]],
+'2.4':[
+['A','Dos patrones con los mismos acordes',[
+'vi–IV–I–V en Do mayor es: Am, F, C, G. Son los mismos acordes que C, G, Am, F, pero empezás por otro.',
+'Tocá las dos progresiones, una después de la otra, y escuchá la diferencia de carácter. Al empezar en Am suele sonar más melancólico; al empezar en C, más firme.',
+'Repetí en Sol mayor: Em, C, G, D.']],
+['B','Pasá 3 canciones tuyas a números',[
+'Elegí 3 canciones y anotá la tonalidad de cada una.',
+'Escribí la progresión de la estrofa en números romanos.',
+'Fijate si coincide con I–V–vi–IV, con vi–IV–I–V o con otra.']]],
+'2.5':[
+['A','Reconocé dos patrones más',[
+'I–vi–IV–V en Do es C, Am, F, G. Es una progresión muy usada en canciones de los años 50.',
+'ii–V–I en Do es Dm, G, C. Es común en jazz, así que por ahora alcanza con reconocerla.',
+'Tocá las dos, sin memorizarlas.']],
+['B','Clasificá 5 canciones por patrón',[
+'Elegí 5 canciones y escribí en números la progresión de la estrofa.',
+'Para cada una, fijate si coincide con alguno de los patrones de esta semana.',
+'Anotá cuántas coincidieron: eso te dice qué tan común es cada patrón.']]],
+'3.1':[
+['A','Conocé la relativa menor',[
+'Cada tonalidad mayor tiene una “prima” menor que usa las mismas notas pero descansa en otra. Está 3 trastes más abajo: Do mayor y La menor, Sol mayor y Mi menor, Re mayor y Si menor.',
+'La escala de La menor natural es la de Do mayor empezando en La: La, Si, Do, Re, Mi, Fa, Sol. Tocala en la cuerda 5 con los trastes 0, 2, 3, 5, 7, 8, 10 y 12.',
+'Escuchá cómo suena: más oscura o seria que la de Do mayor.']],
+['B','Elegí una canción en menor',[
+'Elegí una canción tuya que te suene seria o triste.',
+'Fijate en qué acorde termina: ese es su acorde de reposo (por ejemplo Am o Em).',
+'Tocá solo la raíz de ese acorde y comprobá que sea la nota donde “descansa” la melodía.']]],
+'3.2':[
+['A','Armá los acordes de La menor, Mi menor y Re menor',[
+'Los acordes de La menor son los de Do mayor, ordenados desde La: Am, Bdim, C, Dm, Em, F y G. En números: i, ii°, III, iv, v, VI y VII.',
+'Mi menor: Em, F♯dim, G, Am, Bm, C y D. Re menor: Dm, Edim, F, Gm, Am, B♭ y C.',
+'Tocá los de La menor, y después los de Mi menor y Re menor que ya sepas.']],
+['B','Seguí los bajos de tu canción en menor',[
+'Retomá la canción en menor de la sesión anterior.',
+'Tocá solo la nota más grave de cada acorde, en orden, y escuchá cómo suben o bajan.',
+'Escribí esas notas: son las raíces de los acordes.']]],
+'3.3':[
+['A','Compará dos finales en La menor',[
+'Tocá Am, Dm, Em, Am. Es el final con el v menor (Em): suena suave y poco decidido.',
+'Ahora tocá Am, Dm, E, Am. Es el final con el V mayor (E): suena más decidido y empuja hacia Am. Eso pasa porque E tiene la nota Sol♯, que “pide” subir a La.',
+'Repetí las dos varias veces hasta que notes la diferencia.']],
+['B','Escuchá cuál usan tus canciones',[
+'Escuchá canciones en menor y prestá atención al acorde que viene justo antes de volver al acorde de reposo (por ejemplo Am).',
+'Fijate si suena suave (Em, menor) o decidido (E, mayor).',
+'Anotá cuáles usan cada uno.']]],
+'3.4':[
+['A','Tocá tres patrones menores',[
+'En La menor: i–VII–VI es Am, G, F. i–VII–VI–V es Am, G, F, E (se la llama cadencia andaluza). i–VI–III–VII es Am, F, C, G.',
+'Tocalas una por una.',
+'Notá cuál te gusta más y por qué.']],
+['B','Buscalos en tu repertorio',[
+'Revisá tus canciones en menor y escribí sus acordes en números.',
+'Fijate si alguna coincide con alguno de los tres patrones.',
+'Anotá cuáles.']]],
+'3.5':[
+['A','Mismos acordes, dos tonalidades posibles',[
+'Am, F, C, G pueden ser vi–IV–I–V en Do mayor o i–VI–III–VII en La menor. Son los mismos acordes; lo que cambia es dónde descansa la música.',
+'Tocalos en orden y repetí varias veces. Fijate cuál se siente como “casa”: ¿Am o C?',
+'Si descansa en C, la tonalidad es Do mayor; si descansa en Am, es La menor.']],
+['B','Decidí si una canción es mayor o menor',[
+'Elegí una canción que use estos cuatro acordes (u otros que puedan ser de dos tonalidades).',
+'Escribí tu hipótesis (mayor o menor) y qué tan seguro estás: poco, medio o mucho.',
+'Comprobá después con MESA y anotá si acertaste.']]]
+};
+/* ===== Contenido v4: lección 1.2 reescrita y semanas 4 a 12 ===== */
+L[0][1][0]=["*Un acorde se arma con 3 notas de la escala, salteando una entre cada una.* Sobre Do: Do, Mi, Sol = C. Sobre Re: Re, Fa, La = Dm.",
+"Si hacés eso sobre cada nota de Do mayor, salen 7 acordes: C, Dm, Em, F, G, Am y Bdim.",
+"Tres son *mayores* (C, F, G: suenan abiertos), tres son *menores* (Dm, Em, Am: suenan más oscuros) y uno es *disminuido* (Bdim: tenso, se usa poco).",
+"A cada lugar se le pone un número romano: mayúscula = mayor (I, IV, V), minúscula = menor (ii, iii, vi) y ° = disminuido (vii°)."];
+L.push(
+[[["*El bajo es la pista para sacar acordes de oído.* La nota más grave que suena suele ser la raíz del acorde: la nota que le da nombre.",
+"Método en 4 pasos: 1) escuchá el bajo, 2) encontrá esa nota en la guitarra, 3) decidí si el acorde es mayor o menor, 4) deducí la tonalidad.",
+"Para ubicar el bajo usá las cuerdas 6 (Mi) y 5 (La): ahí están las raíces de casi todos los acordes.",
+"Antes de verificar con MESA o Moises, anotá siempre tu hipótesis. Sin hipótesis previa no sabés si estás aprendiendo o copiando."],
+[["En la cuerda 6, el traste 3 es:",["La","Sol","Fa"],1],["En la cuerda 5, el traste 2 es:",["Si","Do","La♯"],0],["¿Qué buscás primero al sacar un acorde de oído?",["La melodía","El ritmo","El bajo (la nota más grave)"],2]]],
+[["*Antes de tocar un acorde, imaginá cómo va a sonar su bajo.* Después tocalo y compará.",
+"De C a Am el bajo baja de Do a La (3 trastes). De C a F sube de Do a Fa (5 trastes). De C a G baja de Do a Sol (5 trastes).",
+"No hace falta cantar afinado: lo que entrena el oído es imaginar y comparar."],
+[["De Do a La, bajando, hay:",["2 trastes","3 trastes","5 trastes"],1],["De Do a Sol, bajando, hay:",["5 trastes","7 trastes","3 trastes"],0],["Para entrenar el oído sin cantar afinado, lo importante es:",["Tener buena voz","Tocar rápido","Imaginar la nota y comparar"],2]]],
+[["*Con la raíz encontrada, falta decidir si el acorde es mayor o menor.* Tocá las dos versiones (por ejemplo A y Am) y elegí la que encaja.",
+"La diferencia está en una sola nota, la del medio: en A es Do♯, en Am es Do. Mayor suena más abierto; menor, más oscuro.",
+"Atajo: en una tonalidad mayor, los acordes de los lugares 2, 3 y 6 son menores. Si ya sabés la tonalidad, casi lo deducís."],
+[["La diferencia entre A y Am está en:",["La raíz","La nota del medio (Do♯ o Do)","La nota más aguda"],1],["En Sol mayor, el acorde con raíz Mi es:",["E","Em","Edim"],1],["En Do mayor, el acorde con raíz Re es:",["Dm","D","D7"],0]]],
+[["*Grabá 4 acordes hoy y reconstruilos mañana sin mirar.* Así reconocés de oído en vez de recordar qué dedos pusiste.",
+"Usá acordes de una sola tonalidad (por ejemplo C, Am, F, G). Si sabés la tonalidad, solo pueden aparecer unos 6 acordes y el problema se achica.",
+"Al reconstruir aplicá el método: bajo, raíz, mayor o menor. Anotá cuántos acertaste."],
+[["¿Por qué conviene reconstruir al día siguiente?",["Para recordar los dedos","Para reconocer de oído, sin memoria del momento","Para practicar ritmo"],1],["En Do mayor, los acordes más comunes son:",["C, D, E, F, G, A","C, Dm, Em, F, G, Am","C, F, G solamente"],1],["Orden del método:",["Bajo → raíz → mayor o menor","Mayor o menor → bajo → raíz","Tonalidad → bajo → ritmo"],0]]],
+[["*A veces el bajo no es la raíz.* C/E es un Do con Mi en el bajo; C/G, un Do con Sol en el bajo. La barra indica qué nota suena abajo.",
+"Las notas son las mismas que en C (Do, Mi, Sol): solo cambia cuál suena más grave. Por eso suena más liviano o en movimiento.",
+"Si el bajo te da una nota que no encaja como raíz, probá si es la 2.ª o 3.ª nota de un acorde de la tonalidad (Mi o Sol en C)."],
+[["En C/E, la nota más grave es:",["Do","Sol","Mi"],2],["C/G tiene las mismas notas que:",["C","G","Em"],0],["El bajo suena Mi pero el acorde parece Do. Probablemente es:",["Em","C/E","E"],1]]]],
+[[["*Cada grado tiene un “color” respecto de casa.* El IV suena a alejarse con calma; el V, a tensión que pide volver; el vi, a casa pero triste.",
+"Ejercicio: tocá el I y después otro acorde de la tonalidad. Decí qué grado creés que es antes de mirar.",
+"En la mayoría de las canciones pop-rock el primer cambio va al IV o al V. Empezá distinguiendo esos dos."],
+[["El acorde que crea tensión y pide volver a casa es:",["IV","V","vi"],1],["El vi suena como:",["Casa, pero más triste","Tensión fuerte","Igual al V"],0],["Si un cambio suena a “alejarse con calma”, probablemente es el:",["V","I","IV"],2]]],
+[["*V→I es llegar; I→V es quedarse esperando.* Esa sensación es igual en cualquier tonalidad, por eso sirve para orientarte.",
+"Si una frase termina en suspenso, lo más probable es que esté en el V. Si termina en calma, en el I.",
+"Entrená con canciones: pausá justo antes de un cambio y predecí si va a casa (I) o a otro lado."],
+[["Una frase que termina en suspenso suele estar en el:",["I","V","vi"],1],["D → G en Sol mayor es:",["I→V","IV→I","V→I"],2],["Para predecir un cambio conviene:",["Pausar antes y apostar","Mirar el cifrado","Subir el volumen"],0]]],
+[["*Para distinguir I–IV–V de I–V–vi–IV, contá los acordes y buscá el menor.* La primera tiene 3 acordes, todos mayores; la segunda tiene 4, y uno es menor (el vi).",
+"El acorde menor se reconoce por su color más oscuro en medio de acordes mayores.",
+"En el ejercicio “Oído: progresiones”, antes de cada pregunta suena el acorde de casa como referencia."],
+[["¿Cuántos acordes tiene I–V–vi–IV?",["3","4","5"],1],["¿Cuál de estas tiene un acorde menor?",["I–IV–V","I–V–vi–IV"],1],["En I–V–vi–IV el acorde menor es el:",["vi","V","IV"],0]]],
+[["*En menor hay dos maneras típicas de mover la música.* i–VII–VI baja suave (Am–G–F). i–iv–V termina con tensión fuerte (Am–Dm–E).",
+"El V mayor en menor (E en La menor) tiene la nota Sol♯, que empuja hacia La. Por eso suena a “tengo que volver”.",
+"Si una canción menor suena dramática o “española” al cerrar, buscá un V mayor."],
+[["i–VII–VI en La menor es:",["Am–Dm–E","Am–G–F","Am–F–C"],1],["En La menor, ¿qué acorde tiene la nota Sol♯?",["G","Em","E"],2],["i–iv–V en Mi menor es:",["Em–Am–B","Em–Am–Bm","Em–D–C"],0]]],
+[["*La misma progresión con otro ritmo sigue siendo la misma progresión.* El ritmo engaña al oído: fijate en el bajo y en dónde reposa.",
+"Para una canción nueva: 1) tonalidad (dónde reposa), 2) raíces por el bajo, 3) mayor o menor, 4) verificá con MESA.",
+"Anotá tu confianza (poca, media, mucha) antes de verificar. Con el tiempo, tu confianza debería coincidir con tu acierto."],
+[["Si cambia el ritmo pero no los acordes, la progresión:",["Cambia","Es la misma"],1],["¿Qué hacés primero con una canción nueva?",["Verificar con MESA","Buscar dónde reposa (la tonalidad)","Sacar el solo"],1],["Anotar la confianza sirve para:",["Detectar si te sobreestimás","Tocar más rápido","Nada en especial"],0]]]],
+[[["*Transportar es mover una canción a otra tonalidad sin cambiar sus grados.* I–V–vi–IV en Do es C–G–Am–F; en Sol es G–D–Em–C.",
+"El círculo de quintas ordena las tonalidades: Do (sin sostenidos), Sol (1), Re (2), La (3), Mi (4). Cada paso suma un sostenido.",
+"Truco: el V de una tonalidad es su vecina de la derecha en el círculo; el IV, su vecina de la izquierda."],
+[["I–V–vi–IV en Sol mayor es:",["G–C–Em–D","G–D–Em–C","G–D–Am–C"],1],["La tonalidad mayor con 2 sostenidos es:",["Sol","La","Re"],2],["El IV de Re mayor es:",["G","A","C"],0]]],
+[["*Pensá en números, no en nombres.* I–V–vi–IV en La (A–E–F♯m–D) es lo mismo que en Do, más agudo.",
+"Para pasar de números a acordes: escribí los acordes de la tonalidad y tomá los lugares 1, 5, 6 y 4.",
+"Mi mayor: E, F♯m, G♯m, A, B, C♯m. Entonces I–V–vi–IV = E–B–C♯m–A."],
+[["I–V–vi–IV en La mayor:",["A–E–F♯m–D","A–D–F♯m–E","A–E–Bm–D"],0],["I–V–vi–IV en Mi mayor:",["E–A–C♯m–B","E–B–G♯m–A","E–B–C♯m–A"],2],["El vi de Re mayor es:",["Em","Bm","F♯m"],1]]],
+[["*Una forma con cejilla sirve para muchos acordes: solo la movés.* La forma tipo E (como F en el traste 1) tiene la raíz en la cuerda 6. La forma tipo A (como B♭ en el traste 1) la tiene en la cuerda 5.",
+"G con forma tipo E: cejilla en el traste 3 (Sol en la cuerda 6). C con forma tipo A: cejilla en el traste 3 (Do en la cuerda 5).",
+"Los menores se forman igual, con la forma tipo Em o tipo Am."],
+[["Forma tipo E con cejilla en el traste 5 da:",["G","A","C"],1],["Forma tipo A con cejilla en el traste 2 da:",["B","C","D"],0],["Gm con forma tipo Em lleva la cejilla en el traste:",["1","5","3"],2]]],
+[["*El capotraste transporta sin cambiar las formas.* Con capo en el traste 2, las formas de Do (C, G, Am, F) suenan en Re (D, A, Bm, G).",
+"Cada traste de capo sube un semitono. Para pasar de Do a Mi (4 semitonos), capo en el 4.",
+"Para tocar con otra persona o con una grabación, elegí el tono que necesites y poné el capo donde corresponda."],
+[["Las formas de Do con capo en el 2 suenan en:",["Mi","Re","Do♯"],1],["Las formas de Sol con capo en el 2 suenan en:",["La","Si","Sol♯"],0],["Para pasar de Do a Mi con capo, va en el traste:",["2","3","4"],2]]],
+[["*En menor se transporta igual, con los números de menor.* i–VII–VI en La menor (Am–G–F) es en Mi menor Em–D–C.",
+"Las relativas acompañan al círculo: Do mayor y La menor, Sol mayor y Mi menor, Re mayor y Si menor.",
+"Elegí el tono en el que la canción te resulte más cómoda en la guitarra (más acordes abiertos)."],
+[["i–VII–VI en Mi menor:",["Em–C–D","Em–D–C","Em–D–Am"],1],["i–VII–VI en Re menor:",["Dm–C–B♭","Dm–C–A","Dm–B♭–C"],0],["La relativa menor de Re mayor es:",["Mi menor","Fa♯ menor","Si menor"],2]]]],
+[[["*Un acorde con séptima tiene 4 notas: la tríada más una.* Hay tres tipos comunes: maj7 (Cmaj7, suave), 7 (C7, tenso) y m7 (Am7, suave y oscuro).",
+"G7 = Sol, Si, Re y Fa. Ese Fa, junto al Si, crea la tensión que resuelve en C.",
+"En pop-rock la más útil es la séptima de dominante (7): aparece sobre el V."],
+[["¿Cuántas notas tiene un acorde con séptima?",["3","4","5"],1],["La séptima que aparece sobre el V es:",["maj7","m7","7 (de dominante)"],2],["G7 le agrega a G la nota:",["Fa","Fa♯","La"],0]]],
+[["*V7 → I es la resolución más fuerte.* G7 → C, D7 → G, A7 → D, E7 → A.",
+"Cuando escuchés un acorde con ese “picante” de tensión, apostá a que el siguiente es el I.",
+"Para entrenar el oído usá el ejercicio “Tríada o séptima” en Practicar."],
+[["D7 resuelve naturalmente en:",["A","G","C"],1],["E7 resuelve en:",["A","B","D"],0],["G7 es el V7 de:",["Re mayor","Sol mayor","Do mayor"],2]]],
+[["*Una inversión es el mismo acorde con otra de sus notas en el bajo.* C (bajo Do), C/E (bajo Mi), C/G (bajo Sol).",
+"Se usan para que el bajo avance por pasos cortos en vez de saltar.",
+"Al sacar de oído: si el bajo no coincide con la raíz que esperabas, probá una inversión."],
+[["C/G tiene en el bajo:",["Do","Mi","Sol"],2],["G/B es:",["Sol con Si en el bajo","Si menor","Sol menor"],0],["Las inversiones sirven para que el bajo:",["Salte más","Avance por pasos cortos","Desaparezca"],1]]],
+[["*Una tríada en las cuerdas 3, 2 y 1 es un acorde chico y agudo.* Sirve para acompañar sin tapar al bajo ni a otra guitarra.",
+"Do en esas cuerdas tiene tres posiciones: trastes 0-1-0 (Sol, Do, Mi), 5-5-3 (Do, Mi, Sol) y 9-8-8 (Mi, Sol, Do).",
+"Pasar de un acorde a la posición más cercana del siguiente, sin saltar, suena más fluido."],
+[["¿Cuántas notas tiene una tríada?",["2","3","4"],1],["Cuerdas 3-2-1 en los trastes 5-5-3 dan el acorde:",["Sol","Fa","Do"],2],["Las tríadas agudas sirven para:",["Acompañar sin tapar a otros","Hacer el bajo","Afinar"],0]]],
+[["*En C–G/B–Am–F el bajo baja Do, Si, La, Fa.* Es un recurso muy común: los acordes casi no cambian, pero el bajo camina.",
+"G/B es Sol con Si en el bajo. Gracias a ese Si, el paso de Do a La se hace nota por nota.",
+"Si escuchás un bajo que baja nota a nota, sospechá inversiones."],
+[["En C–G/B–Am, el bajo hace:",["Do–Sol–La","Do–Si–La","Do–Re–Mi"],1],["En Do mayor, G/B es:",["El V (Sol) con Si en el bajo","El vii° (Si disminuido)","El iii (Mi menor)"],0],["Un bajo que baja nota a nota sugiere:",["Acordes con séptima","Cambio de tonalidad","Inversiones"],2]]]],
+[[["*Un acorde ajeno tiene una nota que no está en la escala.* No es un error: casi siempre tiene una explicación típica.",
+"bVII: en Do mayor es B♭ (Si♭, Re, Fa). El Si♭ no está en Do mayor; viene “prestado” de Do menor. Es muy común en el rock: C–B♭–F–C.",
+"Para detectarlo: encontrá la nota que no está en la escala y fijate a qué acorde pertenece."],
+[["¿Qué nota de B♭ no está en Do mayor?",["Re","Si♭","Fa"],1],["El bVII de Sol mayor es:",["F","F♯","E"],0],["Un acorde ajeno:",["Es siempre un error","Suele tener una explicación típica"],1]]],
+[["*El iv menor (Fm en Do) es un “IV triste”.* F tiene La; Fm tiene La♭, una nota que viene de Do menor.",
+"Suele aparecer justo después del IV: C–F–Fm–C. Da un final nostálgico.",
+"Para distinguir IV de iv: es la misma raíz y cambia el color (mayor o menor)."],
+[["La nota ajena de Fm en Do mayor es:",["Fa","Do","La♭"],2],["El iv prestado de Sol mayor es:",["Cm","C","Am"],0],["C–F–Fm–C, comparado con C–F–F–C, suena:",["Igual","Más nostálgico al final"],1]]],
+[["*V/V (“quinto del quinto”) es una dominante prestada para llegar al V.* En Do mayor: D7 (Re, Fa♯, La, Do) → G7 → C.",
+"El Fa♯ no está en Do mayor: es la nota que empuja hacia Sol.",
+"Pista: un acorde mayor o con séptima en el lugar 2 (D o D7 en Do) casi siempre es V/V."],
+[["V/V en Do mayor es:",["Dm","D7","G7"],1],["V/V en Sol mayor es:",["A7","Am","D7"],0],["La nota ajena de D7 en Do mayor es:",["Re","La","Fa♯"],2]]],
+[["*V/vi lleva al vi.* En Do mayor: E7 (Mi, Sol♯, Si, Re) → Am.",
+"El Sol♯ no está en Do mayor y empuja hacia La. Es el mismo V mayor que vimos en La menor.",
+"Pista: un acorde mayor en el lugar 3 (E en Do) suele ser V/vi."],
+[["V/vi en Do mayor es:",["Em","E7","A7"],1],["La nota ajena de E7 en Do mayor es:",["Sol♯","Mi","Re"],0],["V/vi en Sol mayor es:",["Bm","E7","B7"],2]]],
+[["*Ante un acorde raro: 1) nombrá sus notas, 2) encontrá la que no está en la escala, 3) probá explicaciones.*",
+"Las cuatro explicaciones más comunes: bVII prestado, iv prestado, V/V y V/vi.",
+"Anotá tu explicación y tu confianza. Si ninguna encaja, puede ser un cambio de tonalidad."],
+[["Un D mayor en una canción en Do probablemente es:",["bVII","V/V","iv"],1],["Un B♭ en una canción en Do probablemente es:",["bVII prestado","V/vi","V/V"],0],["Si ninguna explicación encaja, puede ser:",["Un error seguro","Un cambio de tonalidad"],1]]]],
+[[["*La pentatónica menor tiene 5 notas: es la escala menor sin la 2.ª ni la 6.ª nota.* La menor pentatónica: La, Do, Re, Mi, Sol.",
+"Posición 1, desde el traste 5: cuerda 6 trastes 5 y 8; cuerdas 5, 4 y 3 trastes 5 y 7; cuerdas 2 y 1 trastes 5 y 8.",
+"Los La (la nota de reposo) están en: cuerda 6 traste 5, cuerda 4 traste 7 y cuerda 1 traste 5."],
+[["¿Cuántas notas tiene una pentatónica?",["5","6","7"],0],["¿Qué nota NO está en La menor pentatónica?",["Do","Si","Sol"],1],["En la posición 1 de La menor, la cuerda 6 traste 5 es:",["Sol","Mi","La"],2]]],
+[["*Una frase musical es como una oración: empieza, dice algo y respira.* Tocá 2 compases y dejá 2 compases de silencio.",
+"Repetir una idea corta (un motivo) con una pequeña variación suena más musical que tocar muchas notas.",
+"Usá una base Am–F–C–G grabada, o el metrónomo a 70–80 BPM."],
+[["Después de una frase de 2 compases conviene:",["Otra frase sin pausa","Una pausa","Un acorde fuerte"],1],["Un motivo es:",["Una idea corta que se repite y varía","Un acorde","Una escala completa"],0],["Tempo sugerido para empezar:",["140 BPM","70–80 BPM","200 BPM"],1]]],
+[["*Terminá cada frase en una nota del acorde que está sonando.* Así la frase “encaja” con la armonía.",
+"Notas de cada acorde que están en La menor pentatónica: Am → La, Do, Mi. F → La, Do. C → Do, Mi, Sol. G → Sol, Re.",
+"Comparalo con terminar en una nota que no es del acorde: suena colgada, sin cerrar."],
+[["Sobre el acorde F, una buena nota para terminar (dentro de la pentatónica) es:",["Si","Re","La"],2],["Las notas del acorde C son:",["Do, Mi, Sol","Do, Re, Mi","Do, Fa, La"],0],["Terminar en una nota que no es del acorde suena:",["Más resuelto","Colgado, sin cerrar"],1]]],
+[["*La pentatónica mayor usa las mismas notas que la pentatónica de su relativa menor.* Do mayor pentatónica = Do, Re, Mi, Sol, La (las mismas que La menor pentatónica).",
+"Lo que cambia es la nota en la que se apoyan las frases: Do en mayor, La en menor.",
+"Sobre bases mayores y alegres suele quedar mejor la mayor; sobre bases menores o de blues-rock, la menor."],
+[["Do mayor pentatónica y La menor pentatónica:",["Tienen las mismas notas","No comparten notas"],0],["Sol mayor pentatónica:",["Sol, Si♭, Do, Re, Fa","Sol, La, Si, Re, Mi","Sol, La, Si, Do, Re"],1],["Sobre una base menor suele quedar mejor:",["La pentatónica mayor","La pentatónica menor"],1]]],
+[["*Grabá una base de 4 acordes y tocá 3 tomas encima.* Escuchalas al día siguiente y elegí la mejor.",
+"Para elegir: ¿las frases terminan en notas del acorde? ¿hay pausas? ¿se repite y varía una idea?",
+"Escribí por qué elegiste esa toma. Explicarlo te obliga a escuchar con atención."],
+[["¿Cuándo conviene escuchar las tomas?",["Mientras tocás","Al día siguiente","Nunca"],1],["Un buen criterio para elegir la mejor toma:",["La que tiene más notas","Frases que terminan en notas del acorde"],1],["Explicar por qué elegiste una toma sirve para:",["Escuchar con más atención","Tocar más rápido"],0]]]],
+[[["*Analizar una canción es armar su mapa: tonalidad, secciones y grados.* Empezá por la tonalidad (dónde reposa) y la estrofa.",
+"Escribí la estrofa en grados, no en acordes. Así la comparás con los patrones que ya conocés.",
+"Verificá con MESA solo después de escribir tu hipótesis."],
+[["¿Por dónde empezás un análisis?",["Por el solo","Por la tonalidad","Por el final"],1],["Escribir en grados sirve para:",["Comparar con patrones conocidos","Tocar más rápido"],0],["¿Cuándo verificás con MESA?",["Antes de pensar","Después de escribir tu hipótesis"],1]]],
+[["*Estrofa y estribillo suelen usar progresiones distintas.* El estribillo muchas veces arranca en el IV o en el I y tiene más energía.",
+"Debajo de cada acorde marcá su función: T (tónica), P (predominante), D (dominante). Así ves cómo sube y baja la tensión.",
+"Preguntate: ¿dónde está el momento de más tensión de la canción?"],
+[["Las tres funciones son tónica, predominante y:",["Subtónica","Dominante","Mediante"],1],["En Do mayor, F cumple la función:",["Tónica","Predominante","Dominante"],1],["Estrofa y estribillo:",["Siempre tienen los mismos acordes","Suelen cambiar de progresión"],1]]],
+[["*Completá el análisis con lo que no es de la tonalidad.* Buscá acordes ajenos (bVII, iv, V/V, V/vi), inversiones y movimientos del bajo.",
+"Para cada uno anotá qué nota sale de la escala y tu explicación.",
+"Armá la ficha: tonalidad, secciones en grados, funciones, ajenos, confianza y verificación."],
+[["Un acorde ajeno se detecta por:",["El ritmo","Una nota fuera de la escala"],1],["¿Qué va en la ficha?",["Solo los acordes","Tonalidad, grados, funciones, ajenos y confianza"],1],["Un B♭ en una canción en Do mayor se anota como:",["bVII","V/V","iv"],0]]],
+[["*Repetir el método en una segunda canción lo vuelve automático.*",
+"Compará las dos fichas: ¿usan patrones parecidos? ¿cuál tiene más tensión?",
+"Cuanto más rápido llegás a la tonalidad, más tiempo te queda para los detalles."],
+[["El primer paso con cualquier canción es:",["Encontrar la tonalidad","Sacar el solo"],0],["Comparar dos fichas sirve para:",["Ver qué patrones se repiten","Nada en especial"],0],["Si dos canciones usan I–V–vi–IV en distintos tonos:",["Son totalmente distintas","Tienen la misma progresión en grados"],1]]],
+[["*Opcional: los modos son escalas mayores o menores con una nota cambiada.* Mixolidio = mayor con la 7.ª nota bajada (en Re: Do en vez de Do♯). Dórico = menor con la 6.ª nota subida (en Re menor: Si en vez de Si♭).",
+"El mixolidio explica el bVII de muchos rocks (D–C–G en Re). El dórico explica un IV mayor en una canción menor (Dm–G).",
+"Probalos sobre un acorde que suene fijo: tocá Re mayor y después Re mixolidio, y escuchá el cambio."],
+[["Re mixolidio tiene:",["Do♯","Do natural"],1],["Re dórico tiene:",["Si natural","Si♭"],0],["Dm–G en una canción menor sugiere:",["Mixolidio","Dórico"],1]]]],
+[[["*15 minutos cronometrados por estrofa.* El límite te obliga a usar el método y no quedarte trabado en un acorde.",
+"Orden: tonalidad → bajo y raíces → mayor o menor → patrones conocidos → hipótesis escrita → MESA.",
+"Registrá el resultado en Progreso → Prueba de canción: acordes correctos, total y confianza."],
+[["Tiempo por estrofa:",["1 hora","15 minutos","Sin límite"],1],["¿Qué hacés antes de usar MESA?",["Escribir la hipótesis","Nada"],0],["¿Dónde registrás el resultado?",["En ningún lado","En Progreso → Prueba de canción"],1]]],
+[["*En menor, fijate primero si la canción cierra en el i con un V mayor.*",
+"Patrones para probar: i–VII–VI, i–VII–VI–V, i–iv–V, i–VI–III–VII.",
+"Si dudás entre una tonalidad mayor y su relativa menor, escuchá dónde reposa el final de la estrofa."],
+[["Si dudás entre Do mayor y La menor:",["Elegí siempre mayor","Escuchá dónde reposa"],1],["Am–G–F–E en La menor es:",["i–VII–VI–V","i–VI–VII–V"],0],["El V mayor de La menor es:",["Em","E"],1]]],
+[["*En tempo medio los cambios son más rápidos: apoyate en los patrones.* Si reconocés los dos primeros acordes de un patrón, apostá por el resto y verificá.",
+"I–V–vi–IV, vi–IV–I–V e I–IV–V cubren gran parte del pop-rock.",
+"Si hace falta, bajá la velocidad con MESA o Moises."],
+[["Si escuchás I y V al principio, una apuesta razonable es:",["ii–V–I","I–V–vi–IV"],1],["Bajar la velocidad de la canción:",["Está permitido para escuchar mejor","Es trampa"],0],["Patrones muy comunes en pop-rock:",["I–V–vi–IV e I–IV–V","i–ii°–iii"],0]]],
+[["*Aplicá el método completo y compará tu confianza con tu acierto.*",
+"Si tu confianza fue alta y el acierto bajo, te estás sobreestimando: verificá más antes de dar algo por seguro.",
+"Si tu confianza fue baja y acertaste, podés confiar un poco más en tu oído."],
+[["Confianza alta y acierto bajo indica:",["Buen oído","Exceso de confianza"],1],["Confianza baja y acierto alto indica que:",["Podés confiar más en tu oído","Tenés que dejar de intentar"],0],["Comparar confianza y acierto sirve para:",["Calibrar tu juicio","Nada en especial"],0]]],
+[["*Hoy elegís vos: cualquier canción nueva.*",
+"Meta de la semana: un promedio de 70 % de acordes correctos en la estrofa.",
+"Mirá tu historial en Progreso: ¿subió tu acierto desde la semana 4?"],
+[["Meta de acierto de la semana:",["50 %","70 %","100 %"],1],["Si tu confianza fue alta, la meta de acierto es:",["80 %","60 %"],0],["El historial de pruebas de canción está en:",["Progreso","Explorar"],0]]]],
+[[["*Esta semana demostrás autonomía: hacés todo el proceso sin ayuda.*",
+"Analizá una canción nueva: tonalidad, grados, funciones, ajenos y confianza.",
+"Las metas están en el criterio de la semana. Repasá con estas preguntas."],
+[["El V de Mi mayor es:",["A","B","C♯m"],1],["El vi de Re mayor es:",["Bm","Em","F♯m"],0],["La relativa menor de La mayor es:",["Mi menor","Si menor","Fa♯ menor"],2]]],
+[["*Comparar dos canciones muestra qué patrones dominan tu repertorio.*",
+"Hacé la ficha de una segunda canción y comparala con la primera.",
+"Repasá con estas preguntas."],
+[["I–vi–IV–V en Sol mayor es:",["G–Em–C–D","G–Em–D–C","G–Am–C–D"],0],["La función del ii es:",["Tónica","Predominante","Dominante"],1],["El bVII de Re mayor es:",["C♯","C","B"],1]]],
+[["*Sacá de oído una tercera canción: sin límite de tiempo, pero con la hipótesis escrita antes de verificar.*",
+"Usá todo lo que aprendiste: bajo, inversiones y acordes ajenos.",
+"Repasá con estas preguntas."],
+[["En C/E, el bajo es:",["Do","Mi","Sol"],1],["Am–F–C–G que reposa en Am está en:",["Do mayor","La menor"],1],["G7 resuelve en:",["C","D","G"],0]]],
+[["*Transportar una canción completa prueba que entendés los grados.*",
+"Escribí la canción en grados y después en la nueva tonalidad.",
+"Si usás capotraste, anotá en qué traste y con qué formas."],
+[["I–IV–V en La mayor:",["A–D–E","A–E–D","A–D–F♯m"],0],["Formas de Sol con capo en el 2 suenan en:",["Si","La","Sol♯"],1],["i–iv–V en La menor:",["Am–Dm–Em","Am–Dm–E","Am–G–F"],1]]],
+[["*Una variación de acompañamiento propia aplica todo lo que viste.* Inversiones, tríadas agudas, séptimas.",
+"Tomá una canción analizada y cambiá algo: un bajo que camina, un V7 antes del I o tríadas agudas.",
+"Grabala, compará con la original y hacé la prueba de nivel final."],
+[["Las notas de G7 son:",["Sol, Si, Re, Fa","Sol, Si, Re, Fa♯","Sol, Si♭, Re, Fa"],0],["Mi menor pentatónica:",["Mi, Sol, La, Si, Re","Mi, Fa♯, Sol, Si, Re","Mi, Sol, La, Si, Do"],0],["Un bajo que camina Do–Si–La sugiere:",["Inversiones","Cambio de tonalidad"],0]]]]
+);
+Object.assign(DEMO,{
+'1.2':[['Los 7 acordes de Do mayor',['C','Dm','Em','F','G','Am','Bdim'],'C']],
+'4.1':[['Solo el bajo de C–Am–F–G',['~C','~A','~F','~G']],['Los acordes completos',['C','Am','F','G'],'C']],
+'4.2':[['C → Am',['C','Am'],'C'],['C → F',['C','F'],'C'],['C → G',['C','G'],'C']],
+'4.3':[['A y Am',['A','Am']],['E y Em',['E','Em']],['D y Dm',['D','Dm']]],
+'4.4':[['Cuatro acordes de Do mayor',['C','Am','F','G'],'C']],
+'4.5':[['C, C/E y C/G',['C','C/E','C/G'],'C'],['Bajo que baja: C–G/B–Am',['C','G/B','Am'],'C']],
+'5.1':[['I → IV (se aleja)',['C','F'],'C'],['I → V (tensión)',['C','G'],'C'],['I → vi (casa triste)',['C','Am'],'C']],
+'5.2':[['V → I: llega',['G','C'],'C'],['I → V: queda esperando',['C','G'],'C']],
+'5.3':[['I–IV–V en Do',['C','F','G'],'C'],['I–V–vi–IV en Do',['C','G','Am','F'],'C']],
+'5.4':[['i–VII–VI',['Am','G','F'],'Am'],['i–iv–V',['Am','Dm','E','Am'],'Am']],
+'6.1':[['I–V–vi–IV en Do',['C','G','Am','F'],'C'],['La misma en Sol',['G','D','Em','C'],'G']],
+'6.2':[['I–V–vi–IV en La',['A','E','F#m','D'],'A'],['I–V–vi–IV en Mi',['E','B','C#m','A'],'E']],
+'6.3':[['F, G y A: la misma forma movida',['F','G','A']]],
+'6.4':[['Formas de Do',['C','G','Am','F'],'C'],['Con capo en el 2: suena en Re',['D','A','Bm','G'],'D']],
+'6.5':[['i–VII–VI en La menor',['Am','G','F'],'Am'],['La misma en Mi menor',['Em','D','C'],'Em']],
+'7.1':[['C, Cmaj7 y C7',['C','Cmaj7','C7']],['Am y Am7',['Am','Am7']]],
+'7.2':[['G7 → C',['G7','C'],'C'],['D7 → G',['D7','G'],'G'],['E7 → A',['E7','A'],'A']],
+'7.3':[['C, C/E y C/G',['C','C/E','C/G'],'C']],
+'7.4':[['Notas de la tríada de Do',['~C','~E','~G','~C+']]],
+'7.5':[['C–G/B–Am–F',['C','G/B','Am','F'],'C']],
+'8.1':[['C–B♭–F–C',['C','Bb','F','C'],'C']],
+'8.2':[['C–F–Fm–C',['C','F','Fm','C'],'C'],['C–F–F–C (para comparar)',['C','F','F','C'],'C']],
+'8.3':[['D7–G7–C',['D7','G7','C'],'C']],
+'8.4':[['C–E7–Am',['C','E7','Am'],'C']],
+'8.5':[['Cuatro ajenos en Do',['C','Bb','Fm','D7','E7','Am'],'C']],
+'9.1':[['La menor pentatónica',['~A','~C+','~D+','~E+','~G+','~A+']]],
+'9.2':[['Base Am–F–C–G',['Am','F','C','G'],'Am']],
+'9.3':[['Am y su nota La',['Am','~A']],['F y su nota La',['F','~A']],['C y su nota Mi',['C','~E+']]],
+'9.4':[['Do mayor pentatónica',['~C','~D','~E','~G','~A','~C+']]],
+'10.2':[['Funciones en Do',['C','F','G','C'],'C']],
+'10.5':[['D–C–G (mixolidio)',['D','C','G','D'],'D'],['Dm–G (dórico)',['Dm','G','Dm','G'],'Dm']]});
+Object.assign(SHP,{G7:[3,2,0,0,0,1],C7:[-1,3,2,3,1,0],D7:[-1,-1,0,2,1,2],A7:[-1,0,2,0,2,0],E7:[0,2,0,1,0,0],B7:[-1,2,1,2,0,2],'F#7':[2,4,2,3,2,2],Cmaj7:[-1,3,2,0,0,0],Am7:[-1,0,2,0,1,0],'C/E':[0,3,2,0,1,0],'C/G':[3,3,2,0,1,0],'G/B':[-1,2,0,0,0,3],Fm:[1,3,3,1,1,1],Cm:[-1,3,5,5,4,3],'F#':[2,4,4,3,2,2]});
+const T11=['lenta en mayor','lenta en menor','de tempo medio en mayor','de tempo medio en menor','de cualquier tipo'];
+Object.assign(TX,{
+'4.1':[['A','Ubicá notas en las cuerdas 6 y 5',['La cuerda 6 al aire es Mi. Subí de a un traste diciendo cada nota: Fa (1), Fa♯ (2), Sol (3), Sol♯ (4), La (5), La♯ (6), Si (7), Do (8).','La cuerda 5 al aire es La: Si (traste 2), Do (3), Re (5), Mi (7), Fa (8), Sol (10).','Elegí una nota al azar y encontrala en las dos cuerdas sin contar trastes con los dedos.']],
+['B','Sacá el bajo de una canción que conocés',['Elegí una canción lenta que sepas tocar. Abrila en MESA o Moises y dejá sonar solo el bajo.','En cada cambio de acorde, buscá en la cuerda 6 o 5 la nota que toca el bajo hasta que suene igual.','Compará esas notas con los acordes que ya sabés: casi siempre el bajo toca la raíz.']]],
+'4.2':[['A','Imaginá la raíz antes de tocar',['Tocá C y dejalo sonar. Antes de cambiar, imaginá (o tarareá bajito) cómo va a sonar el bajo de Am.','Tocá Am y compará con lo que imaginaste.','Repetí con C → F y con C → G. No importa si no afinás con la voz: lo que cuenta es imaginar y comparar.']],
+['B','Sacá el bajo de una estrofa conocida',['Con la canción de ayer, escuchá la estrofa sin mirar los acordes.','Tocá el bajo de memoria en la cuerda 6 o 5.','Verificá con el bajo aislado en MESA. Anotá cuántos cambios acertaste.']]],
+'4.3':[['A','Mayor o menor sobre la misma raíz',['Tocá A y Am seguidos. Solo cambia una nota: Do♯ en A, Do en Am.','Repetí con E y Em, y con D y Dm.','Hacé el ejercicio “Mayor o menor” en Practicar.']],
+['B','Canción nueva: raíces y calidades',['Elegí una canción lenta que no sepas tocar.','Encontrá el bajo de los primeros 4 cambios: esas son las raíces.','Para cada raíz probá mayor y menor y elegí la que encaja. *Anotá tu hipótesis antes de verificar.*']]],
+'4.4':[['A','Grabá 4 acordes para mañana',['Elegí 4 acordes de Do mayor (por ejemplo C, Am, F, G) en un orden que no sea de una canción conocida.','Grabalos con el celular, 4 tiempos cada uno, sin decir los nombres.','Anotá el orden en un papel y no lo mires hasta mañana.']],
+['B','Mayor o menor en la canción nueva',['Retomá la canción de ayer.','Escuchá cada acorde y confirmá si es mayor o menor.','Escribí la progresión de la estrofa con tu nivel de confianza (poca, media o mucha).']]],
+'4.5':[['A','Reconstruí la grabación y probá inversiones',['Escuchá la grabación de ayer y escribí los 4 acordes con el método: bajo, raíz, mayor o menor. Comprobá con el papel.','Tocá C, después C/E (Mi en el bajo: cuerda 6 al aire) y C/G (Sol en el bajo: cuerda 6, traste 3).','Escuchá cómo cambia el peso del acorde. Los diagramas están en el paso “Escuchar”.']],
+['B','Verificá tu hipótesis y contá aciertos',['Tomá tu hipótesis de la canción nueva.','Recién ahora, verificala con MESA.','Anotá acordes correctos y total en Progreso → Prueba de canción.']]],
+'5.1':[['A','Escuchá el color de cada grado',['Tocá C y después F; volvé a C y tocá G; volvé a C y tocá Am.','Describí cada cambio con una palabra (por ejemplo: calma, tensión, tristeza).','Repetí en Sol mayor: G con C, con D y con Em.']],
+['B','¿El cambio va al IV o al V?',['Elegí 3 canciones tuyas en mayor.','En el primer cambio de acorde, decidí si va al IV o al V antes de mirar.','Comprobá con los acordes que ya sabés.']]],
+'5.2':[['A','V → I y I → V',['Tocá G → C (llega) y C → G (queda esperando) varias veces.','Hacelo también en Sol (D → G) y en Re (A → D).','Medite con el ejercicio “Oído: grados” en Practicar.']],
+['B','Pausá y predecí',['Poné una canción conocida y pausala justo antes de un cambio.','Decí a qué grado creés que va.','Reanudá y comprobá. Hacelo con 10 cambios y anotá cuántos acertaste.']]],
+'5.3':[['A','I–IV–V o I–V–vi–IV, sin mirar',['Tocá las dos progresiones en Do: C–F–G y C–G–Am–F.','Grabalas en un orden al azar y después adiviná cuál es cada una.','Pista: contá los acordes y buscá el menor.']],
+['B','Grados de 5 cambios',['Elegí una canción de la que no tengas los acordes.','Escribí en grados los primeros 5 cambios, de oído.','Verificá con MESA.']]],
+'5.4':[['A','Dos finales en menor',['Tocá Am–G–F (baja suave) y Am–Dm–E–Am (cierra con tensión).','Escuchá el Sol♯ de E: es la nota que empuja hacia La.','Repetí en Mi menor: Em–D–C y Em–Am–B–Em.']],
+['B','Predecí en una canción menor',['Elegí una canción en menor.','Pausá antes de cada cambio y predecí: ¿VII, VI, iv o V?','Comprobá y anotá aciertos.']]],
+'5.5':[['A','La misma progresión con otro ritmo',['Tocá C–G–Am–F con rasgueo lento, después arpegiado y después con un ritmo rápido.','Notá que el bajo y el reposo no cambian.','Usá el metrónomo de abajo para mantener el tempo.']],
+['B','Canción nueva completa',['Elegí una canción nueva.','Aplicá el método: tonalidad, raíces, mayor o menor.','Anotá hipótesis y confianza; recién después verificá con MESA.']]],
+'6.1':[['A','El círculo de quintas',['Abrí Explorar → Círculo de quintas y tocá Do, Sol, Re, La y Mi.','Mirá cuántos sostenidos suma cada paso.','Escribí de memoria el I, IV y V de cada una (IV = vecina de la izquierda, V = vecina de la derecha).']],
+['B','Transportá en papel',['Elegí una progresión tuya y escribila en grados.','Escribila en otra tonalidad, sin la guitarra.','Tocala para comprobar que suena igual, pero más aguda o más grave.']]],
+'6.2':[['A','I–V–vi–IV en cuatro tonalidades',['Sol: G–D–Em–C. Re: D–A–Bm–G. La: A–E–F♯m–D. Mi: E–B–C♯m–A.','Tocala 4 vueltas en cada una.','F♯m, C♯m, Bm y B se hacen con cejilla: mañana vemos las formas.']],
+['B','Sin papel',['Elegí una de las cuatro tonalidades al azar.','Tocá la progresión sin mirar la lista.','Repetí hasta poder hacerlo en las cuatro.']]],
+'6.3':[['A','Formas móviles con cejilla',['Forma tipo E: tocá F (cejilla en el traste 1). Movela al traste 3: es G; al 5: es A.','Forma tipo A: tocá B♭ (cejilla en el traste 1). Movela al traste 2: es B; al 3: es C.','Menores: forma tipo Em (F♯m en el traste 2) y forma tipo Am (Bm en el traste 2).']],
+['B','Una canción con cejilla',['Elegí una canción que toques con acordes abiertos.','Tocala usando formas con cejilla para todos los acordes.','Compará el sonido: más compacto y parejo.']]],
+'6.4':[['A','Transportá una sección',['Elegí una estrofa de tu repertorio y escribila en grados.','Pasala a otra tonalidad y tocala.','Probá también con capotraste: las mismas formas suenan en otro tono.']],
+['B','Elegí el tono cómodo',['Tocá la sección en dos tonos distintos.','Decidí cuál te resulta más cómodo.','Anotá ese tono y el traste del capo, si lo usaste.']]],
+'6.5':[['A','Transportá una canción menor',['Elegí una canción menor y escribila en grados (i, VII, VI…).','Pasala a otra tonalidad menor, por ejemplo de La menor a Mi menor.','Tocala para comprobar.']],
+['B','Repaso del círculo',['Escribí de memoria las 5 tonalidades mayores y sus relativas menores.','Comprobá con Explorar → Círculo de quintas.','Hacé el ejercicio “Transporte” en Practicar.']]],
+'7.1':[['A','Tres tipos de séptima',['Tocá C, después Cmaj7 y después C7. Cmaj7 suena suave; C7, tenso.','Tocá Am y Am7.','Las formas están en el paso “Escuchar”.']],
+['B','Tríada o séptima, de oído',['Hacé el ejercicio “Tríada o séptima” en Practicar.','Grabá G y G7 en un orden al azar y después adiviná cuál es cada uno.','Anotá cuántas acertaste de 10.']]],
+'7.2':[['A','V7 → I',['Tocá G7 → C, D7 → G, A7 → D y E7 → A.','Compará G → C con G7 → C: la séptima hace la llegada más fuerte.','Repetí cada una 4 veces.']],
+['B','Reconocé el V7 antes de que resuelva',['Escuchá canciones tuyas y buscá un acorde con ese “picante” de tensión.','Predecí que el siguiente es el I.','Anotá en qué canciones aparece.']]],
+'7.3':[['A','Inversiones de Do',['Tocá C, C/E y C/G.','Escuchá cómo cambia el bajo: Do, Mi, Sol.','Probá G/B: Sol con Si en el bajo (cuerda 5, traste 2).']],
+['B','Bajos que no son raíz',['Elegí una canción y aislá el bajo con MESA.','Buscá un momento en que el bajo no coincida con la raíz del acorde.','Anotá cuál es la inversión.']]],
+'7.4':[['A','Tríadas en las cuerdas 3, 2 y 1',['Do en tres posiciones: trastes 0-1-0, 5-5-3 y 9-8-8.','Fa en tres posiciones: trastes 2-1-1, 5-6-5 y 10-10-8.','Pasá de Do a Fa por la posición más cercana (0-1-0 → 2-1-1): casi no movés la mano.']],
+['B','Aplicalo a un acompañamiento',['Elegí una canción con C y F (o transportala).','Tocá el acompañamiento solo con tríadas agudas.','Grabalo y compará con la versión de acordes completos.']]],
+'7.5':[['A','Bajo descendente',['Tocá C – G/B – Am – F. El bajo hace Do, Si, La, Fa.','G/B: Si en la cuerda 5, traste 2.','Repetí lento hasta que el bajo suene como una línea.']],
+['B','Detectalo en canciones',['Escuchá canciones tuyas buscando un bajo que baja nota a nota.','Cuando lo encuentres, escribí los acordes con su bajo (con barra).','Verificá con MESA.']]],
+'8.1':[['A','bVII: C–B♭–F–C',['Tocá C–B♭–F–C. B♭ va con cejilla en el traste 1 (forma tipo A).','Notas de B♭: Si♭, Re, Fa. La que no está en Do mayor es Si♭.','En Sol mayor el bVII es F: tocá G–F–C–G.']],
+['B','Buscá un bVII',['Revisá canciones de rock de tu repertorio.','Buscá un acorde mayor un tono abajo de la tónica (B♭ en Do, F en Sol, C en Re).','Anotá cuáles lo tienen.']]],
+'8.2':[['A','IV y iv',['Tocá C–F–Fm–C. Fm va con cejilla en el traste 1 (forma tipo Em).','Compará con C–F–F–C.','En Sol: G–C–Cm–G (Cm con forma tipo Am en el traste 3).']],
+['B','IV o iv, de oído',['Grabá C–F–C y C–Fm–C en un orden al azar.','Escuchá y decí cuál es cada una.','Hacé el ejercicio “Acordes ajenos” en Practicar.']]],
+'8.3':[['A','V/V: D7–G7–C',['Tocá D7–G7–C varias veces.','Escuchá el Fa♯ de D7: no está en Do mayor y empuja hacia Sol.','En Sol mayor: A7–D7–G.']],
+['B','Reconocé el movimiento',['Buscá en tus canciones un acorde mayor o con séptima en el lugar 2 de la tonalidad.','Fijate si después viene el V.','Anotá los casos.']]],
+'8.4':[['A','V/vi: C–E7–Am',['Tocá C–E7–Am.','Escuchá el Sol♯ de E7: empuja hacia La.','En Sol mayor: G–B7–Em.']],
+['B','Un caso real',['Buscá una canción con un acorde mayor en el lugar 3 (E en Do, B en Sol).','Fijate si después viene el vi.','Anotá la canción y el lugar.']]],
+'8.5':[['A','Un acorde raro de una canción',['Elegí un acorde que no encaje en la tonalidad de una canción tuya.','Escribí sus notas y marcá la que sale de la escala.','Proponé 2 explicaciones: bVII, iv, V/V, V/vi o cambio de tonalidad.']],
+['B','Confianza y verificación',['Anotá tu explicación preferida y tu confianza.','Verificá con MESA o buscando el cifrado.','Hacé el ejercicio “Acordes ajenos” para medir el criterio de la semana.']]],
+'9.1':[['A','Pentatónica menor, posición 1',['Ubicá La en la cuerda 6, traste 5.','Tocá la posición: cuerda 6 trastes 5 y 8; cuerdas 5, 4 y 3 trastes 5 y 7; cuerdas 2 y 1 trastes 5 y 8.','Subí y bajá lento. Cada vez que pises un La (cuerda 6 traste 5, cuerda 4 traste 7, cuerda 1 traste 5), decilo en voz alta.']],
+['B','Tocá la melodía de una frase',['Elegí una frase corta de la melodía de una canción conocida.','Buscala nota por nota en la guitarra.','Fijate si sus notas están en la pentatónica.']]],
+'9.2':[['A','Frases con pausas',['Grabá (o poné) una base Am–F–C–G, un acorde por compás, a 70–80 BPM.','Tocá 2 compases de frase y dejá 2 de silencio.','Repetí 8 veces.']],
+['B','Repetí y variá una idea',['Inventá una frase de 3 o 4 notas.','Repetila cambiando solo el ritmo o la última nota.','Grabá una toma de 1 minuto.']]],
+'9.3':[['A','Terminá en nota del acorde',['Antes de empezar, ubicá en la posición 1 estas notas: Am → La, Do, Mi. F → La, Do. C → Do, Mi, Sol. G → Sol, Re.','Sobre la base Am–F–C–G, terminá cada frase en una nota del acorde que suena.','Tocá 8 frases y contá cuántas terminaste bien.']],
+['B','Compará con una nota de paso',['Terminá una frase sobre Am en Re (no es del acorde).','Después terminala en La.','Describí la diferencia.']]],
+'9.4':[['A','Mayor y menor con las mismas notas',['Sobre una base C–F–G, tocá la posición 1 apoyándote en Do: es Do mayor pentatónica.','Sobre una base Am–G–F, tocá la misma posición apoyándote en La.','Notá cómo el mismo grupo de notas cambia de carácter según dónde reposás.']],
+['B','¿Cuál suena mejor?',['Improvisá sobre cada base.','Anotá cuál te gustó más en cada una.','Hacé el ejercicio “Pentatónica” en Practicar.']]],
+'9.5':[['A','Base y 3 tomas',['Grabá una base de 4 acordes de 1 minuto.','Tocá 3 tomas encima, una detrás de otra, sin parar a corregir.','Guardalas para escucharlas mañana.']],
+['B','Elegí la mejor',['Escuchá las 3 tomas.','Elegí la mejor: frases que terminan en nota del acorde, pausas e ideas que se repiten.','Escribí en 2 líneas por qué la elegiste.']]],
+'10.1':[['A','Canción 1: tonalidad y estrofa',['Elegí una canción que te guste y no hayas analizado.','Encontrá dónde reposa: esa es la tonalidad.','Escribí la estrofa en grados.']],
+['B','Verificá',['Anotá tu confianza.','Verificá con MESA.','Corregí lo que falló y anotá por qué te confundiste.']]],
+'10.2':[['A','Estribillo y estrofa',['Escribí el estribillo en grados.','Compará con la estrofa: ¿qué cambia?','Marcá el momento de más tensión.']],
+['B','Funciones',['Debajo de cada grado escribí T, P o D.','Mirá cómo se mueve la tensión a lo largo de la canción.','Tocá la canción pensando en las funciones.']]],
+'10.3':[['A','Ajenos, inversiones y bajo',['Buscá acordes ajenos y anotá la nota que sale de la escala.','Aislá el bajo con MESA y buscá inversiones.','Proponé una explicación para cada caso.']],
+['B','Ficha de la canción 1',['Armá la ficha: tonalidad, secciones en grados, funciones, ajenos y confianza.','Verificá con MESA lo que falte.','Guardala (papel o nota del celular).']]],
+'10.4':[['A','Canción 2 completa',['Elegí una segunda canción, de otro estilo.','Repetí el método completo.','Tratá de hacerlo más rápido que con la primera.']],
+['B','Ficha de la canción 2',['Armá la ficha.','Comparala con la de la canción 1.','Anotá qué patrones tienen en común.']]],
+'10.5':[['A','(Opcional) Re mayor o Re mixolidio',['Grabá un acorde de D sonando 1 minuto.','Encima, tocá la escala de Re mayor (con Do♯) y después con Do natural.','Escuchá cómo el Do natural le da un color más rockero.']],
+['B','(Opcional) Re menor o Re dórico',['Sobre Dm sonando, tocá Re menor (con Si♭) y después con Si natural.','El Si natural le da un color menos triste.','Probá alternar Dm y G: es el sonido dórico.']]],
+'12.1':[['A','Analizá una canción nueva',['Elegí una canción nueva.','Escribí tonalidad, grados y funciones.','Anotá tu confianza.']],['B','Verificá',['Verificá con MESA.','Corregí y contá aciertos.','Guardá la ficha.']]],
+'12.2':[['A','Una segunda canción',['Analizá una segunda canción con el mismo método.','Armá su ficha.','Anotá tu confianza.']],['B','Compará',['Poné las dos fichas lado a lado.','Anotá qué patrones se repiten.','Anotá qué te costó más en cada una.']]],
+'12.3':[['A','Sacá de oído una tercera',['Elegí una canción nueva. Sin límite de tiempo, pero escribí la hipótesis antes de verificar.','Usá todo: bajo, inversiones, acordes ajenos.','Anotá tu confianza.']],['B','Hipótesis → MESA',['Verificá con MESA.','Registrá el resultado en Progreso → Prueba de canción.','Compará con tu resultado de la semana 4.']]],
+'12.4':[['A','Transportá una canción completa',['Escribí la canción en grados.','Pasala a otra tonalidad (con o sin capo).','Tocala entera.']],['B','Tocala en el nuevo tono',['Tocala 3 veces sin mirar.','Grabala.','Comparala con el tono original.']]],
+'12.5':[['A','Tu propia variación',['Elegí una canción que ya analizaste.','Cambiá algo del acompañamiento: un bajo que camina, un V7 antes del I o tríadas agudas.','Ensayala hasta que salga fluida.']],['B','Grabá y cerrá el programa',['Grabá tu versión.','Hacé la prueba de nivel final (en Practicar).','En Progreso, compará con tu punto de partida.']]]});
+T11.forEach((t,i)=>{TX['11.'+(i+1)]=[['A','Canción nueva '+t+' (15 min)',['Elegí una canción '+t+' que no sepas tocar.','Poné un reloj de 15 minutos y aplicá el método: tonalidad, bajo, raíces, mayor o menor, patrones.','Antes de que termine el tiempo, escribí la estrofa y tu confianza.']],['B','Verificá y registrá',['Verificá con MESA.','Contá acordes correctos sobre el total.','Registralo en Progreso → Prueba de canción, con tu confianza.']]]});
+const WD={1:'acordes',2:'grados',3:'acordes',4:'calidad',5:'ogr',6:'transporte',7:'sept',8:'ajenos',9:'penta',10:'grados',11:'ogr',12:'transporte'};
+
+/* ===== Ejercicios autocorregidos ===== */
+const R_=n=>Math.floor(Math.random()*n),pick=a=>a[R_(a.length)],shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=R_(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+const mk=(t,right,wrong,ex)=>{const w=shuf(wrong.filter((x,i,a)=>x!=right&&a.indexOf(x)==i)).slice(0,3),o=shuf([right,...w]);return Object.assign({t,o,a:o.indexOf(right)},ex)};
+const DN={acordes:'Acordes de la tonalidad',grados:'Grado de un acorde',transporte:'Transporte',ajenos:'Acordes ajenos',penta:'Pentatónica',oido:'Oído: progresiones',ogr:'Oído: grados',calidad:'Mayor o menor',sept:'Tríada o séptima'};
+const DS={acordes:'Acordes',grados:'Grados',transporte:'Transporte',ajenos:'Ajenos',penta:'Pentatónica',oido:'Progresiones',ogr:'Oído grados',calidad:'May. o men.',sept:'Séptimas'};
+const DD={acordes:'Te damos una tonalidad y un lugar de la escala. Vos decís qué acorde le corresponde.',grados:'Te damos un acorde y la tonalidad. Vos decís qué lugar (grado) ocupa.',transporte:'Te damos una progresión en números y una tonalidad. Vos elegís los acordes.',ajenos:'Te damos un acorde que no es de la tonalidad. Vos encontrás la nota que sobra o la explicación.',penta:'Te damos una pentatónica. Vos encontrás la nota que no le pertenece.',oido:'Primero suena el acorde de casa. Después, una progresión: elegís cuál de los patrones es.',ogr:'Suena el acorde de casa y después otro. Vos decís qué grado es el segundo.',calidad:'Escuchás un acorde y decís si suena mayor o menor.',sept:'Escuchás un acorde y decís si es una tríada o tiene séptima.'};
+const GT=['acordes','grados','transporte','ajenos','penta'],GO=['oido','ogr','calidad','sept'],MONO=new Set(['acordes','grados','transporte','oido','ogr']);
+const flatN=n=>n.length>1&&n[1]=='#'?n[0]:n+'b',sharpN=n=>n.length>1&&n[1]=='b'?n[0]:n+'#';
+const AJT={bVII:'bVII: prestado de la tonalidad menor',iv:'iv: prestado de la tonalidad menor',VV:'V/V: dominante del V',Vvi:'V/vi: dominante del vi'};
+function ajeno(r,t){const N=majNotes(r);if(t=='bVII'){const x=flatN(N[6]);return{ch:x,notes:[x,N[1],N[3]],out:x}}if(t=='iv'){const x=flatN(N[5]);return{ch:N[3]+'m',notes:[N[3],x,N[0]],out:x}}if(t=='VV'){const x=sharpN(N[3]);return{ch:N[1]+'7',notes:[N[1],x,N[5],N[0]],out:x}}const x=sharpN(N[4]);return{ch:N[2]+'7',notes:[N[2],x,N[6],N[1]],out:x}}
+function genQ(d){
+if(d=='acordes'){const k=pick(KEYS),LB=k.m=='M'?RM:Rm,i=R_(7),r=LB[i];return mk(`Tonalidad: ${k.n}. ¿Qué acorde ocupa el lugar ${r}? (es el ${ORD[i]} acorde de la escala)`,k.ch[i],k.ch,{d,k,ex:`La escala de ${k.n} es ${exScale(k)}. El ${ORD[i]} lugar (${r}) es el acorde ${k.ch[i]}.`})}
+if(d=='grados'){const k=pick(KEYS),LB=k.m=='M'?RM:Rm,i=R_(7);return mk(`Tonalidad: ${k.n}. ¿Qué lugar (grado) ocupa el acorde ${k.ch[i]}?`,LB[i],LB,{d,k,ex:`${k.ch[i]} nace de la ${ORD[i]} nota de la escala (${k.sc[i]}), así que es el ${LB[i]}.`})}
+if(d=='transporte'){const k=pick(KEYS),P=(k.m=='M'?PMaj:PMin).filter(p=>p.split('–').length>=3),p=pick(P),c=p.split('–').map(r=>chordOf(k,r)),right=c.join('–'),wr=[];for(let n=0;n<14&&wr.length<3;n++){const x=c.slice();x[R_(x.length)]=pick(k.ch);const s=x.join('–');if(s!=right&&wr.indexOf(s)<0)wr.push(s)}return mk(`Pasá ${p} a acordes en ${k.n}. ¿Cuál es la progresión correcta?`,right,wr,{d,k,ex:`En ${k.n} los acordes son ${k.ch.join(' · ')}. ${p} es ${right}.`})}
+if(d=='oido'){const mm=Math.random()<.6?'M':'m',P=mm=='M'?PMaj:PMin,k=pick(KEYS.filter(x=>x.m==mm)),p=pick(P),c=p.split('–').map(r=>chordOf(k,r));return mk(`Primero suena el acorde de casa como referencia. Después, una progresión de ${c.length} acordes (tonalidad ${mm=='M'?'mayor':'menor'}). ¿Qué patrón es?`,p,P,{d,play:[k.ch[0],'_'].concat(c),ex:`Era ${p}. En ${k.n} suena ${c.join('–')}.`})}
+if(d=='ogr'){const mm=Math.random()<.7?'M':'m',k=pick(KEYS.filter(x=>x.m==mm)),G=mm=='M'?['ii','iii','IV','V','vi']:['III','iv','V','VI','VII'],r=pick(G),c=chordOf(k,r);
+return mk(`Suena el acorde de casa (${mm=='M'?'I':'i'}) y después otro de la misma tonalidad ${mm=='M'?'mayor':'menor'}. ¿Qué grado es el segundo?`,r,G,{d,play:[k.ch[0],c],ex:`Era el ${r}: en ${k.n}, ${k.ch[0]} → ${c}.`})}
+if(d=='sept'){const r=pick(['C','D','E','G','A','B']),s=Math.random()<.5,c=s?r+'7':r;return{d,t:'Escuchá el acorde. ¿Es una tríada (3 notas, estable) o tiene séptima (4 notas, con tensión)?',o:['Tríada','Con séptima'],a:s?1:0,play:[c],ex:`Era ${c} (${chordES(c)}).`}}
+if(d=='ajenos'){const r=pick(['C','G','D','F']),k=kinfo(r,0),t=pick(Object.keys(AJT)),x=ajeno(r,t),nm=pretty(x.ch);
+if(Math.random()<.5)return mk(`Tonalidad: ${k.name}. Aparece el acorde ${nm} (notas: ${x.notes.map(nES).join(', ')}). ¿Qué nota no pertenece a la escala?`,nES(x.out),x.notes.map(nES),{d,ex:`La escala de ${k.name} es ${k.N.map(nES).join(', ')}. ${nES(x.out)} no está: es la nota ajena. Explicación: ${AJT[t]}.`});
+return mk(`Tonalidad: ${k.name}. Aparece el acorde ${nm}. ¿Cuál es la explicación más probable?`,AJT[t],Object.values(AJT),{d,ex:`${nm} en ${k.name} es ${AJT[t]}. Su nota ajena es ${nES(x.out)}.`})}
+if(d=='penta'){const mn=Math.random()<.6,k=kinfo(pick(['C','G','D','A','E','F']),mn?1:0),idx=mn?[0,2,3,4,6]:[0,1,2,4,5],inn=idx.map(i=>k.notes[i]),out=k.notes.filter((_,i)=>!idx.includes(i)),tn=nES(k.notes[0]);
+return mk(`¿Qué nota NO está en la pentatónica ${mn?'menor':'mayor'} de ${tn}?`,nES(pick(out)),shuf(inn).slice(0,3).map(nES),{d,ex:`${tn} ${mn?'menor':'mayor'} pentatónica: ${inn.map(nES).join(', ')}. Se quitan la ${mn?'2.ª y la 6.ª':'4.ª y la 7.ª'} nota de la escala.`})}
+const c=pick(['C','D','E','F','G','A','Am','Em','Dm','Bm','F#m','C#m','Gm','Bb','B','G#m']),q=parse(c).q=='M'?'Mayor':'Menor';
+return{d:'calidad',t:'Escuchá este acorde. ¿Suena mayor (más abierto y alegre) o menor (más oscuro y triste)?',o:['Mayor','Menor'],a:q=='Mayor'?0:1,play:[c],ex:`Era ${c}: ${q.toLowerCase()}.`}}
+const autoPlay=()=>{if(QS&&!QS.done){const q=QS.l[QS.i];if(q&&q.play)playSeq(q.play,q.play.length==1?1.6:1.1,'#nohl')}};
+
+/* ===== Iconos y formas ===== */
+const svgi=(p,f)=>`<svg viewBox="0 0 24 24" fill="${f||'none'}" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const IC={est:svgi('<path d="M4 5.5c2.5-1 5-1 8 .8 3-1.8 5.5-1.8 8-.8V19c-2.5-1-5-1-8 .8-3-1.8-5.5-1.8-8-.8z"/><path d="M12 6.3v13.5"/>'),
+pra:svgi('<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="12" cy="12" r="1" fill="currentColor"/>'),
+exp:svgi('<path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/>'),
+prog:svgi('<path d="M5 20v-8M12 20V5M19 20v-5"/>'),
+tut:svgi('<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z"/>'),
+flame:svgi('<path d="M12 2c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.2 2-4.2.2 1.6 1 2.2 1.8 2.2C10.5 7 11 4.5 12 2z"/>','currentColor'),
+x:svgi('<path d="M6 6l12 12M18 6L6 18"/>')};
+const ring=(p,sz,sw,col,bg)=>{const r=(sz-sw)/2,c=2*Math.PI*r;return`<svg class=ring width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}" aria-hidden="true"><circle cx="${sz/2}" cy="${sz/2}" r="${r}" fill="none" style="stroke:${bg||'rgba(255,255,255,.3)'}" stroke-width="${sw}"/><circle cx="${sz/2}" cy="${sz/2}" r="${r}" fill="none" style="stroke:${col||'#fff'}" stroke-width="${sw}" stroke-linecap="round" stroke-dasharray="${(c*Math.max(0,Math.min(1,p))).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 ${sz/2} ${sz/2})"/></svg>`};
+const MOT={acordes:'<circle cx="50" cy="26" r="13" fill="currentColor"/><circle cx="50" cy="52" r="13" fill="currentColor"/><circle cx="50" cy="78" r="13" fill="currentColor"/>',
+grados:'<rect x="14" y="62" width="18" height="24" rx="6" fill="currentColor"/><rect x="38" y="46" width="18" height="40" rx="6" fill="currentColor"/><rect x="62" y="26" width="18" height="60" rx="6" fill="currentColor"/>',
+transporte:'<path d="M14 40h56M52 22l20 18-20 18M86 70H30M48 52L28 70l20 18" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>',
+oido:'<path d="M14 50h8M30 36v28M46 20v60M62 34v32M78 44v12" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>',
+calidad:'<path d="M50 14a36 36 0 0 0 0 72z" fill="currentColor"/><path d="M50 14a36 36 0 0 1 0 72z" fill="none" stroke="currentColor" stroke-width="8"/>',
+repaso:'<path d="M78 40A30 30 0 1 0 80 62" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round"/><path d="M80 20v22H58" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>'};
+Object.assign(MOT,{ogr:'<path d="M20 70h14V56h14V42h14V28h18" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>',
+sept:'<circle cx="30" cy="30" r="12" fill="currentColor"/><circle cx="70" cy="30" r="12" fill="currentColor"/><circle cx="30" cy="70" r="12" fill="currentColor"/><circle cx="70" cy="70" r="12" fill="none" stroke="currentColor" stroke-width="7"/>',
+ajenos:'<circle cx="34" cy="34" r="10" fill="currentColor"/><circle cx="66" cy="34" r="10" fill="currentColor"/><circle cx="34" cy="66" r="10" fill="currentColor"/><path d="M66 52l5 9 10 1-7 7 2 10-10-5-10 5 2-10-7-7 10-1z" fill="currentColor"/>',
+penta:'<circle cx="50" cy="16" r="10" fill="currentColor"/><circle cx="82" cy="40" r="10" fill="currentColor"/><circle cx="70" cy="80" r="10" fill="currentColor"/><circle cx="30" cy="80" r="10" fill="currentColor"/><circle cx="18" cy="40" r="10" fill="currentColor"/>'});
+const DCOL={acordes:'--d1',grados:'--d2',transporte:'--d3',oido:'--d4',calidad:'--d5',ogr:'--d1',sept:'--d3',ajenos:'--dD',penta:'--dP',repaso:'--dT',nivel:'--g1'};
+const dn=d=>DN[d]||(d=='repaso'?'Repaso de errores':'Prueba de nivel');
+
+/* ===== Repaso de errores (cajas de repaso espaciado) ===== */
+if(!Array.isArray(S.err))S.err=[];
+const dnum=()=>Math.floor(Date.now()/864e5),EDAYS=[0,1,3],ERRMAX=60;
+const ekey=q=>q.d+'|'+q.t+'|'+(q.play||[]).join(',');
+function errAdd(q){const o={d:q.d,t:q.t,o:q.o,a:q.a,ex:q.ex,play:q.play,kid:q.k?q.k.id:null,box:1,due:dnum()};o.key=ekey(o);S.err=S.err.filter(e=>e.key!=o.key);S.err.unshift(o);S.err=S.err.slice(0,ERRMAX)}
+function errRes(q,ok){const key=ekey(q),e=S.err.find(x=>x.key==key);if(!e)return;if(!ok){e.box=1;e.due=dnum();return}e.box++;if(e.box>3)S.err=S.err.filter(x=>x!==e);else e.due=dnum()+EDAYS[e.box-1]}
+const errDue=()=>S.err.filter(e=>e.due<=dnum());
+function startReview(){const pool=errDue().length?errDue():S.err.slice();if(!pool.length)return;const l=pool.sort((a,b)=>a.box-b.box).slice(0,10).map(e=>Object.assign({},e,{k:e.kid?KEYS.find(k=>k.id==e.kid):undefined}));
+QS={d:'repaso',l,i:0,ans:null,res:[],test:false,review:true,cmb:0,best:0};tab='pra';R();window.scrollTo(0,0);setTimeout(autoPlay,250)}
+
+/* ===== Quiz ===== */
+function startQuiz(d,n){const l=[];if(d=='nivel'){['acordes','grados','transporte','oido'].forEach(x=>{for(let i=0;i<3;i++)l.push(genQ(x))});QS={d,l:shuf(l),i:0,ans:null,res:[],test:true,cmb:0,best:0}}else{for(let i=0;i<(n||10);i++)l.push(genQ(d));QS={d,l,i:0,ans:null,res:[],test:false,cmb:0,best:0}}tab='pra';R();window.scrollTo(0,0);setTimeout(autoPlay,250)}
+function finishQuiz(){const by={};QS.l.forEach((q,i)=>{const b=by[q.d]=by[q.d]||[0,0];b[1]++;if(QS.res[i])b[0]++});
+Object.keys(by).forEach(k=>{const x=S.dr[k]=S.dr[k]||{n:0,ok:0};x.n+=by[k][1];x.ok+=by[k][0]});
+const ok=QS.res.filter(Boolean).length;S.hist.push({d:today(),dr:QS.d,n:QS.l.length,ok});S.hist=S.hist.slice(-200);
+if(QS.test)S.tests.push({d:today(),w:S.w,n:QS.l.length,ok,by});save();QS.done=true;R();window.scrollTo(0,0)}
+
+/* ===== Teoría visual: tonalidades, funciones y diagramas ===== */
+const LET='CDEFGAB',MPC=[0,2,4,5,7,9,11],QL=['','m','m','','','m','dim'],FN=['T','P','T','P','D','T','D'];
+const CROOTS=['C','G','D','A','E','B','F#','Db','Ab','Eb','Bb','F'];
+const pcOf=n=>(PC[n[0]]+(n[1]=='#'?1:n[1]=='b'?-1:0)+12)%12;
+const ES={C:'Do',D:'Re',E:'Mi',F:'Fa',G:'Sol',A:'La',B:'Si'},nES=n=>ES[n[0]]+(n[1]=='#'?'♯':n[1]=='b'?'♭':'');
+const pretty=n=>n.replace('#','♯').replace(/^([A-G])b/,'$1♭');
+function majNotes(r){const li=LET.indexOf(r[0]),p=pcOf(r);return MPC.map((s,i)=>{const L=LET[(li+i)%7],d=(((p+s)%12-PC[L]+18)%12)-6;return L+(d==1?'#':d==-1?'b':'')})}
+function kinfo(r,m){const N=majNotes(r),ch=N.map((n,i)=>n+QL[i]);let notes=N,c=ch;if(m){notes=N.slice(5).concat(N.slice(0,5));c=ch.slice(5).concat(ch.slice(0,5))}
+const acc=N.filter(n=>n.length>1),sig=acc.length?(acc[0][1]=='#'?acc.length:-acc.length):0;
+return{r,m:!!m,N,notes,ch:c,rom:m?Rm:RM,V:m?notes[4]:null,sig,acc,name:nES(notes[0])+(m?' menor':' mayor'),tn:notes[0]+(m?'m':'')}}
+const fnOf=(k,c)=>{const i=k.ch.indexOf(c);return i>=0?FN[i]:k.V==c?'D':null};
+const baseC=c=>c.replace(/\/.*/,'').replace(/maj7$/,'').replace(/m7$/,'m').replace(/7$/,'');
+const keyOf=id=>{const m=/m$/.test(id)?1:0;for(const r of CROOTS){const k=kinfo(r,m);if(k.tn==id)return k}return null};
+function demoFn(seq,kid){const cs=seq.filter(c=>c[0]!='~');if(!cs.length)return{};let K=kid?keyOf(kid):null;
+if(!K){let best=null;for(const m of[0,1])for(const r of CROOTS){const k=kinfo(r,m),b=cs.map(baseC);if(b.every(c=>k.ch.includes(c)||k.V==c)){const sc=(b[0]==k.tn?2:0)+(b[b.length-1]==k.tn?1:0);if(!best||sc>best.sc)best={k,sc}}}if(best)K=best.k}
+const o={};if(K)cs.forEach(c=>{o[c]=fnOf(K,baseC(c))||'X'});return o}
+const FNAME={T:'Tónica',P:'Predominante',D:'Dominante'};
+const legend=()=>`<div class=legend><span><i style="background:var(--dT)"></i>Tónica: casa, reposo</span><span><i style="background:var(--dP)"></i>Predominante: se aleja</span><span><i style="background:var(--dD)"></i>Dominante: tensión</span></div>`;
+const legendX=()=>`<div class=legend><span><i style="background:transparent;border:2px dashed var(--d3)"></i>✱ Fuera de la tonalidad (acorde ajeno)</span></div>`;
+let CF={r:'C',m:0,l:''},EXD='stair';
+const scaleSeq=k=>{let prev=-1,oct=0;const o=k.notes.map((n,i)=>{const p=pcOf(n);if(i&&p<prev)oct=1;prev=p;return'~'+n+(oct?'+':'')});o.push('~'+k.notes[0]+'+');return o};
+const rootMidi=k=>55+((pcOf(k.notes[0])+5)%12);
+const IVM=[0,2,4,5,7,9,11,12],IVm=[0,2,3,5,7,8,10,12];
+const fnChips=k=>`<div class=chips>${k.ch.map((c,i)=>`<button class="chip f${FN[i]}" data-a=pc data-v="${c}"><small>${k.rom[i]}</small>${esc(pretty(c))}<sup>${FN[i]}</sup></button>`).join('')}${k.V?`<button class="chip fD" data-a=pc data-v="${k.V}"><small>V</small>${esc(pretty(k.V))}<sup>D</sup></button>`:''}</div>`;
+
+function fretD(k){const op=[64,59,55,50,45,40],nm=['e','B','G','D','A','E'],map={};k.notes.forEach(n=>map[pcOf(n)]=n);const x0=30,fw=30,y0=20,sy=20,NF=12,rp=pcOf(k.notes[0]);
+let s=`<svg viewBox="0 0 ${x0+NF*fw+10} ${y0+5*sy+26}" role="img" aria-label="Notas de ${esc(k.name)} en el mástil">`;
+for(let f=0;f<=NF;f++)s+=`<line x1="${x0+f*fw}" y1="${y0}" x2="${x0+f*fw}" y2="${y0+5*sy}" stroke="currentColor" stroke-opacity="${f?.3:.9}" stroke-width="${f?1:4}"/>`;
+for(let i=0;i<6;i++)s+=`<line x1="${x0}" y1="${y0+i*sy}" x2="${x0+NF*fw}" y2="${y0+i*sy}" stroke="currentColor" stroke-opacity=".5" stroke-width="${1+i*.4}"/>`;
+[3,5,7,9,12].forEach(f=>{s+=`<text x="${x0+(f-.5)*fw}" y="${y0+5*sy+19}" text-anchor="middle" font-size="11" style="opacity:.55">${f}</text>`});
+op.forEach((m,i)=>{for(let f=0;f<=NF;f++){const mid=m+f,pc=mid%12;if(map[pc]==null)continue;const cx=f?x0+(f-.5)*fw:x0-14,cy=y0+i*sy,root=pc==rp;
+s+=`<g class=nt data-a=nt data-v="${mid}"><circle cx="${cx}" cy="${cy}" r="9" style="fill:${root?'var(--dT)':'var(--g1)'}"/><text class=tx x="${cx}" y="${cy+3.8}" text-anchor="middle" font-size="10.5">${pretty(map[pc]).replace('♯','♯')}</text></g>`}});
+return s+'</svg>'}
+
+function stairD(k){const iv=k.m?IVm:IVM,names=k.notes.concat([k.notes[0]]),bw=44,gap=8,x0=6,base=186,h0=40,dh=14,W_=x0*2+8*bw+7*gap;
+let s=`<svg viewBox="0 0 ${W_} ${base+28}" role="img" aria-label="Escalera de tonos y semitonos de ${esc(k.name)}">`;
+names.forEach((n,i)=>{const x=x0+i*(bw+gap),h=h0+i*dh,y=base-h,root=i==0||i==7;
+s+=`<g class=nt data-a=nn data-v="${i}"><rect x="${x}" y="${y}" width="${bw}" height="${h}" rx="14" style="fill:${root?'var(--dT)':'var(--g1)'}"/><text class=tx x="${x+bw/2}" y="${y+24}" text-anchor="middle" font-size="15">${pretty(n)}</text></g>`;
+s+=`<text x="${x+bw/2}" y="${base+18}" text-anchor="middle" font-size="12" style="opacity:.6">${i==7?'8':i+1}</text>`;
+if(i<7){const d=iv[i+1]-iv[i],cx=x+bw+gap/2,cy=base-(h0+(i+1)*dh)-16,w=d==2?34:30;
+s+=`<rect x="${cx-w/2}" y="${cy-11}" width="${w}" height="22" rx="11" style="fill:${d==2?'var(--d2)':'var(--dD)'}"/><text class=tx x="${cx}" y="${cy+4.5}" text-anchor="middle" font-size="12">${d==2?'T':'½'}</text>`}});
+return s+'</svg>'}
+
+function circD(){const R1=124,R2=80,c=160,sel=kinfo(CF.r,CF.m);
+let s=`<svg viewBox="0 0 320 320" role="img" aria-label="Círculo de quintas"><circle cx="${c}" cy="${c}" r="${R1+25}" style="fill:var(--sf2)"/><circle cx="${c}" cy="${c}" r="${R2+22}" style="fill:var(--sf)"/>`;
+CROOTS.forEach((r,i)=>{const a=(i*30-90)*Math.PI/180,co=Math.cos(a),si=Math.sin(a),on=CF.r==r;
+const x1=c+R1*co,y1=c+R1*si,x2=c+R2*co,y2=c+R2*si,km=kinfo(r,1);
+s+=`<g class=nt data-a=cn data-v="${i}:0"><circle cx="${x1.toFixed(1)}" cy="${y1.toFixed(1)}" r="21" style="fill:${on&&!CF.m?'var(--g1)':'var(--sf)'};stroke:${on?'var(--g1)':'var(--line)'};stroke-width:2"/><text x="${x1.toFixed(1)}" y="${(y1+5.5).toFixed(1)}" text-anchor="middle" font-size="16" font-weight="700" style="fill:${on&&!CF.m?'#fff':'var(--ink)'}">${pretty(r)}</text></g>`;
+s+=`<g class=nt data-a=cn data-v="${i}:1"><circle cx="${x2.toFixed(1)}" cy="${y2.toFixed(1)}" r="18" style="fill:${on&&CF.m?'var(--g2)':'var(--sf2)'};stroke:${on?'var(--g2)':'transparent'};stroke-width:2"/><text x="${x2.toFixed(1)}" y="${(y2+4.5).toFixed(1)}" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:${on&&CF.m?'#fff':'var(--ink)'}">${pretty(km.tn)}</text></g>`});
+const n=Math.abs(sel.sig);
+s+=`<text x="${c}" y="${c+4}" text-anchor="middle" font-size="30" font-weight="700" style="fill:var(--ink)">${n}${sel.sig>0?'♯':sel.sig<0?'♭':''}</text><text x="${c}" y="${c+24}" text-anchor="middle" font-size="11" style="fill:var(--mut)">${n==0?'sin alteraciones':n==1?'alteración':'alteraciones'}</text>`;
+return s+'</svg>'}
+
+function funcD(k){const bw=128,gap=18,y0=26,rh=34,W_=3*bw+2*gap,H=232;
+const grp=k.m?{T:[0,2,5],P:[3,1],D:[4,6]}:{T:[0,5,2],P:[3,1],D:[4,6]};
+let s=`<svg viewBox="0 0 ${W_} ${H}" role="img" aria-label="Mapa de funciones de ${esc(k.name)}"><defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9z" style="fill:var(--mut)"/></marker></defs>`;
+['T','P','D'].forEach((f,gi)=>{const x=gi*(bw+gap),col='var(--d'+f+')',list=grp[f].slice();
+s+=`<rect x="${x}" y="0" width="${bw}" height="168" rx="26" style="fill:${col};opacity:.14"/><text x="${x+bw/2}" y="${y0-6}" text-anchor="middle" font-size="12.5" font-weight="700" style="fill:var(--f${f})">${FNAME[f].toUpperCase()}</text>`;
+list.forEach((d,j)=>{const c=d==4&&k.m?k.V:k.ch[d],r=d==4&&k.m?'V':k.rom[d],y=y0+4+j*(rh+8);
+s+=`<g class=nt data-a=pc data-v="${c}"><rect x="${x+12}" y="${y}" width="${bw-24}" height="${rh}" rx="17" style="fill:${col}"/><text class=tx x="${x+bw/2}" y="${y+22}" text-anchor="middle" font-size="14">${r}  ${pretty(c)}</text></g>`})});
+[0,1].forEach(i=>{const x=(i+1)*bw+i*gap;s+=`<path d="M${x+2} 84H${x+gap-2}" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar)" style="stroke:var(--mut);fill:none"/>`});
+const xa=2*(bw+gap)+bw/2,xb=bw/2;
+s+=`<path d="M${xa} 172C${xa} 222 ${xb} 222 ${xb} 174" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1 6" marker-end="url(#ar)" style="stroke:var(--mut);fill:none"/><text x="${W_/2}" y="${H-24}" text-anchor="middle" font-size="12" style="fill:var(--mut)">vuelve a casa</text>`;
+return s+'</svg>'}
+
+function relD(){const a=kinfo(CF.r,0),b=kinfo(CF.r,1),sw=44,x0=6,y1=36,y2=132,bh=36;
+let s=`<svg viewBox="0 0 408 190" role="img" aria-label="${esc(a.name)} y ${esc(b.name)} comparten notas"><text x="6" y="22" font-size="13" font-weight="700" style="fill:var(--ink)">${esc(a.name)}</text><text x="6" y="${y2-9}" font-size="13" font-weight="700" style="fill:var(--ink)">${esc(b.name)}</text>`;
+const box=(sl,y,n,hot)=>`<rect x="${x0+sl*sw}" y="${y}" width="${sw-6}" height="${bh}" rx="12" style="fill:${hot?'var(--dT)':'var(--g1)'}"/><text class=tx x="${x0+sl*sw+(sw-6)/2}" y="${y+23}" text-anchor="middle" font-size="14">${pretty(n)}</text>`;
+for(let sl=2;sl<=8;sl++){const n=a.N[(sl-2)%7];s+=box(sl,y1,n,sl==2)}
+for(let sl=0;sl<=6;sl++){const n=b.notes[sl];s+=box(sl,y2,n,sl==0)}
+for(let sl=2;sl<=6;sl++)s+=`<line x1="${x0+sl*sw+(sw-6)/2}" y1="${y1+bh}" x2="${x0+sl*sw+(sw-6)/2}" y2="${y2}" stroke-width="2" stroke-dasharray="2 5" style="stroke:var(--mut)"/>`;
+[7,8].forEach(sl=>{s+=`<line x1="${x0+sl*sw+(sw-6)/2}" y1="${y1+bh}" x2="${x0+(sl-7)*sw+(sw-6)/2}" y2="${y2}" stroke-width="2" stroke-dasharray="2 5" style="stroke:var(--mut)"/>`});
+s+=`<text x="204" y="${y2+bh+24}" text-anchor="middle" font-size="12" style="fill:var(--mut)">verde = nota de reposo (donde la música llega a casa)</text>`;
+return s+'</svg>'}
+
+const DGT={fret:'Mástil',stair:'Escalera',circ:'Círculo de quintas',fn:'Mapa de funciones',rel:'Relativas'};
+const kpick=()=>`<div class=kp><div class=sg2><button class="sg${!CF.m?' on':''}" data-a=cm data-v=0>Mayor</button><button class="sg${CF.m?' on':''}" data-a=cm data-v=1>Menor</button></div><div class="chips kr">${CROOTS.map(r=>`<button class="chip${CF.r==r?' on':''}" data-a=ck data-v="${r}">${pretty(kinfo(r,CF.m).tn)}</button>`).join('')}</div></div>`;
+function dgInner(id){const k=kinfo(CF.r,CF.m);let h=`<h2>${DGT[id]}</h2>`,svg='',cap='',extra='';
+if(id=='fret'){h+=kpick();svg=fretD(k);cap=`Cada punto es una nota de ${k.name}. El verde es la nota de reposo. A la izquierda está el cejuelo (cuerdas al aire). Tocá un punto para oírlo.`;extra=`<button class="btn ghost sm" data-a=psc style="margin-top:12px">▶ Escuchar la escala</button>`}
+else if(id=='stair'){h+=kpick();svg=stairD(k);cap=k.m?'La escala menor natural sube así: tono, semitono, tono, tono, semitono, tono, tono.':'La escala mayor sube con esta receta: tono, tono, semitono, tono, tono, tono, semitono.';extra=`<div class=legend><span><i style="background:var(--d2)"></i>T = tono (2 trastes)</span><span><i style="background:var(--dD)"></i>½ = semitono (1 traste)</span></div><button class="btn ghost sm" data-a=psc style="margin-top:12px">▶ Subir la escalera</button>`}
+else if(id=='circ'){svg=circD();const n=Math.abs(k.sig);cap=`Cada paso a la derecha suma un sostenido; cada paso a la izquierda, un bemol. Afuera: tonalidades mayores. Adentro: su relativa menor. Tocá una para ver sus acordes.`;extra=`<p style="margin-top:12px"><b>${esc(k.name)}</b> · ${n==0?'sin alteraciones':n+' '+(k.sig>0?'sostenido':'bemol')+(n>1?'s':'')+': '+k.acc.map(pretty).join(', ')}</p>${fnChips(k)}<button class="btn ghost sm" data-a=pfn style="margin-top:12px">▶ Escuchar I–IV–V–I</button>`}
+else if(id=='fn'){h+=kpick();svg=funcD(k);cap=`Los acordes de ${k.name} se agrupan por función. La música sale de casa (verde), se aleja (ámbar), crea tensión (coral) y vuelve. Tocá un acorde.`;extra=`<button class="btn ghost sm" data-a=pfn style="margin-top:12px">▶ Escuchar I–IV–V–I</button>`}
+else{const a=kinfo(CF.r,0),b=kinfo(CF.r,1);h+=kpick();svg=relD();cap=`${a.name} y ${b.name} usan las mismas 7 notas. Lo único que cambia es cuál suena como casa.`;extra=`<div class=two style="justify-content:flex-start;margin-top:12px"><button class="btn sm" data-a=pc data-v="${a.ch[0]}">▶ ${esc(pretty(a.ch[0]))}</button><button class="btn sm" data-a=pc data-v="${b.ch[0]}">▶ ${esc(pretty(b.ch[0]))}</button></div>`}
+return`${h}<div class="dgs${id=='fret'?' w':''}">${svg}</div><p class=cap>${cap}</p>${id=='fn'||id=='circ'?legend():''}${extra}`}
+const dgCard=id=>`<div class="card dg" data-dg="${id}">${dgInner(id)}</div>`;
+const refreshDG=()=>document.querySelectorAll('[data-dg]').forEach(e=>{e.innerHTML=dgInner(e.dataset.dg)});
+const DG={'1.1':['stair','fret'],'1.2':['fn'],'1.3':['circ'],'1.4':['circ'],'1.5':['fn'],'2.1':['fn'],'2.2':['fn'],'2.3':['fn'],'2.4':['fn'],'2.5':['fn'],'3.1':['rel'],'3.2':['rel','stair'],'3.3':['fn'],'3.4':['fn'],'3.5':['rel']};
+const DK={'1.3':['G',0],'1.4':['A',0],'3.1':['C',1],'3.2':['C',1],'3.3':['C',1],'3.4':['C',1],'3.5':['C',1]};
+
+
+/* ===== Racha, meta semanal, metrónomo, ajustes ===== */
+const ds=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const dset=()=>{const s=new Set();S.logs.forEach(l=>l.d&&s.add(l.d));S.hist.forEach(h=>h.d&&s.add(h.d));return s};
+function streak(){const s=dset(),d=new Date();let n=0;if(!s.has(ds(d)))d.setDate(d.getDate()-1);while(s.has(ds(d))&&n<2000){n++;d.setDate(d.getDate()-1)}return n}
+function weekDays(){const d=new Date();d.setDate(d.getDate()-((d.getDay()+6)%7));const o=[];for(let i=0;i<7;i++){o.push(ds(d));d.setDate(d.getDate()+1)}return o}
+const weekSess=()=>{const w=weekDays();return S.logs.filter(l=>w.includes(l.d)).length};
+const goalN=()=>Math.max(1,Math.min(6,+S.cfg.goal||5));
+function applyCfg(){try{const r=document.documentElement;r.style.setProperty('--z',[1,1.15,1.3][S.cfg.fs]||1);if(S.cfg.th=='light'||S.cfg.th=='dark')r.setAttribute('data-theme',S.cfg.th);else r.removeAttribute('data-theme')}catch(e){}}
+let MT={on:0,bpm:80,beat:0,next:0,id:0};
+function clickAt(t,acc){if(S.cfg.snd===false)return;const c=ac(),o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=acc?1600:1100;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.35,t+.003);g.gain.exponentialRampToValueAtTime(.0001,t+.06);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.08)}
+function metTick(){const c=ac();while(MT.next<c.currentTime+.12){const acc=MT.beat%4==0,t=MT.next;clickAt(t,acc);setTimeout(()=>{const e=$('#mtd');if(e){e.className='mdot '+(acc?'a':'b');void e.offsetWidth;e.className+=' p'}},Math.max(0,(t-c.currentTime)*1000));MT.beat++;MT.next+=60/MT.bpm}}
+function metStart(){try{const c=ac();MT.on=1;MT.beat=0;MT.next=c.currentTime+.05;metTick();clearInterval(MT.id);MT.id=setInterval(metTick,25)}catch(e){MT.on=0}}
+function metStop(){MT.on=0;clearInterval(MT.id)}
+const metHtml=()=>`<details class="card mt"${MT.on?' open':''}><summary><b>Metrónomo</b> <span class="m sm">· tocá para abrir</span></summary><div class=mbpm id=mbpm>${MT.bpm}<small>BPM</small></div><div class=mctl><button class=rnd data-a=bpm data-v=-5>−5</button><button class=rnd data-a=bpm data-v=-1>−1</button><button class=rnd data-a=bpm data-v=1>+1</button><button class=rnd data-a=bpm data-v=5>+5</button></div><input type=range id=mr min=40 max=200 value="${MT.bpm}" aria-label="Pulsos por minuto"><div class=mdot id=mtd></div><button class="btn${MT.on?' ghost':''}" data-a=met>${MT.on?'Parar':'Iniciar'}</button><p class="m sm">Cuatro tiempos. El primero suena más agudo. Empezá lento y subí de a poco.</p></details>`;
+function testChart(ts){const W_=340,H=190,l=44,r=30,tp=24,b=34,n=ts.length,pts=ts.map((x,i)=>({x:n==1?(l+W_-r)/2:l+i*(W_-l-r)/(n-1),y:tp+(H-tp-b)*(1-pc(x.ok,x.n)/100),p:pc(x.ok,x.n),w:x.w,d:x.d}));
+let s=`<svg class=chart viewBox="0 0 ${W_} ${H}" role="img" aria-label="Resultado de las pruebas de nivel">`;
+[0,50,100].forEach(v=>{const y=tp+(H-tp-b)*(1-v/100);s+=`<line x1="${l}" y1="${y}" x2="${W_-r}" y2="${y}" stroke-width="1" style="stroke:var(--line)"/><text x="${l-6}" y="${y+4}" text-anchor="end">${v}%</text>`});
+if(n>1){const path=pts.map((q,i)=>(i?'L':'M')+q.x.toFixed(1)+' '+q.y.toFixed(1)).join(' ');s+=`<path d="${path} L${pts[n-1].x.toFixed(1)} ${H-b} L${pts[0].x.toFixed(1)} ${H-b}z" style="fill:var(--d5);opacity:.14"/><path d="${path}" fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--d5)"/>`}
+pts.forEach((q,i)=>{const last=i==n-1;s+=`<circle cx="${q.x.toFixed(1)}" cy="${q.y.toFixed(1)}" r="${last?6:4}" style="fill:var(--d5);stroke:var(--sf);stroke-width:2"><title>Semana ${q.w}: ${q.p}%</title></circle>`;if(last||n<=4)s+=`<text class=v x="${q.x.toFixed(1)}" y="${(q.y-11).toFixed(1)}" text-anchor="middle">${q.p}%</text>`;s+=`<text x="${q.x.toFixed(1)}" y="${H-12}" text-anchor="middle">Sem. ${q.w}</text>`});
+return s+'</svg>'}
+const segc=(k,opts,cur)=>`<div class="sg2 wrap">${opts.map(([v,l])=>`<button class="sg${String(cur)==String(v)?' on':''}" data-a=cfg data-v="${k}:${v}">${l}</button>`).join('')}</div>`;
+const cfgHtml=()=>`<details class=card><summary><b>Ajustes</b></summary><div class=cfgrow><b>Tamaño de letra</b>${segc('fs',[[0,'Normal'],[1,'Grande'],[2,'Muy grande']],S.cfg.fs)}</div><div class=cfgrow><b>Tema</b>${segc('th',[['auto','Automático'],['light','Claro'],['dark','Oscuro']],S.cfg.th)}</div><div class=cfgrow><b>Sonido</b>${segc('snd',[[1,'Activado'],[0,'Silenciado']],S.cfg.snd===false?0:1)}</div><div class=cfgrow><b>Meta semanal (sesiones)</b>${segc('goal',[[3,'3'],[4,'4'],[5,'5'],[6,'6']],goalN())}</div></details>`;
+
+/* ===== Lecciones y sesión ===== */
+const lk=()=>S.w+'.'+S.s,LS=()=>S.w&&S.s<6&&L[S.w-1]?L[S.w-1][S.s-1]:null;
+function tasks(w,s){return W[w-1][3][s-1].split(' | ').map(x=>{const m=x.match(/^(\(Opcional\)\s*)?([AB]):\s*(.*)$/);return m?{b:m[2],t:m[3],o:!!m[1]}:{b:'·',t:x}})}
+function steps(){if(!S.w)return['ini'];if(S.s==6)return['prueba','cierre'];return LS()?['teoria'].concat(DEMO[lk()]?['oir']:[],['q0','q1','q2','guit','cierre']):['guit','cierre']}
+const SG={ini:'Inicio',teoria:'Teoría',oir:'Escuchar',q0:'Chequeo',q1:'Chequeo',q2:'Chequeo',guit:'Práctica',prueba:'Prueba',cierre:'Cierre'};
+function stepper(st,cur){const g=[];st.forEach((id,i)=>{const n=SG[id],l=g[g.length-1];if(l&&l.n==n)l.to=i;else g.push({n,from:i,to:i})});
+return`<div class=stepper>${g.map(x=>{const s=cur>x.to?'d':cur>=x.from?'c':'';return`<button class="sp ${s}" ${s=='d'?`data-a=go data-v=${x.from} aria-label="Volver a ${x.n}"`:'tabindex=-1'}><i></i>${x.n}</button>`}).join('')}</div>`}
+const splitT=t=>Array.isArray(t)?t:t.replace(/\.\s+(?=[A-ZÁÉÍÓÚÑ¿(])/g,'.\n').split('\n');
+const md=s=>esc(s).replace(/\*([^*]+)\*/g,'<b>$1</b>');
+function theoryHtml(l){const p=splitT(l[0]);return`<div class=keyc><span class=kl>Idea clave</span><p>${md(p[0])}</p></div>${p.length>1?`<ol class=ideas>${p.slice(1).map(x=>`<li>${md(x)}</li>`).join('')}</ol>`:''}`}
+const fmtT=s=>String(s/60|0).padStart(2,'0')+':'+String(s%60).padStart(2,'0'),BDUR={A:1200,B:1500},TK={};
+const tmb=b=>{const on=T.blk==b,left=on?T.left:BDUR[b];return`<button class="tmb${on&&T.run?' run':''}" id=tm${b} data-a=tb data-v=${b} aria-label="Reloj del bloque ${b}">${on&&T.run?'❚❚':'▶'} ${fmtT(left)}</button>`};
+const SCOL={ini:'--d1',teoria:'--d1',oir:'--d3',q0:'--d2',q1:'--d2',q2:'--d2',guit:'--d4',prueba:'--d5',cierre:'--dT'};
+const nextBtn=t=>`<button class=btn data-a=nx>${t||'Siguiente'}</button>`;
+const hdr=()=>{const done=S.logs.length,p=done/72;return`<div class=hero><div class=hrow><div><span class=hk>${S.w?`Semana ${S.w} · Sesión ${S.s} de 6`:'Punto de partida'}</span><div class=ht>${S.w?esc(W[S.w-1][0]):'Tu prueba de nivel'}</div></div><div class=hr>${ring(p,60,7)}<b>${Math.round(100*p)}%</b></div></div><div class=hmeta><span class=flm>${IC.flame}${streak()} ${streak()==1?'día':'días'}</span><span class=gl><span>Meta de la semana</span>${Array.from({length:goalN()},(_,i)=>`<i class="${i<weekSess()?'d':''}"></i>`).join('')}</span></div><div class=hfoot><div class=pips>${W.map((_,i)=>`<i class="${i+1<S.w?'d':i+1==S.w?'c':''}"></i>`).join('')}</div><button class=pl data-a=plan>Ver plan</button></div></div>`};
+const iconOk='✓',iconNo='✕';
+function body(id){const w=S.w,s=S.s,l=LS(),x=w?W[w-1]:null;
+if(id=='ini')return`<span class=eyebrow>Empezamos</span><h1>Primero medimos tu punto de partida</h1><p class=lead>Hacé la prueba de nivel: 12 preguntas, unos 10 minutos. No es un examen. Sirve para comparar cuando la repitas en las semanas 4, 8 y 12.</p><button class=btn data-a=startTest>Hacer la prueba de nivel</button><button class="btn ghost" data-a=st0>Saltear y empezar la semana 1</button>`;
+if(id=='teoria'){if(CF.l!=lk()){const d=DK[lk()]||['C',0];CF={r:d[0],m:d[1],l:lk()}}
+return`<span class=eyebrow>Teoría</span><h1>${esc(x[0])}</h1><p class=sub>${esc(x[1])}</p>${theoryHtml(l)}${(DG[lk()]||[]).length?`<span class=eyebrow style="--c:var(--d2);margin-top:18px">Mirá y tocá</span>${DG[lk()].map(dgCard).join('')}`:''}${GLO}${HT()?'<button class="btn ghost" data-a=askl>No lo entiendo: preguntarle al tutor</button>':''}${nextBtn(DEMO[lk()]?'Escucharlo':'Hacer el chequeo')}`}
+if(id=='oir'){const D=DEMO[lk()]||[];let hx=0;const cards=D.map((d,j)=>{const F=demoFn(d[1],d[2]);return`<div class=card id=dm${j}><div class=dh><b>${esc(d[0])}</b><button class="btn sm" data-a=plays data-v=${j}>▶ Escuchar</button></div><div class=chips>${d[1].map((c,i)=>{const f=F[c];if(f=='X')hx=1;return c[0]=='~'?`<button class=chip data-a=chip data-v="${j}:${i}">${esc(esShort(c))}</button>`:`<button class="chip${f=='X'?' out':f?' f'+f:''}" data-a=chip data-v="${j}:${i}">${esc(pretty(c))}${f?`<sup>${f=='X'?'✱':f}</sup>`:''}<span class=es>${esc(esShort(c))}</span></button>`}).join('')}</div></div>`}).join('');
+return`<span class=eyebrow>Escuchalo</span><h1>Escuchá y mirá la forma</h1><p class=sub>Tocá un acorde para oírlo y ver cómo se arma en la guitarra. El botón ▶ de cada fila toca la secuencia completa. Debajo de cada cifrado va su nombre en castellano.</p>${cards}${D.some(d=>d[1].some(c=>c[0]!='~'))?legend():''}${hx?legendX():''}<div class="card shape" id=shp>${shapeHtml(SEL)}</div>${nextBtn('Hacer el chequeo')}`}
+if(id[0]=='q'){const i=+id[1],q=l[1][i],r=ST.a[i];return`<span class=eyebrow>Chequeo · ${i+1} de 3</span><div class=bar style="margin-top:12px"><i style="width:${100*(i+(r?1:0))/3}%"></i></div><h1 class=q>${esc(q[0])}</h1>${q[1].map((o,j)=>`<button class="opt${r?(j==q[2]?' ok':r[0]==j?' ko':''):''}" data-a=lq data-v="${i}:${j}"><span class=lt>${'ABCD'[j]}</span><span class=ot>${esc(o)}</span></button>`).join('')}${r?`<div class="fb ${r[1]?'g':'b'}"><span class=fi>${r[1]?iconOk:iconNo}</span><div><b>${r[1]?'Correcto.':'No.'}</b> ${r[1]?'':'La respuesta era: '+esc(q[1][q[2]])}</div></div>${nextBtn(i<2?'Siguiente':'Seguir a la práctica')}`:''}`}
+if(id=='guit'){const tx=TX[lk()],t=tx?tx.map(k=>`<div class=card><div class=bh><span class="bl ${k[0]}">${k[0]}</span><b>${md(k[1])}</b>${tmb(k[0])}</div><ul class=stl>${k[2].map((p,i)=>{const key=lk()+k[0]+i;return`<li class="${TK[key]?'on':''}" data-a=tk data-v="${key}"><span class=cb>${TK[key]?'✓':''}</span><span class=tx2>${md(p)}</span></li>`}).join('')}</ul></div>`).join(''):tasks(w,s).map(k=>`<div class=task><span class="bl ${k.b}">${k.b}</span><p style="margin:0">${k.o?'<span class=m>(Opcional) </span>':''}${esc(k.t)}</p></div>`).join('');return`<span class=eyebrow>Con la guitarra</span><h1>Práctica de hoy</h1><p class=sub>Bloque A (20 min): teoría tocada en la guitarra. Bloque B (25 min): oído y canciones. Hacé los pasos en orden y tocá cada uno para tacharlo. El botón ▶ de cada bloque inicia su reloj.</p>${t}${metHtml()}${tx?'':`<p class=m>Estas instrucciones están resumidas.${HT()?' Si no entendés alguna, preguntale al tutor.':' Si no entendés alguna palabra, mirá el glosario de arriba.'}</p>${HT()?'<button class="btn ghost" data-a=askl>Preguntarle al tutor</button>':''}`}<button class="btn ghost" data-a=dstart data-v=${WD[w]}>Practicar 10 preguntas: ${esc(DN[WD[w]])}</button>${GLO}${nextBtn('Terminar la práctica')}`}
+if(id=='prueba'){const cp=[4,8,12].includes(w);return`<span class=eyebrow>Prueba semanal</span><h1>${esc(x[0])}</h1><div class=card><b>Criterio de la semana</b><p>${esc(x[2])}</p><label class=ck><input type=checkbox data-a=cr ${S.crit[w]?'checked':''}> Lo cumplí</label></div><div class=card><b>1. Prueba (15 min)</b><p class=m>Hacé el ejercicio del criterio sin apuntes. Para medirte:</p><button class="btn ghost" data-a=dstart data-v=${WD[w]}>${esc(DN[WD[w]])} · 10 preguntas</button></div><div class=card><b>2. Repaso (15 min)</b><p class=m>Elegí dos conceptos de semanas anteriores y explicalos en voz alta sin mirar. Anotá cuál te costó más.</p></div><div class=card><b>3. Grabación (15 min)</b><p class=m>Grabá 1 minuto explicando la armonía de una canción de tu repertorio y escuchalo.</p><label class=ck><input type=checkbox data-a=rc ${S.rec[w]?'checked':''}> Ya la grabé</label></div>${cp?`<div class="card hl"><b>Control de la semana ${w}</b><p class=m>Hacé la prueba de nivel para comparar con tu punto de partida.</p><button class=btn data-a=startTest>Prueba de nivel</button></div>`:''}${nextBtn('Cerrar la sesión')}`}
+const sc=ST.a.filter(k=>k&&k[1]).length;
+return`<span class=eyebrow>Cierre</span><h1>Terminaste la sesión</h1>${l?`<div class=card><b>Chequeo: ${sc} de 3</b><p class=m>${sc>=2?'Lección aprobada.':'Conviene repasar la teoría y repetir el chequeo.'}</p>${sc<2?'<button class="btn ghost" data-a=rq>Repetir el chequeo</button>':''}</div>`:''}<div class=card><b>¿Cómo te salió?</b><div class=rate>${[1,2,3,4,5].map(n=>`<button class="rb${ST.r==n?' on':''}" data-a=rate data-v=${n}>${n}</button>`).join('')}</div><p class="m sm">1 = me costó mucho · 5 = me salió fácil</p><input type=text id=so placeholder="Canción que trabajaste (opcional)" value="${esc(ST.so||'')}"></div><button class=btn data-a=fin ${ST.r?'':'disabled'}>Guardar y pasar a la próxima sesión</button>`}
+function planView(){return`<div class=top><h1 style="margin:0">Plan de 12 semanas</h1><button class=lnk data-a=planx>Cerrar</button></div>${W.map((x,i)=>`<details class=card><summary><b>Semana ${i+1}</b> · ${esc(x[0])}${S.crit[i+1]?' ✓':''}</summary><p class=m>${esc(x[1])}</p><p><b>Criterio:</b> ${esc(x[2])}</p><p class="m sm" style="margin-bottom:0">Saltá a la sesión que quieras (en verde, las que ya terminaste):</p><div class=chips>${[1,2,3,4,5,6].map(s=>`<button class="chip${S.logs.some(l=>l.w==i+1&&l.s==s)?' fT':''}" data-a=gs data-v="${i+1}:${s}">${s==6?'Prueba':'Ses. '+s}</button>`).join('')}</div></details>`).join('')}<button class="btn ghost" data-a=gw data-v=0>Volver a la prueba inicial</button>`}
+function finish(){S.logs.push({d:today(),w:S.w,s:S.s,m:45,e:ST.r,so:ST.so||''});if(!S.w){S.w=1;S.s=1}else if(S.s<6)S.s++;else if(S.w<12){S.w++;S.s=1}save();ST={k:'',i:0,a:[],r:0,so:''};T.run=0;T.blk='';T.base=T.left=0;SEL=null;R();window.scrollTo(0,0)}
+
+/* ===== Vistas ===== */
+const VIEW={};
+VIEW.est=()=>{if(view=='plan')return planView();if(ST.k!=lk())ST={k:lk(),i:0,a:[],r:0,so:''};const st=steps(),id=st[Math.min(ST.i,st.length-1)];
+return hdr()+(st.length>1?`<div style="--c:var(${SCOL[id]})">${stepper(st,Math.min(ST.i,st.length-1))}</div>`:'')+`<div class=stp style="--c:var(${SCOL[id]})">${body(id)}${ST.i>0?'<button class=lnk data-a=back>← Atrás</button>':''}</div>`};
+function quizView(){const q=QS.l[QS.i],n=QS.l.length,col=DCOL[QS.d]||'--g1';
+if(QS.done){const ok=QS.res.filter(Boolean).length,p=Math.round(100*ok/n),miss=QS.l.filter((x,i)=>!QS.res[i]),first=QS.test&&S.w==0,rc=p>=80?'--dT':p>=60?'--dP':'--dD',e=S.err.length;
+return`<div class=res style="--c:var(${rc})"><span class=eyebrow style="--c:var(${col})">${QS.test?'Prueba de nivel':esc(dn(QS.d))}</span><div class=rg>${ring(p/100,160,16,'var(--c)','var(--line)')}<div class=rn><b>${ok}</b><span>de ${n}</span></div></div><h1>${p==100?'Perfecto.':p>=80?'Muy bien.':p>=60?'Vas por buen camino.':'Todavía falta práctica.'}</h1>${QS.best>=3?`<span class=cmb style="display:inline-flex">${IC.flame}${QS.best} seguidas</span>`:''}<p class=sub style="margin-top:8px">${p>=80?'Seguí así.':p>=60?'Repasá lo que fallaste y volvé a intentar.':'Repetí el ejercicio y volvé a la lección.'}</p>
+${miss.length?`<div class=card><b>Lo que fallaste</b><p class="m sm" style="margin-top:2px">Quedó guardado en tu repaso de errores.</p>${miss.map(x=>`<p class=m>${esc(x.t)}<br><span class=mono>${esc(x.ex)}</span></p>`).join('')}</div>`:''}
+${first?'<button class=btn data-a=st0>Empezar la semana 1</button>':''}${e&&!QS.review?`<button class="btn${first?' ghost':''}" data-a=rev>Repasar mis errores (${e})</button>`:''}<button class="btn${first||(e&&!QS.review)?' ghost':''}" data-a=qagain>Repetir</button><button class="btn ghost" data-a=qexit>Volver</button></div>`}
+const a=QS.ans;
+return`<div class=qs style="--c:var(${col})"><div class=qtop><button class=xb data-a=qexit aria-label="Salir del ejercicio">${IC.x}</button><div class=seg>${QS.l.map((_,i)=>`<i class="${i<QS.i||(i==QS.i&&a!=null)?(QS.res[i]?'d':'x'):i==QS.i?'c':''}"></i>`).join('')}</div>${QS.cmb>1?`<span class=cmb>${IC.flame}${QS.cmb}</span>`:''}</div>
+<div class=qcard><span class=eyebrow>${QS.test?'Prueba de nivel':esc(dn(QS.d))} · ${QS.i+1}/${n}</span>${QS.i==0&&!QS.test&&DD[QS.d]?`<p class="m sm" style="margin:10px 0 0">${esc(DD[QS.d])}</p>`:''}<h1 class=q>${esc(q.t)}</h1>${q.play?'<button class="btn ghost sm" style="margin-top:12px" data-a=qp>▶ Escuchar de nuevo</button>':''}</div>
+<button class=lnk data-a=qh>${QS.help?'Ocultar ayuda':'¿Necesitás ayuda? Tocá acá'}</button>${QS.help?helpHtml(q):''}<div id=nohl>${q.o.map((o,j)=>`<button class="opt${MONO.has(q.d)?' mono':''}${a!=null?(j==q.a?' ok':j==a?' ko':''):''}" data-a=qa data-v=${j}><span class=lt>${'ABCD'[j]}</span><span class=ot>${esc(o)}</span></button>`).join('')}</div>${a!=null?`<div class="fb ${a==q.a?'g':'b'}"><span class=fi>${a==q.a?iconOk:iconNo}</span><div><b>${a==q.a?'Correcto.':'No.'}</b> ${esc(q.ex)}</div></div><button class=btn data-a=qn>${QS.i<n-1?'Siguiente':'Ver resultado'}</button>`:''}${GLO}</div>`}
+VIEW.pra=()=>{if(QS)return quizView();const acc=d=>{const x=S.dr[d];return x?Math.round(100*x.ok/x.n)+'% de aciertos':'Sin practicar'},due=errDue().length,all=S.err.length;
+return`<h1>Practicar</h1><p class=sub>Ejercicios cortos con corrección inmediata. Los resultados alimentan tu progreso.</p>
+<div class="hero" style="margin-top:14px"><div class=hrow><div><span class=hk>Medición</span><div class=ht>Prueba de nivel</div><p style="margin:6px 0 0;opacity:.9;font-size:15px">12 preguntas mezcladas. Hacela en las semanas 0, 4, 8 y 12.</p></div></div><button class=btn data-a=startTest style="background:#fff;color:#4A2FD0;box-shadow:0 5px 0 rgba(0,0,0,.25)">Empezar la prueba</button></div>
+<div class=tiles>${all?`<button class="tile wide" style="--c:var(--dT)" data-a=rev><svg class=mot viewBox="0 0 100 100">${MOT.repaso}</svg><b>Repaso de errores</b><span class=ac>${due?due+' para repasar hoy':'Nada vence hoy, podés repasar igual'} · ${all} guardados</span><span class=go>Repasar</span></button>`:''}</div>${[['Teoría (sin sonido)',GT],['Oído (con sonido)',GO]].map(([h,g])=>`<h2 class=gh>${h}</h2><div class=tiles>${g.map(d=>`<button class=tile style="--c:var(${DCOL[d]})" data-a=dstart data-v=${d}><svg class=mot viewBox="0 0 100 100">${MOT[d]}</svg><b>${esc(DN[d])}</b><span class=ac>${acc(d)}</span><span class=go>10 preguntas</span></button>`).join('')}</div>`).join('')}
+<details class=card><summary><b>¿Qué practico en cada uno?</b></summary>${Object.keys(DN).map(d=>`<p class=m><b style="color:var(--ink)">${esc(DN[d])}.</b> ${esc(DD[d])}</p>`).join('')}</details>`};
+VIEW.exp=()=>{return`<h1>Explorar</h1><p class=sub>Cinco mapas para entender la teoría con los ojos y los oídos. Tocá todo lo que veas.</p><div class=pills>${Object.keys(DGT).map(d=>`<button class="chip${EXD==d?' on':''}" data-a=exd data-v=${d}>${DGT[d]}</button>`).join('')}</div>${dgCard(EXD)}`};
+VIEW.tut=()=>`<h1>Tutor</h1><p class=sub>Preguntale lo que no entiendas de la lección, o mandale tu análisis de una canción (tonalidad, grados y qué tan seguro estás) para que lo corrija. Puede equivocarse: ante una duda de teoría, contrastá con la lección.</p>${TC.map(m=>`<div class="msg${m[0]=='u'?' u':''}">${esc(m[1])}</div>`).join('')}<div class=chips><button class=chip data-a=qk data-v=1>Explicámelo de otra forma</button><button class=chip data-a=qk data-v=2>Dame un ejemplo</button><button class=chip data-a=qk data-v=3>Corregí mi análisis</button></div><textarea id=tq rows=3 placeholder="Escribí tu duda o tu análisis">${esc(TD)}</textarea><button class=btn data-a=ask>Preguntar</button>`;
+const pc=(a,b)=>b?Math.round(100*a/b):null;
+const row=(l,p,c)=>`<div class=row style="--c:var(${c||'--d5'})"><span>${l}</span><div class=bar><i style="width:${p||0}%"></i></div><b>${p==null?'–':p+'%'}</b></div>`;
+VIEW.prog=()=>{const les=Object.values(S.q).filter(x=>x>=2).length,tl=L.reduce((a,x)=>a+x.length,0),tot=Object.values(S.dr).reduce((a,x)=>[a[0]+x.n,a[1]+x.ok],[0,0]);
+const ts=S.tests,ch=ts.length>1?pc(ts[ts.length-1].ok,ts[ts.length-1].n)-pc(ts[0].ok,ts[0].n):null,lt=S.t4[S.t4.length-1],ac_=tot[0]?pc(tot[1],tot[0]):null;
+return`<h1>Progreso</h1><div class=stats><div class=stat style="--c:var(--d1)"><b>${S.logs.length}</b><span>sesiones</span></div><div class=stat style="--c:var(--d2)"><b>${les}/${tl}</b><span>lecciones</span></div><div class=stat style="--c:var(--dT)"><b>${ac_==null?'–':ac_+'%'}</b><span>aciertos</span></div></div>
+<div class=card><b>Racha y meta</b><p class=m style="margin:4px 0 0"><b style="color:var(--ink)">${streak()} ${streak()==1?'día':'días'} seguidos.</b> Cuenta cualquier día en que terminás una sesión o un ejercicio.</p><div class=wdays>${weekDays().map((d,i)=>`<i class="${dset().has(d)?'d':d==today()?'t':''}">${'LMMJVSD'[i]}</i>`).join('')}</div><div class=row style="grid-template-columns:1fr 54px;--c:var(--dP)"><div class=bar><i style="width:${Math.min(100,100*weekSess()/goalN())}%"></i></div><b>${weekSess()}/${goalN()}</b></div><p class="m sm" style="margin:0">Meta: ${goalN()} sesiones por semana (de lunes a domingo).</p></div>
+<div class=card><b>Pruebas de nivel</b>${ts.length?testChart(ts.slice(-8)):'<p class=m>Todavía no hiciste ninguna. Está en Practicar.</p>'}${ch!=null?`<p class=m>Cambio desde la primera: ${ch>=0?'+':''}${ch} puntos.</p>`:''}</div>
+<div class=card><b>Aciertos por ejercicio</b>${Object.keys(DN).map(d=>row(esc(DS[d]),S.dr[d]?pc(S.dr[d].ok,S.dr[d].n):null,DCOL[d])).join('')}</div>
+<div class=card><b>Repaso de errores</b><p class=m>${S.err.length?`${S.err.length} guardados, ${errDue().length} para repasar hoy. Cada acierto en el repaso los espacia más; al tercer acierto seguido salen de la lista.`:'No tenés errores guardados. Los que falles en los ejercicios aparecen acá.'}</p>${S.err.length?'<button class="btn ghost" data-a=rev>Repasar ahora</button>':''}</div>
+<div class=card><b>Criterios por semana</b><div class=wk>${W.map((_,i)=>`<i class="${S.crit[i+1]?'d':i+1==S.w?'c':''}">${i+1}</i>`).join('')}</div><p class="m sm">Lleno = criterio cumplido. Borde = semana actual.</p></div>
+<div class=card><b>Prueba de canción (T4)</b><p class=m>Sacá de oído la estrofa de una canción lenta nueva. Antes de verificar con MESA, anotá tu confianza.</p><input type=number id=t4a min=0 placeholder="Acordes correctos"><input type=number id=t4n min=1 placeholder="Total de acordes"><select id=t4c><option>baja<option selected>media<option>alta</select><button class="btn ghost" data-a=t4s>Guardar</button>${S.t4.slice(-4).reverse().map(t=>`<p class=m>Sem. ${t.w} · ${t.a}/${t.n} (${pc(t.a,t.n)}%) · confianza ${t.c}</p>`).join('')}${lt&&lt.c=='alta'&&pc(lt.a,lt.n)<60?'<p><b>Tu confianza fue alta y el acierto bajo.</b> Eso indica exceso de confianza: verificá más antes de dar por buena una hipótesis.</p>':''}</div>
+${cfgHtml()}<details class=card><summary><b>Respaldo de tu progreso</b></summary><p class=m>El progreso vive en este navegador. Copiá este texto para guardarlo; pegalo acá y tocá Importar para restaurarlo.</p><textarea id=js rows=5>${esc(JSON.stringify(S))}</textarea><button class="btn ghost" data-a=cp>Copiar</button><button class="btn ghost" data-a=im>Importar</button><button class="btn ghost" data-a=wp>Borrar todo</button><p id=ms class=m></p></details>`};
+
+const NAV=[['est','Estudiar'],['pra','Practicar'],['exp','Explorar'],['tut','Tutor'],['prog','Progreso']];
+function R(){$('#nv').innerHTML=NAV.filter(([k])=>k!='tut'||HT()).map(([k,l])=>`<button class="tb${k==tab?' on':''}" data-a=tab data-v=${k}>${IC[k]}${l}</button>`).join('');$('#app').innerHTML=VIEW[tab]();updTimer()}
+function updTimer(){if(T.run){T.left=Math.max(0,T.base-Math.floor((Date.now()-T.t0)/1000));if(!T.left){T.run=0;try{ac();playOne('C',AC.currentTime+.02,1.6);playOne('G',AC.currentTime+.5,1.6);playOne('C',AC.currentTime+1,2)}catch(e){}}}
+['A','B'].forEach(b=>{const e=$('#tm'+b);if(!e)return;const on=T.blk==b;e.textContent=(on&&T.run?'❚❚ ':'▶ ')+fmtT(on?T.left:BDUR[b]);e.classList.toggle('run',on&&!!T.run)})}
+setInterval(updTimer,500);
+
+/* ===== Tutor ===== */
+async function ask(){const q=(TD||'').trim();if(!q)return;TC.push(['u',q],['t','Pensando…']);TD='';R();
+try{const sm=await window.claude.use('sample');if(!sm)throw 0;const l=LS(),h=TC.slice(-8,-2).map(m=>(m[0]=='u'?'Alumno: ':'Tutor: ')+m[1]).join('\n');
+const r=await sm('Sos un tutor de guitarra y teoría musical (pop y rock en español) para un alumno adulto de nivel básico a intermedio. Respondé en español rioplatense con voseo, en un máximo de 120 palabras, con precisión. Si no estás seguro, decilo e indicá tu nivel de confianza. No inventes datos de canciones. Si el alumno manda un análisis, evaluá su hipótesis, señalá lo que esté mal y explicá por qué. Contexto: semana '+S.w+', sesión '+S.s+(S.w&&W[S.w-1]?' ('+W[S.w-1][0]+')':'')+'. Teoría de la lección de hoy: '+(l?l[0]:'(no hay lección escrita para hoy)')+'\nHistorial:\n'+h+'\nAlumno: '+q,{cache:false});TC[TC.length-1]=['t',r.text]}
+catch(e){TC[TC.length-1]=['t','El tutor no está disponible ahora (falta el permiso o se alcanzó el límite de uso).']}R()}
+
+/* ===== Acciones ===== */
+const playN=m=>{try{ac();pluck(mf(m),AC.currentTime+.02,1.3,.28)}catch(e){}};
+const A={
+tab:v=>{metStop();tab=v;R();window.scrollTo(0,0)},
+gs:v=>{const[w,s]=v.split(':').map(Number);metStop();S.w=w;S.s=s;save();view='main';ST={k:'',i:0,a:[],r:0,so:''};tab='est';R();window.scrollTo(0,0)},
+met:()=>{if(MT.on)metStop();else metStart();R()},
+bpm:v=>{MT.bpm=Math.max(40,Math.min(200,MT.bpm+ +v));const e=$('#mbpm'),r=$('#mr');if(e&&e.firstChild)e.firstChild.textContent=MT.bpm;if(r)r.value=MT.bpm},
+cfg:v=>{const[k,x]=v.split(':');if(k=='th')S.cfg.th=x;else if(k=='snd')S.cfg.snd=x=='1';else S.cfg[k]=+x;save();applyCfg();R()},
+plan:()=>{metStop();view='plan';R();window.scrollTo(0,0)},planx:()=>{view='main';R()},
+gw:v=>{S.w=+v;S.s=1;save();view='main';ST={k:'',i:0,a:[],r:0,so:''};tab='est';R();window.scrollTo(0,0)},
+st0:()=>{S.w=1;S.s=1;save();QS=null;view='main';tab='est';ST={k:'',i:0,a:[],r:0,so:''};R();window.scrollTo(0,0)},
+nx:()=>{metStop();ST.i++;R();window.scrollTo(0,0)},back:()=>{metStop();ST.i=Math.max(0,ST.i-1);R();window.scrollTo(0,0)},
+rq:()=>{ST.a=[];ST.i=steps().indexOf('q0');R();window.scrollTo(0,0)},
+lq:v=>{const[i,j]=v.split(':').map(Number),q=LS()[1][i];if(ST.a[i])return;ST.a[i]=[j,j==q[2]];if(ST.a.filter(Boolean).length==3){S.q[lk()]=Math.max(S.q[lk()]||0,ST.a.filter(k=>k[1]).length);save()}R()},
+chip:v=>{const[j,i]=v.split(':').map(Number),c=DEMO[lk()][j][1][i];SEL=c[0]=='~'?null:c;try{stopSeq();ac();playOne(c,AC.currentTime+.02,1.8)}catch(e){}const e=$('#shp');if(e)e.innerHTML=shapeHtml(SEL)},
+plays:v=>{const d=DEMO[lk()][+v];playSeq(d[1],d[1][0][0]=='~'?.5:1.2,'#dm'+v)},
+tb:v=>{if(T.blk!=v){T.blk=v;T.base=T.left=BDUR[v];T.run=0}if(T.run){T.run=0;T.base=T.left}else{if(!T.left)T.base=T.left=BDUR[v];T.base=T.left;T.run=1;T.t0=Date.now()}updTimer()},
+tk:(v,b)=>{TK[v]=!TK[v];b.classList.toggle('on',TK[v]);const c=b.querySelector('.cb');if(c)c.textContent=TK[v]?'✓':''},
+go:v=>{metStop();ST.i=+v;R();window.scrollTo(0,0)},
+cr:(v,b)=>{S.crit[S.w]=b.checked;save()},rc:(v,b)=>{S.rec[S.w]=b.checked;save()},
+rate:v=>{ST.r=+v;R()},fin:()=>{if(ST.r)finish()},
+startTest:()=>startQuiz('nivel'),dstart:v=>startQuiz(v,10),rev:()=>startReview(),
+qa:v=>{const q=QS.l[QS.i];if(QS.ans!=null)return;const ok=+v==q.a;QS.ans=+v;QS.res.push(ok);if(ok){QS.cmb++;QS.best=Math.max(QS.best,QS.cmb)}else QS.cmb=0;if(QS.review)errRes(q,ok);else if(!ok)errAdd(q);save();R()},
+qn:()=>{if(QS.i<QS.l.length-1){QS.i++;QS.ans=null;R();window.scrollTo(0,0);setTimeout(autoPlay,200)}else finishQuiz()},
+qh:()=>{QS.help=!QS.help;R()},
+qp:()=>{const q=QS.l[QS.i];playSeq(q.play,q.play.length==1?1.6:1.1,'#nohl')},
+qagain:()=>{if(QS.review)startReview();else startQuiz(QS.d,10)},qexit:()=>{stopSeq();QS=null;R();window.scrollTo(0,0)},
+askl:()=>{TD=LS()?'No entiendo esta parte de la lección: ':'Necesito que me expliques la teoría de esta semana: ';tab='tut';R();window.scrollTo(0,0)},
+qk:v=>{TD={1:'Explicame la lección de hoy con otras palabras.',2:'Dame un ejemplo concreto de la lección de hoy.',3:'Corregí mi análisis. Tonalidad: … Grados: … Confianza: …'}[v];R()},
+ask:ask,
+exd:v=>{EXD=v;R()},ck:v=>{CF.r=v;refreshDG()},cm:v=>{CF.m=+v;refreshDG()},
+cn:v=>{const[i,m]=v.split(':').map(Number);CF.r=CROOTS[i];CF.m=m;refreshDG();const k=kinfo(CF.r,CF.m);try{stopSeq();ac();playOne(k.ch[0],AC.currentTime+.02,1.6)}catch(e){}},
+nt:v=>playN(+v),nn:v=>{const k=kinfo(CF.r,CF.m);playN(rootMidi(k)+(k.m?IVm:IVM)[+v])},
+pc:v=>{try{stopSeq();ac();playOne(v,AC.currentTime+.02,1.8)}catch(e){}},
+psc:(v,b)=>{const k=kinfo(CF.r,CF.m),e=b&&b.closest&&b.closest('[data-dg]'),st=e&&e.dataset.dg=='stair';playSeq(scaleSeq(k),.45,st?'[data-dg=stair]':'#nohl')},
+pfn:()=>{const k=kinfo(CF.r,CF.m);playSeq([k.ch[0],k.ch[3],k.m?k.V:k.ch[4],k.ch[0]],1.1,'#nohl')},
+t4s:()=>{const a=+$('#t4a').value,n=+$('#t4n').value;if(!n||a<0||a>n)return;S.t4.push({d:today(),w:S.w,a,n,c:$('#t4c').value});save();R()},
+cp:()=>{const t=$('#js');t.select();try{navigator.clipboard.writeText(t.value).catch(()=>{})}catch(e){}$('#ms').textContent='Copiado. Si no se copió, seleccioná el texto y copialo a mano.'},
+im:()=>{try{const o=JSON.parse($('#js').value);if(!o||!Array.isArray(o.logs))throw 0;S=Object.assign(DEF(),o);if(!Array.isArray(S.tests))S.tests=[];if(!Array.isArray(S.t4))S.t4=[];if(!Array.isArray(S.hist))S.hist=[];if(!Array.isArray(S.err))S.err=[];S.cfg=Object.assign({fs:0,th:'auto',snd:true,goal:5},S.cfg&&typeof S.cfg=='object'?S.cfg:{});save();applyCfg();ST={k:'',i:0,a:[],r:0,so:''};R();$('#ms')&&($('#ms').textContent='Importado.')}catch(e){$('#ms').textContent='El texto no es un respaldo válido.'}},
+wp:()=>{if(!wipe){wipe=1;$('#ms').textContent='Tocá "Borrar todo" otra vez para confirmar.';return}wipe=0;S=DEF();save();applyCfg();ST={k:'',i:0,a:[],r:0,so:''};QS=null;R()}};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b&&A[b.dataset.a])A[b.dataset.a](b.dataset.v,b)});
+document.addEventListener('input',e=>{if(e.target.id=='tq')TD=e.target.value;if(e.target.id=='mr'){MT.bpm=+e.target.value;const m=$('#mbpm');if(m&&m.firstChild)m.firstChild.textContent=MT.bpm}if(e.target.id=='so')ST.so=e.target.value});
+applyCfg();R();
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')==0){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
+
+</script>
+</body></html>
