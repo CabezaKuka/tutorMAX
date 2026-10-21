@@ -32,6 +32,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 .ni span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .ni.on{background:var(--accs);color:var(--accT)}
 .tbb{position:absolute;top:3px;left:calc(50% + 6px);min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:var(--ko);color:#fff;font:800 10px/17px var(--fd);font-style:normal;text-align:center}
+.main:focus{outline:none}
 .main{width:100%;padding:18px 16px 70px;max-width:1040px;margin:0 auto;min-width:0}
 @media(min-width:900px){
 :root{--navh:0px}
@@ -155,7 +156,7 @@ button.mini{cursor:pointer}
 @media(max-width:480px){.sp{font-size:0;gap:0}.sp.c{font-size:10.5px;gap:4px}}
 .stp{margin-top:12px}
 .navr{display:flex;gap:10px;margin-top:22px}.navr .btn{flex:1}.navr .btn.gh{flex:0 0 auto}
-.snav{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:34px;padding-top:14px;border-top:1px solid var(--line)}
+.snav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:34px;padding-top:14px;border-top:1px solid var(--line)}
 .snav .rw{background:var(--sf);border:1px solid var(--line)}
 .snav .rw.r{text-align:right}.snav .rw .tt>span{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
 .snav .rw .tt b{font-size:14px}
