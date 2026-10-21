@@ -1,0 +1,9 @@
+# Configuración para publicar desde GitHub (necesario para el tutor).
+# Con arrastrar y soltar en app.netlify.com/drop no hace falta: se publica la carpeta tal cual.
+[build]
+  command = "npm run publicar"
+  publish = "_site"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
