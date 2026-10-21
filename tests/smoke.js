@@ -1,15 +1,24 @@
 // Prueba de humo: abre la app en Chromium sin pantalla, valida el contenido,
 // recorre todas las sesiones y ejercicios y revisa que nada se desborde en el celular.
-// Uso: npm test   (o: node tests/smoke.js)
+// Uso: npm test   (o: node tests/smoke.js). Levanta un servidor local propio.
 const {chromium}=require('playwright');
 const path=require('path'),fs=require('fs');
-const ROOT=path.join(__dirname,'..'),URL='file://'+path.join(ROOT,'index.html');
+const http=require('http');
+const ROOT=path.join(__dirname,'..');
+// Servidor local mínimo (el service worker y las fuentes necesitan http)
+const TYPES={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.png':'image/png','.woff2':'font/woff2'};
+let swExtra='';
+const srv=http.createServer((q,r)=>{let f=decodeURIComponent(q.url.split('?')[0]);if(f.endsWith('/'))f+='index.html';const fp=path.join(ROOT,path.normalize(f));
+ if(!fp.startsWith(ROOT)||!fs.existsSync(fp)||fs.statSync(fp).isDirectory()){r.writeHead(404);return r.end()}
+ let body=fs.readFileSync(fp);if(f=='/sw.js')body=Buffer.concat([body,Buffer.from(swExtra)]);
+ r.writeHead(200,{'Content-Type':TYPES[path.extname(fp)]||'application/octet-stream','Cache-Control':'no-cache'});r.end(body)});
 const fails=[];const fail=m=>{fails.push(m);console.log('  ✕ '+m)};
 const ok=m=>console.log('  ✓ '+m);
 
 (async()=>{
+await new Promise(ok=>srv.listen(0,'127.0.0.1',ok));const URL=`http://127.0.0.1:${srv.address().port}/`;
 const b=await chromium.launch(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{});
-const p=await b.newPage({viewport:{width:360,height:740}});
+const ctx=await b.newContext({viewport:{width:360,height:740}});const p=await ctx.newPage();
 const errs=[];p.on('pageerror',e=>errs.push(e.message));p.on('console',m=>{if(m.type()=='error'&&!/fonts\.googleapis|ERR_FILE_NOT_FOUND|net::/.test(m.text()))errs.push(m.text())});
 await p.goto(URL);await p.waitForFunction(()=>typeof A=='object');
 
@@ -49,6 +58,12 @@ ok('ejercicios de Practicar completos');
 await p.evaluate(()=>{A.tab('prog')});await over('progreso con datos');
 
 console.log('Respaldo');
+await p.evaluate(()=>A.tab('cfg'));const [dl]=await Promise.all([p.waitForEvent('download'),p.click('[data-a=bkdl]')]);
+const bk=fs.readFileSync(await dl.path(),'utf8'),nl=JSON.parse(bk).logs.length;
+nl>0?ok(`archivo de respaldo (${dl.suggestedFilename()}, ${nl} sesiones)`):fail('el archivo de respaldo está vacío');
+await p.evaluate(()=>A.wp()||A.wp());await p.evaluate(()=>A.tab('cfg'));
+await p.setInputFiles('#bkf',{name:'r.json',mimeType:'application/json',buffer:Buffer.from(bk)});await p.waitForTimeout(300);
+(await p.evaluate(()=>S.logs.length))==nl?ok('abrir el archivo restaura el progreso'):fail('importar el archivo no restauró el progreso');
 const bad=await p.evaluate(()=>{const keep=JSON.stringify(S);const o=JSON.parse(keep);o.w=13;o.s=9;o.t4=[{d:'x',w:1,a:1,n:2,c:'<img src=x onerror=alert(1)>'}];
  localStorage.setItem('gtr12',JSON.stringify(o));return keep});
 await p.reload();await p.waitForFunction(()=>typeof A=='object');
@@ -63,6 +78,13 @@ await p.evaluate(()=>A.tab('cfg'));await p.focus('[data-a=cfg][data-v="fs:1"]');
 const f=await p.evaluate(()=>{const e=document.activeElement;return e&&e.dataset?e.dataset.v:null});
 f=='fs:1'?ok('el foco se conserva después de redibujar'):fail('el foco se pierde al redibujar (quedó en '+f+')');
 
+console.log('Sin conexión y versión nueva');
+await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await p.waitForFunction(()=>!!navigator.serviceWorker.controller);
+await ctx.setOffline(true);await p.reload();const off=await p.evaluate(()=>typeof A=='object'&&!!document.querySelector('#app').children.length);
+off?ok('la app abre sin conexión'):fail('la app no abre sin conexión');await ctx.setOffline(false);
+swExtra='\n// cambio de prueba';await p.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));
+try{await p.waitForSelector('#upd [data-a=upd]',{timeout:8000});ok('aparece el aviso de versión nueva');
+ await Promise.all([p.waitForEvent('load',{timeout:8000}),p.click('#upd [data-a=upd]')]);ok('“Actualizar” recarga con la versión nueva')}catch(e){fail('aviso de versión nueva: '+e.message.split('\n')[0])}
 errs.length?errs.slice(0,10).forEach(e=>fail('error de JavaScript: '+e)):ok('sin errores de JavaScript');
-await b.close();
+await b.close();srv.close();
 console.log(fails.length?`\n${fails.length} problema(s)`:'\nTodo bien');process.exit(fails.length?1:0)})().catch(e=>{console.error(e);process.exit(1)});

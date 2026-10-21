@@ -4,7 +4,8 @@
 const fs=require('fs'),path=require('path');
 const ROOT=path.join(__dirname,'..'),rd=f=>fs.readFileSync(path.join(ROOT,f),'utf8');
 let h=rd('index.html')
- .replace(/<link rel="stylesheet" href="(css\/[^"]+)">/g,(_,f)=>`<style>\n${rd(f)}</style>`)
+ .replace(/<link rel="preload"[^>]*>\n?/g,'')
+ .replace(/<link rel="stylesheet" href="(css\/[^"]+)">/g,(_,f)=>`<style>\n${rd(f).replace(/url\(\.\.\/(fonts\/[^)]+\.woff2)\)/g,(_,x)=>`url(data:font/woff2;base64,${fs.readFileSync(path.join(ROOT,x)).toString('base64')})`)}</style>`)
  .replace(/<script src="(js\/[^"]+)"><\/script>/g,(_,f)=>`<script>\n${rd(f).replace(/<\/script/gi,'<\\/script')}</script>`);
 fs.mkdirSync(path.join(ROOT,'dist'),{recursive:true});
 fs.writeFileSync(path.join(ROOT,'dist','guitarra12.html'),h);

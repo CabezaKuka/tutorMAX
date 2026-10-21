@@ -1,6 +1,6 @@
 /* ===== Utilidades y estado ===== */
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])),today=()=>{const d=new Date();return new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
-const K='gtr12';
+const K='gtr12',VER=13;
 const HT=()=>!!(window.claude&&typeof window.claude.use=='function');
 const DEF=()=>({w:0,s:1,logs:[],crit:{},rec:{},tests:[],q:{},qc:{},dr:{},hist:[],t4:[],err:[],pr:{},tk:{},cfg:{fs:0,th:'dark',snd:true,goal:5,lv:'auto',v13:1}});
 let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
@@ -456,7 +456,10 @@ check:svgi('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
 x:svgi('<path d="M6 6l12 12M18 6L6 18"/>'),
 flame:svgi('<path d="M12 2c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.2 2-4.2.2 1.6 1 2.2 1.8 2.2C10.5 7 11 4.5 12 2z" fill="currentColor" stroke="none"/>'),
 redo:svgi('<path d="M19 12a7 7 0 1 1-2.1-5"/><path d="M19 4v4.5h-4.5"/>'),
-mesa:svgi('<path d="M7 4v16M12 9v11M17 4v16"/><path d="M4.5 8h5M9.5 13h5M14.5 9h5"/>')};
+mesa:svgi('<path d="M7 4v16M12 9v11M17 4v16"/><path d="M4.5 8h5M9.5 13h5M14.5 9h5"/>'),
+down:svgi('<path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/>'),
+mic:svgi('<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/>'),
+book:svgi('<path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H19"/>')};
 const DCOL={tono:4,func:2,mastil:3,notas:1,capo:5,reposo:1,acordes:0,grados:4,transporte:5,oido:3,calidad:1,ogr:0,sept:5,ajenos:2,penta:0,bajo:4,sus:5,blues:1,repaso:1,nivel:0};
 const EXI={acordes:'AC',grados:'GR',func:'FN',tono:'TO',transporte:'TR',ajenos:'AJ',blues:'BL',mastil:'MA',notas:'NA',capo:'CP',penta:'PE',reposo:'CA',bajo:'BA',oido:'PR',ogr:'OG',calidad:'Mm',sept:'7ª',sus:'SU',repaso:'RE',nivel:'NV'};
 const dn=d=>DN[d]||(d=='repaso'?'Repaso de errores':'Prueba de nivel');
@@ -734,7 +737,10 @@ return hdr('Progreso','· cómo vas')+`<div class=minis><div class=mini><span cl
 <div class=card><b>Criterios por semana</b><div class=wk>${W.map((_,i)=>`<button class="wkb ${S.crit[i+1]?'d':i+1==S.w?'c':''}${WKC==i+1?' sel':''}" data-a=wkc data-v=${i+1} aria-label="Semana ${i+1}${S.crit[i+1]?', cumplida':''}">${i+1}</button>`).join('')}</div><p class="m sm">Lleno = criterio cumplido. Borde ámbar = semana actual. Tocá una semana para ver su criterio.</p>${WKC?`<div class=wkd><b>Semana ${WKC} · ${esc(W[WKC-1][0])}</b><p class=m>${esc(W[WKC-1][2])}</p><p><b style="color:var(${S.crit[WKC]?'--ok':'--mut'})">${S.crit[WKC]?'✓ Cumplido':'Pendiente'}</b></p><button class="btn gh sm" data-a=gs data-v="${WKC}:1">Ir a la semana ${WKC}</button></div>`:''}</div>
 <div class=card><b>Prueba de canción</b><p class=m>Sacá de oído la estrofa de una canción nueva. Antes de verificar en Mesa, anotá tu confianza.</p><div class=f3><input type=number id=t4a min=0 placeholder="Correctos"><input type=number id=t4n min=1 placeholder="Total"><select id=t4c aria-label=Confianza><option value=baja>Confianza baja<option value=media selected>Confianza media<option value=alta>Confianza alta</select></div><button class="btn gh blk" data-a=t4s>Guardar</button>${S.t4.slice(-4).reverse().map(t=>`<div class=prow><span class=pl>Sem. ${t.w} · confianza ${esc(t.c)}</span><div class=bar><i style="width:${pc(t.a,t.n)}%"></i></div><b>${t.a}/${t.n}</b></div>`).join('')}${lt&&lt.c=='alta'&&pc(lt.a,lt.n)<60?'<p><b>Tu confianza fue alta y el acierto bajo.</b> Eso indica exceso de confianza: verificá más antes de dar por buena una hipótesis.</p>':''}</div>`};
 VIEW.cfg=()=>hdr('Ajustes','· preferencias y respaldo')+`<div class=card><div class=cfgrow><b>Tema</b>${segc('th',[['dark','Oscuro'],['light','Claro'],['auto','Automático']],S.cfg.th)}</div><div class=cfgrow><b>Tamaño de letra</b>${segc('fs',[[0,'Normal'],[1,'Grande'],[2,'Muy grande']],S.cfg.fs)}</div><div class=cfgrow><b>Sonido</b>${segc('snd',[[1,'Activado'],[0,'Silenciado']],S.cfg.snd===false?0:1)}</div><div class=cfgrow><b>Meta semanal (sesiones)</b>${segc('goal',[[3,'3'],[4,'4'],[5,'5'],[6,'6']],goalN())}</div><div class=cfgrow><b>Ejercicios de Practicar</b>${segc('lv',[['auto','Según mi semana'],['all','Todo el programa']],S.cfg.lv=='all'?'all':'auto')}</div></div>
-<div class=card><b>Respaldo de tu progreso</b><p class=m>El progreso vive en este navegador. Copiá este texto para guardarlo; pegalo acá y tocá Importar para restaurarlo.</p><textarea id=js rows=5>${esc(JSON.stringify(S))}</textarea><div class=brow><button class="btn gh" data-a=cp>Copiar</button><button class="btn gh" data-a=im>Importar</button><button class="btn gh danger" data-a=wp>Borrar todo</button></div><p id=ms class=m></p></div>`;
+<div class=card><b>Respaldo de tu progreso</b><p class=m>El progreso vive en este dispositivo. Para pasarlo a otro (del teléfono a la PC, por ejemplo), guardá un archivo de respaldo y abrilo en el otro.</p><div class=brow><button class=btn data-a=bkdl>${IC.down} Guardar archivo</button>${canShareBk()?`<button class="btn gh" data-a=bksh>Compartir</button>`:''}<label class="btn gh" tabindex=0 role=button>Abrir archivo<input type=file id=bkf accept=".json,application/json,text/plain" class=sr></label></div>
+<details class=bkt><summary class="m sm">O copiar y pegar como texto</summary><textarea id=js rows=5>${esc(JSON.stringify(S))}</textarea><div class=brow><button class="btn gh sm" data-a=cp>Copiar</button><button class="btn gh sm" data-a=im>Importar texto</button></div></details>
+<div class=brow><button class="btn gh danger" data-a=wp>Borrar todo</button></div><p id=ms class=m role=status></p></div>
+<p class="m sm ver">Versión ${VER}</p>`;
 
 const NAV=[['est','Estudiar'],['pra','Practicar'],['exp','Explorar'],['prog','Progreso'],['tut','Tutor'],['cfg','Ajustes']];
 // Al redibujar se conserva el foco (teclado y lectores de pantalla no pierden su lugar)
@@ -757,6 +763,15 @@ const playN=m=>{try{ac();pluck(mf(m),AC.currentTime+.02,1.3,.28)}catch(e){}};
 const top0=()=>window.scrollTo(0,0);
 const openSes=()=>{metStop();stopSeq();view='ses';tab='est';ST=newST();R();top0()};
 function dPlayFrom(from){const d=(DEMO[lk()]||[])[DP.j];if(!d)return;const seq=d[1].slice(from);playSeq(seq,gapOf(d[1]),null,k=>{if(k<0){DP.on=0}else{DP.i=from+k}updStage()});DP.on=1;DP.i=from;updStage()}
+/* ===== Respaldo en archivo ===== */
+const bkFile=()=>new File([JSON.stringify(S)],`guitarra12-respaldo-${today()}.json`,{type:'application/json'});
+const canShareBk=()=>{try{return!!(navigator.canShare&&navigator.canShare({files:[bkFile()]}))}catch(e){return false}};
+function importBk(t){const m=$('#ms');try{const o=JSON.parse(t);if(!o||!Array.isArray(o.logs))throw 0;S=Object.assign(DEF(),o);fixS();save();applyCfg();ST=newST();QS=null;R();const n=$('#ms');if(n)n.textContent=`Importado: ${S.logs.length} sesiones${S.w?', vas por la semana '+S.w:''}.`;say('Respaldo importado.')}catch(e){if(m)m.textContent='Eso no es un respaldo válido de esta app.'}}
+
+/* ===== Versión nueva ===== */
+let UPD=null,UPDGO=0;
+function showUpd(w){UPD=w;if($('#upd'))return;const d=document.createElement('div');d.id='upd';d.className='upd';d.setAttribute('role','status');d.innerHTML=`<span>Hay una versión nueva de la app.</span><button class="btn sm" data-a=upd>Actualizar</button>`;document.body.appendChild(d)}
+
 const A={
 tab:v=>{metStop();stopSeq();tab=v;if(v=='est'&&!QS){}R();top0()},
 home:()=>{metStop();stopSeq();QS=null;tab='est';view='home';WS=S.w||1;R();top0()},
@@ -803,12 +818,20 @@ psc:(v,b)=>{const k=kinfo(CF.r,CF.m),e=b&&b.closest&&b.closest('[data-dg]'),st=e
 pfn:()=>{const k=kinfo(CF.r,CF.m);playSeq([k.ch[0],k.ch[3],k.m?k.V:k.ch[4],k.ch[0]],1.1,'#nohl')},
 t4s:()=>{const a=+$('#t4a').value,n=+$('#t4n').value;if(!n||a<0||a>n)return;S.t4.push({d:today(),w:S.w,a,n,c:$('#t4c').value});save();R()},
 cp:()=>{const t=$('#js');t.select();try{navigator.clipboard.writeText(t.value).catch(()=>{})}catch(e){}$('#ms').textContent='Copiado. Si no se copió, seleccioná el texto y copialo a mano.'},
-im:()=>{try{const o=JSON.parse($('#js').value);if(!o||!Array.isArray(o.logs))throw 0;S=Object.assign(DEF(),o);fixS();save();applyCfg();ST=newST();R();$('#ms')&&($('#ms').textContent='Importado.')}catch(e){$('#ms').textContent='El texto no es un respaldo válido.'}},
+im:()=>importBk($('#js').value),
+bkdl:()=>{const f=bkFile(),u=URL.createObjectURL(f),a=document.createElement('a');a.href=u;a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);$('#ms').textContent='Archivo guardado: '+f.name},
+bksh:()=>{navigator.share({files:[bkFile()],title:'Respaldo · Guitarra 12 semanas'}).catch(()=>{})},
+upd:()=>{if(UPD){UPDGO=1;UPD.postMessage('skip')}else location.reload()},
 wp:()=>{if(!wipe){wipe=1;$('#ms').textContent='Tocá “Borrar todo” otra vez para confirmar.';return}wipe=0;S=DEF();save();applyCfg();ST=newST();QS=null;view='home';WS=0;R()}};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b&&!b.disabled&&A[b.dataset.a]){if(S.cfg.snd!==false){try{ac()}catch(x){}}A[b.dataset.a](b.dataset.v,b)}});
 document.addEventListener('input',e=>{if(e.target.id=='tq')TD=e.target.value;if(e.target.id=='mr'){MT.bpm=+e.target.value;const m=$('#mbpm');if(m&&m.firstChild)m.firstChild.textContent=MT.bpm}if(e.target.id=='so')ST.so=e.target.value});
-document.addEventListener('keydown',e=>{if(tab!='est'||view!='ses'||QS||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;if(e.key=='ArrowRight'){const b=document.querySelector('.tp [data-a=nx]:not([disabled])');if(b){e.preventDefault();b.click()}}if(e.key=='ArrowLeft'){const b=document.querySelector('.tp [data-a=back]:not([disabled])');if(b){e.preventDefault();b.click()}}});
+document.addEventListener('change',e=>{if(e.target.id=='bkf'&&e.target.files&&e.target.files[0]){const r=new FileReader();r.onload=()=>importBk(String(r.result));r.readAsText(e.target.files[0]);e.target.value=''}});
+document.addEventListener('keydown',e=>{if(e.target&&e.target.matches&&e.target.matches('label[role=button]')&&(e.key=='Enter'||e.key==' ')){e.preventDefault();const i=e.target.querySelector('input');if(i)i.click();return}if(tab!='est'||view!='ses'||QS||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;if(e.key=='ArrowRight'){const b=document.querySelector('.tp [data-a=nx]:not([disabled])');if(b){e.preventDefault();b.click()}}if(e.key=='ArrowLeft'){const b=document.querySelector('.tp [data-a=back]:not([disabled])');if(b){e.preventDefault();b.click()}}});
 try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.cfg.th=='auto'){applyCfg();R()}})}catch(e){}
 
 applyCfg();R();
-if('serviceWorker' in navigator&&location.protocol.indexOf('http')==0){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')==0){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').then(reg=>{
+const chk=()=>{if(reg.waiting&&navigator.serviceWorker.controller)showUpd(reg.waiting)};chk();
+reg.addEventListener('updatefound',()=>{const n=reg.installing;if(n)n.addEventListener('statechange',()=>{if(n.state=='installed')chk()})});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState=='visible')reg.update().catch(()=>{})})}).catch(()=>{});
+navigator.serviceWorker.addEventListener('controllerchange',()=>{if(UPDGO){UPDGO=0;location.reload()}})})}
