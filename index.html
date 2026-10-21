@@ -312,6 +312,86 @@ input[type=range]{width:100%;accent-color:var(--acc);margin-top:14px}
 .msg{white-space:pre-wrap;margin-top:12px;padding:14px 16px;border-radius:18px 18px 18px 6px;background:var(--sf);border:1px solid var(--line)}.msg.u{background:var(--accs);border-color:transparent;border-radius:18px 18px 6px 18px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ===== v13: navegación simple y menos cajas ===== */
+.main{max-width:860px}
+.bk{display:inline-flex;align-items:center;gap:4px;border:0;background:none;color:var(--mut);font:800 14px var(--fd);padding:8px 4px;cursor:pointer;min-height:44px;white-space:nowrap}
+.bk svg{width:17px;height:17px}.bk:hover{color:var(--ink)}
+.sbar{display:block;padding:6px 0 0;border-bottom:1px solid var(--line);margin:-10px 0 0}
+.sr1{display:flex;align-items:center;gap:12px;min-height:52px}
+.sr1 .ttl{flex:1;min-width:0;display:flex;align-items:center;gap:10px}
+.sr1 .ttl b{font:800 15px/1.25 var(--fd);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.av.sm3{width:34px;height:34px;border-radius:8px;font-size:11.5px}
+.nxt2{flex:none;padding:8px 16px;min-height:42px}
+@media(max-width:560px){.hs{display:none}.sr1 .ttl b{font-size:14px}.av.sm3{display:none}}
+.stepper{margin:2px 0 10px;gap:4px}
+.sp{gap:5px;padding:4px 0;min-height:34px;font-size:11.5px}
+.sp i{height:4px}
+@media(max-width:480px){.sp{font-size:0}.sp.c{font-size:10.5px}}
+.stp{margin-top:22px}
+.foot{display:flex;align-items:center;gap:14px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line)}
+.foot .btn{margin-left:auto}
+.hint.r{text-align:right;margin-top:8px}
+.lnk{display:inline-flex;align-items:center;gap:6px}.lnk svg{width:15px;height:15px}
+.lead{color:var(--mut);font-size:calc(17.5px*var(--z,1));line-height:1.55;margin:6px 0 0}
+.key{margin-top:22px}
+.nl{list-style:none;padding:0;margin:0;counter-reset:n}
+.nl>li{position:relative;padding:13px 0 13px 42px;border-top:1px solid var(--line);counter-increment:n;font-size:calc(16px*var(--z,1))}
+.nl>li:first-child{border-top:0}
+.nl>li::before{content:counter(n);position:absolute;left:2px;top:12px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--accs);color:var(--accT);font:800 13px var(--fm)}
+.dg.pl{margin-top:4px}
+.ex{margin-top:16px}
+.ex .ln{font-size:calc(16px*var(--z,1))}
+.ex .ln .fd{font-family:var(--fd)}
+.ex.rl{text-align:left;margin-top:28px}
+.err2{margin-top:26px;padding:2px 0 2px 16px;border-left:3px solid var(--ko)}.err2 .lb{color:var(--ko)}.err2 p{margin:0}
+.sum{margin-top:22px}
+.stage{margin-top:16px}
+.stg{min-height:210px}
+.pb{padding:18px 0;border-top:1px solid var(--line)}
+.pb:first-of-type{margin-top:12px}
+.pbh{display:flex;align-items:center;gap:12px}
+.pbh .tt{flex:1;min-width:0}.pbh .tt b{display:block;font:800 calc(16px*var(--z,1))/1.3 var(--fd)}
+.av.sm2{width:32px;height:32px;border-radius:8px;font-size:14px}
+.pb.bdone .bcnt{color:var(--ok);font-weight:800}
+.stl{margin-left:44px}
+@media(max-width:560px){.stl{margin-left:0}}
+.fold{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 0;margin-top:6px}
+.fold>summary{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none;min-height:48px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary svg{width:20px;height:20px;color:var(--accT)}
+.fold>summary::after{content:"+";margin-left:auto;font:700 20px var(--fm);color:var(--mut)}
+.fold[open]>summary::after{content:"–"}
+.fold .nl{margin-bottom:10px}
+.exs{background:var(--sf);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.exh{display:flex;align-items:center;gap:12px}.exh .tt{flex:1;min-width:0}.exh .tt b{display:block;font:800 16px/1.3 var(--fd)}.exh .eb{font-size:10.5px}
+.exs p{margin:10px 0 12px}
+.nl .exs{margin-top:10px}
+.endb{margin-top:34px;padding-top:6px;border-top:1px solid var(--line)}
+.endb .rate{max-width:380px}
+.endb input{max-width:520px}
+.ck{margin-top:10px}
+.key .ck{font-weight:700}
+.dv{max-width:620px}
+.okb{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--ok);color:var(--onF);margin-bottom:14px}.okb svg{width:28px;height:28px;stroke-width:2.6}
+.dv .now-card{margin-top:22px}
+.dv .lnk{margin-top:8px}
+.qtop{margin-bottom:18px}
+.qtop .seg{margin:0}
+.res .score b{font-size:64px}
+.res h1{font-size:calc(22px*var(--z,1))}
+.res .lnk{justify-content:center;width:100%}
+.wkp{margin:0 0 6px;font-size:14.5px;line-height:1.6}.wkp b{color:var(--ink)}
+.now-card{margin-top:4px}
+.xt.lock{cursor:default}.xt.lock .art{opacity:.35;filter:grayscale(.7)}.xt.lock b{color:var(--mut)}
+.xt .art{position:relative}.xt .lk{position:absolute;top:8px;right:10px;font-size:14px;font-style:normal}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 10px;margin-top:6px}
+@media(min-width:620px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats b{display:block;font:800 30px/1.1 var(--fm);letter-spacing:-.03em}.stats b small{font-size:14px;color:var(--mut)}.stats span{font-size:13px;color:var(--mut)}
+.prow{grid-template-columns:minmax(110px,1.2fr) 2fr 54px}
+.cfgrow{margin-top:18px}
+.dg.pl .dgh h3{font:800 18px var(--fd);margin:14px 0 2px}
+.dg.pl p{margin:8px 0}
 </style>
 </head><body>
 <nav id="nv" class="side" aria-label="Secciones"></nav>
@@ -1963,32 +2043,40 @@ const sname=(w,s)=>s==6?'Prueba de la semana':s==7?(XW[w]?XW[w][0]:'Sesión extr
 const sOrd=w=>[1,2,3,4,5].concat(HX(w)?[7]:[],[6]);
 const sShort=(w,s)=>s==6?`prueba sem. ${w}`:s==7?`extra sem. ${w}`:`sesión ${w}.${s}`;
 function tasks(w,s){return W[w-1][3][s-1].split(' | ').map(x=>{const m=x.match(/^(\(Opcional\)\s*)?([AB]):\s*(.*)$/);return m?{b:m[2],t:m[3],o:!!m[1]}:{b:'·',t:x}})}
-function steps(){if(!S.w)return['ini'];if(S.s==6)return['prueba','cierre'];return LS()?['teoria','ejemplo'].concat(DEMO[lk()]?['oir']:[],['chk','guit','cierre']):['guit','cierre']}
+function steps(){if(!S.w)return['ini'];if(S.s==6)return['prueba'];return LS()?['teoria','ejemplo'].concat(DEMO[lk()]?['oir']:[],['chk','guit']):['guit']}
 const SPX={1:['mastil','notas','acordes','acordes','grados'],2:['func','func','transporte','tono','grados'],3:['tono','acordes','calidad','transporte','reposo'],4:['mastil','bajo','calidad','bajo','bajo'],5:['ogr','ogr','oido','oido','reposo'],6:['transporte','transporte','mastil','capo','transporte'],7:['sept','sept','bajo','notas','grados',null,'sus'],8:['ajenos','ajenos','ajenos','ajenos','tono'],9:['penta','penta','notas','penta','penta',null,'blues'],10:['tono','func','ajenos','tono','grados'],11:['reposo','bajo','oido','ogr','tono'],12:['tono','func','reposo','capo','penta']};
-function sesEx(x){const d=x||(SPX[S.w]&&SPX[S.w][S.s-1])||WD[S.w],b=S.pr[lk()+'|'+d],ok=b>=8;
-return`<div class="card exc"><div class=bh><span class="av c${DCOL[d]||0}">${EXI[d]||'EJ'}</span><div class=tt><b>Ejercicio${x?'':' de la sesión'}: ${esc(DN[d])}</b><span class=m>${esc(DD[d])}</span></div>${b!=null?`<span class="badge${ok?' ok':''}">${ok?'✓ ':''}${b}/10</span>`:''}</div><p class="m sm">Se aprueba con 8 de 10.</p><button class="btn blk${ok?' gh':''}" data-a=lstart data-v=${d}>${ok?IC.redo+' Repetir (opcional)':b!=null?IC.redo+' Intentar de nuevo':IC.play+' Hacer 10 preguntas'}</button></div>`}
+
+/* Semana y sesión en que aparece cada ejercicio por primera vez (sirve para "nuevo / repaso / bloqueado"). */
+const ordOf=(w,s)=>w*10+(s==7?5.5:s);
+const DWS={};Object.keys(SPX).forEach(w=>SPX[w].forEach((d,i)=>{if(!d)return;const s=i+1,o=ordOf(+w,s);if(!DWS[d]||o<DWS[d].o)DWS[d]={w:+w,s,o}}));
+const curO=()=>S.w?ordOf(S.w,S.s):0;
+const unl=d=>S.cfg.lv=='all'||!!(DWS[d]&&DWS[d].o<=curO());
+const KD=new Set(['acordes','grados','transporte','oido','ogr','reposo','tono','bajo','notas','calidad','func']);
+const covTxt=d=>KD.has(d)?`Usa las tonalidades que ya viste: ${LK().filter(k=>d!='func'||k.m=='M').map(k=>pretty(k.id)).join(', ')}.`:d=='mastil'?`Cuerdas ${lvW()<5?'6 y 5':'6, 5 y 4'}.`:'';
+
+function sesEx(x){const d=x||(SPX[S.w]&&SPX[S.w][S.s-1])||WD[S.w],b=S.pr[lk()+'|'+d],ok=b>=8,o=DWS[d],isNew=o&&o.w==S.w&&o.s==S.s,cov=covTxt(d);
+const rel=x?'Mide el criterio de la semana':isNew?'Nuevo · practica esta lección':o?`Repaso · lo viste en la sesión ${o.w}.${o.s==7?'extra':o.s}`:'';
+return`<div class=exs><div class=exh><span class="av c${DCOL[d]||0}">${EXI[d]||'EJ'}</span><div class=tt><span class=eb>${rel}</span><b>${esc(DN[d])}</b></div>${b!=null?`<span class="badge${ok?' ok':''}">${ok?'✓ ':''}${b}/10</span>`:''}</div><p class=m>${esc(DD[d])} ${cov}</p><button class="btn${ok?' gh':''}" data-a=lstart data-v=${d}>${ok?IC.redo+' Repetir (opcional)':b!=null?IC.redo+' Intentar de nuevo':IC.play+' Hacer 10 preguntas'}</button><span class="m sm"> Se aprueba con 8 de 10.</span></div>`}
 const sLabel=a=>a[1]==6?`la prueba de la semana ${a[0]}`:a[1]==7?`la sesión extra de la semana ${a[0]}`:`la sesión ${a[0]}.${a[1]}`;
-const prevS=()=>{if(!S.w)return null;const w=S.w,s=S.s;if(s==7)return[w,5];if(s==6)return HX(w)?[w,7]:[w,5];if(s>1)return[w,s-1];return w>1?[w-1,6]:null},nextS=()=>{if(!S.w)return null;const w=S.w,s=S.s;if(s<5)return[w,s+1];if(s==5)return HX(w)?[w,7]:[w,6];if(s==7)return[w,6];return w<12?[w+1,1]:null};
-const snav=()=>{const p=prevS(),n=nextS();return`<div class=snav>${p?`<button class="rw sm" data-a=gs data-v="${p.join(':')}"><span class=st>${IC.prev}</span><span class=tt><span>Sesión anterior</span><b>${esc(sname(p[0],p[1]))}</b></span></button>`:'<span></span>'}${n?`<button class="rw sm r" data-a=gs data-v="${n.join(':')}"><span class=tt><span>Sesión siguiente</span><b>${esc(sname(n[0],n[1]))}</b></span><span class=st>${IC.next}</span></button>`:''}</div>`};
-let FLASH='',WS=0,DP={k:'',j:0,i:0,on:0};
-const SG={ini:'Inicio',teoria:'Teoría',ejemplo:'Ejemplo',oir:'Escuchar',chk:'Chequeo',guit:'Práctica',prueba:'Prueba',cierre:'Cierre'};
+const nextS=()=>{if(!S.w)return null;const w=S.w,s=S.s;if(s<5)return[w,s+1];if(s==5)return HX(w)?[w,7]:[w,6];if(s==7)return[w,6];return w<12?[w+1,1]:null};
+let FLASH='',WS=0,DP={k:'',j:0,i:0,on:0},DONE=null;
+const SG={ini:'Inicio',teoria:'Teoría',ejemplo:'Ejemplo',oir:'Escuchar',chk:'Chequeo',guit:'Práctica',prueba:'Prueba'};
 const shufI=n=>shuf([...Array(n).keys()]);
 const newST=()=>{const l=LS();return{k:lk(),i:0,qi:0,a:[],ord:l?l.q.map(q=>shufI(q[1].length)):[],r:0,so:''}};
 const md=s=>esc(s).replace(/\*([^*]+)\*/g,'<b>$1</b>');
 const fmtT=s=>String(s/60|0).padStart(2,'0')+':'+String(s%60).padStart(2,'0'),BDUR={A:1200,B:1500},bdur=b=>S.w==11&&b=='A'?900:BDUR[b];
 const tmb=b=>{const on=T.blk==b,left=on?T.left:bdur(b);return`<button class="tmb${on&&T.run?' run':''}" id=tm${b} data-a=tb data-v=${b} aria-label="Reloj del bloque ${b}">${on&&T.run?'❚❚':'▶'} ${fmtT(left)}</button>`};
 const chkDone=()=>{const l=LS();return!!l&&ST.a.filter(Boolean).length>=l.q.length};
-const canNext=id=>id!='cierre'&&(id!='chk'||chkDone()||lapp(lk()));
-const navRow=(t,ok=true,hint='')=>`${hint?`<p class="m sm hint">${hint}</p>`:''}<div class=navr>${ST.i>0?`<button class="btn gh" data-a=back aria-label="Paso anterior">${IC.prev} Atrás</button>`:''}<button class=btn data-a=nx ${ok?'':'disabled'}>${t} ${IC.next}</button></div>`;
+const canNext=id=>id!='chk'||chkDone()||lapp(lk());
 const MESA_K=new Set(['3.5','7.3','7.5','8.5']);
 const mesaOn=()=>[4,5,10,11,12].includes(S.w)||MESA_K.has(lk());
-const mesaBox=()=>`<div class="card mesa"><div class=bh><span class="av c0">${IC.mesa}</span><div class=tt><b>Verificá en Mesa</b><span class=m>Siempre después de escribir tu hipótesis.</span></div></div><ol class=steps>
+const mesaBox=()=>`<details class=fold><summary>${IC.mesa}<b>Cómo verificar en Mesa</b><span class=m>6 pasos</span></summary><ol class=nl>
 <li>Abrí la canción en Mesa y escuchala <b>sin mirar la pantalla</b>: primero, tu oído.</li>
 <li>En <b>Pistas</b>, silenciá Guitarra, Voz y Piano: queda el <b>Bajo</b> solo, para seguir las raíces.</li>
 <li>Marcá un loop <b>A–B</b> sobre la estrofa y usá <b>‹ c. ›</b> para avanzar compás a compás.</li>
 <li>Escribí tu hipótesis: tonalidad, grados y confianza (poca, media o mucha).</li>
-<li>Recién ahí mirá: arriba Mesa muestra la <b>tonalidad</b> y el <b>grado</b> de cada acorde (I, IV, V…). Compará con lo tuyo.</li>
-<li>Mesa también puede equivocarse: si no coincide, decidí con el oído y anotá por qué.</li></ol></div>`;
+<li>Recién ahí mirá: arriba Mesa muestra la <b>tonalidad</b> y el <b>grado</b> de cada acorde. Compará con lo tuyo.</li>
+<li>Mesa también puede equivocarse: si no coincide, decidí con el oído y anotá por qué.</li></ol></details>`;
 
 /* Escenario de audio estilo Mesa */
 function demoKey(seq,kid){const cs=seq.filter(c=>c[0]!='~');if(!cs.length)return null;let K=kid?keyOf(kid):null;
@@ -2004,93 +2092,105 @@ const rs=[...new Set(seq.filter(x=>x[0]!='~').map(x=>romOf(K,x)))];
 return`<div class=stage id=stage><div class=kl>${K?esc(K.name)+(rs.length?' · '+rs.join(' – '):''):'Notas sueltas'}</div>
 <div class=stg><div class=sd>${c[0]!='~'?diag(c,140):''}</div>
 <div class=big><div class="rm${F[c]?' f'+F[c]:''}">${romOf(K,c)||'&nbsp;'}</div><div class=nm>${cName(c)}<small>${cBass(c)}</small></div><div class=q>${esc(c[0]=='~'?'nota suelta':chordES(c))}</div></div>
-<div class=nxt>${nx?`<span class=lb>Sigue</span><div class=rm>${romOf(K,nx)||'&nbsp;'}</div><div class=nm>${cName(nx)}<small>${cBass(nx)}</small></div>${nx[0]!='~'?diag(nx,84,1):''}`:'<span class=lb>Fin de la secuencia</span>'}</div></div>
+<div class=nxt>${nx?`<span class=lb>Sigue</span><div class=rm>${romOf(K,nx)||'&nbsp;'}</div><div class=nm>${cName(nx)}<small>${cBass(nx)}</small></div>${nx[0]!='~'?diag(nx,84,1):''}`:'<span class=lb>Fin</span>'}</div></div>
 <div class=pg><i style="width:${(100*(i+1)/seq.length).toFixed(1)}%"></i></div>
-<div class=beats>${seq.map((_,j)=>`<i class="${j<i?'d':j==i?'c':''}"></i>`).join('')}</div>
 <div class=ctl><button class=icb data-a=dprev aria-label="Acorde anterior" ${i?'':'disabled'}>${IC.prev}</button><button class="play${DP.on?' on':''}" data-a=dplay aria-label="${DP.on?'Parar':'Reproducir'}">${DP.on?IC.pause:IC.play}</button><button class=icb data-a=dnext aria-label="Acorde siguiente" ${nx?'':'disabled'}>${IC.next}</button></div></div>`}
 const updStage=()=>{const e=$('#stage');if(e)e.outerHTML=stageHtml()};
 
 const iconOk='✓',iconNo='✕';
+/* Pie de cada paso: un solo botón principal con el nombre del paso siguiente. */
+function foot(){const st=steps(),i=Math.min(ST.i,st.length-1),id=st[i],nx=st[i+1],pv=st[i-1];
+if(!nx)return pv?`<div class=foot><button class=bk data-a=back>${IC.prev} ${SG[pv]}</button></div>`:'';
+const ok=canNext(id);
+return`<div class=foot>${pv?`<button class=bk data-a=back>${IC.prev} ${SG[pv]}</button>`:''}<button class=btn data-a=nx ${ok?'':'disabled'}>Siguiente: ${SG[nx]} ${IC.next}</button></div>${ok?'':'<p class="m sm hint r">Respondé las 5 preguntas para seguir.</p>'}`}
+const endBlock=()=>{const l=LS(),ap=l&&lapp(lk());return`<section class=endb><h2 class=h2>Terminar la sesión</h2>${l&&!ap?`<p class=m>El chequeo de esta lección todavía no está aprobado. <button class=lnk data-a=rq>Hacerlo ahora</button></p>`:''}<p class=m>¿Cómo te salió? <span class=sm>1 = me costó mucho · 5 = fácil</span></p><div class=rate>${[1,2,3,4,5].map(n=>`<button class="rb${ST.r==n?' on':''}" data-a=rate data-v=${n}>${n}</button>`).join('')}</div><input type=text id=so placeholder="Canción que trabajaste (opcional)" value="${esc(ST.so||'')}"><button class="btn blk" data-a=fin ${ST.r?'':'disabled'}>${IC.check} Guardar y terminar</button>${ST.r?'':'<p class="m sm hint">Elegí del 1 al 5 para poder guardar.</p>'}</section>`};
+
 function body(id){const w=S.w,s=S.s,l=LS(),x=w?(s==7&&XW[w]?XW[w]:W[w-1]):null;
-if(id=='ini')return`<span class=eb>Empezamos</span><h1>Primero medimos tu punto de partida</h1><p class=lead>Hacé la prueba de nivel: 12 preguntas, unos 10 minutos. No es un examen: sirve para comparar cuando la repitas en las semanas 4, 8 y 12.</p><button class="btn blk" data-a=ltest>${IC.play} Hacer la prueba de nivel</button><button class="btn gh blk" data-a=st0>Saltear y empezar la semana 1</button>`;
-if(id=='teoria'){if(CF.l!=lk()){const d=DK[lk()]||['C',0];CF={r:d[0],m:d[1],l:lk()};FM=DFM[lk()]||'esc'}
-return`<span class=eb>Teoría${s==7?' · sesión extra (opcional)':''}</span><h1>${esc(l.n)}</h1>${s==7?'<p class=m>Es opcional: si preferís, pasá directo a la prueba de la semana con “Sesión siguiente”, al final de la página.</p>':''}
-<div class=why><span class=lb>Para qué sirve</span><p>${md(l.p)}</p></div>
+if(id=='ini')return`<span class=eb>Empezamos</span><h1>Primero medimos tu punto de partida</h1><p class=lead>Hacé la prueba de nivel: 12 preguntas, unos 10 minutos. No es un examen: sirve para comparar cuando la repitas en las semanas 4, 8 y 12.</p><button class="btn blk" data-a=ltest>${IC.play} Hacer la prueba de nivel</button><button class="lnk" data-a=st0>Saltear y empezar la semana 1</button>`;
+if(id=='teoria'){if(CF.l!=lk()){const d=DK[lk()]||['C',0];CF={r:d[0],m:d[1],l:lk()};FM=DFM[lk()]||'esc'}const dg=(DG[lk()]||[])[0];
+return`<h1>${esc(l.n)}</h1>${s==7?'<p class="m sm">Sesión opcional: podés pasar directo a la prueba de la semana desde el inicio.</p>':''}<p class=lead>${md(l.p)}</p>
 <div class=key><span class=lb>Idea clave</span><p>${md(l.k)}</p></div>
-<h2 class=h2>Paso a paso</h2><ol class=steps>${l.e.map(t=>`<li>${md(t)}</li>`).join('')}</ol>
-${(DG[lk()]||[]).length?`<h2 class=h2>Mirá y tocá <small>tocá cualquier elemento para oírlo</small></h2>${DG[lk()].map(dgCard).join('')}`:''}
-${GLO}${HT()?`<button class="btn gh blk" data-a=askl>No lo entiendo: preguntarle al tutor</button>`:''}${navRow('Ver un ejemplo resuelto')}`}
-if(id=='ejemplo')return`<span class=eb>Ejemplo resuelto</span><h1>${esc(l.x.t)}</h1><div class="card ex">${l.x.s.map((t,i)=>`<div class=ln><span class=n>${i+1}</span><span>${md(t)}</span></div>`).join('')}</div>
-<div class="card err"><span class=lb>Error común</span><p>${md(l.m)}</p></div>
-<div class=sum><span class=lb>En una línea</span><p>${md(l.r)}</p></div>${navRow(DEMO[lk()]?'Escucharlo':'Hacer el chequeo')}`;
+<h2 class=h2>Paso a paso</h2><ol class=nl>${l.e.map(t=>`<li>${md(t)}</li>`).join('')}</ol>
+${dg?`<h2 class=h2>Mirá y tocá <small>tocá cualquier elemento para oírlo</small></h2><div class="dg pl" data-dg="${dg}">${dgInner(dg)}</div>`:''}
+${HT()?`<button class=lnk data-a=askl>¿No lo entendés? Preguntale al tutor</button>`:''}`}
+if(id=='ejemplo')return`<span class=eb>Ejemplo resuelto</span><h1>${esc(l.x.t)}</h1><div class=ex>${l.x.s.map((t,i)=>`<div class=ln><span class=n>${i+1}</span><span>${md(t)}</span></div>`).join('')}</div>
+<div class=err2><span class=lb>Error común</span><p>${md(l.m)}</p></div>
+<div class=sum><span class=lb>En una línea</span><p>${md(l.r)}</p></div>`;
 if(id=='oir'){const D=DEMO[lk()]||[];if(DP.k!=lk())DP={k:lk(),j:0,i:0,on:0};const d=D[DP.j],F=demoFn(d[1],d[2]),hx=Object.values(F).includes('X');
-return`<span class=eb>Escuchalo</span><h1>Escuchá y mirá la forma</h1><p class=sub>Arriba ves el grado y el acorde que suena, con su forma; a la derecha, el que sigue. Elegí una secuencia y dale play, o tocá un acorde suelto.</p>${stageHtml()}
-<div class=chips>${d[1].map((c,i)=>{const f=F[c];return c[0]=='~'?`<button class=chip data-a=dchip data-v=${i}>${esc(cName(c))}</button>`:`<button class="chip${f=='X'?' out':f?' f'+f:''}" data-a=dchip data-v=${i}>${esc(cName(c))}${cBass(c)}<span class=es>${esc(esShort(c))}</span></button>`}).join('')}</div>${d[1].some(c=>c[0]!='~')?legend():''}${hx?legendX():''}
-<h2 class=h2>Secuencias <small>${D.length}</small></h2><div class=rows>${D.map((q,j)=>`<button class="rw${DP.j==j?' cur':''}" data-a=dsel data-v=${j}><span class="av c${(j+2)%6}">${String(j+1).padStart(2,'0')}</span><span class=tt><b>${esc(q[0])}</b><span>${q[1].map(c=>cName(c)+cBass(c)).join(' · ')}</span></span><span class=st>${IC.play}</span></button>`).join('')}</div>${navRow('Hacer el chequeo')}`}
+return`<span class=eb>Escuchalo</span><h1>${esc(d[0])}</h1>${stageHtml()}
+<div class=chips>${d[1].map((c,i)=>{const f=F[c];return c[0]=='~'?`<button class=chip data-a=dchip data-v=${i}>${esc(cName(c))}</button>`:`<button class="chip${f=='X'?' out':f?' f'+f:''}" data-a=dchip data-v=${i}>${esc(cName(c))}${cBass(c)}</button>`}).join('')}</div>${d[1].some(c=>c[0]!='~')?legend():''}${hx?legendX():''}
+${D.length>1?`<h2 class=h2>Otras secuencias de esta lección</h2><div class=rows>${D.map((q,j)=>`<button class="rw${DP.j==j?' cur':''}" data-a=dsel data-v=${j}><span class=tt><b>${esc(q[0])}</b><span>${q[1].map(c=>cName(c)+cBass(c)).join(' · ')}</span></span><span class=st>${IC.play}</span></button>`).join('')}</div>`:''}`}
 if(id=='chk'){const Q=l.q,n=Q.length,qi=ST.qi;
-if(qi>=n){const sc=ST.a.filter(a=>a&&a[1]).length,ok=sc>=4;return`<span class=eb>Chequeo</span><h1>${sc} de ${n}${ok?' · aprobado':''}</h1><p class=lead>${ok?'Entendiste la lección. Si fallaste alguna, leé la explicación antes de seguir.':'Conviene repasar la teoría y el ejemplo, y repetir el chequeo (se aprueba con 4 de 5).'}</p><div class="card rev">${Q.map((q,j)=>{const a=ST.a[j];return`<div class=ln><span class="n ${a&&a[1]?'ok':'ko'}">${a&&a[1]?'✓':'✕'}</span><span><b>${esc(q[0])}</b><br><span class=m>${esc(q[1][q[2]])} — ${md(q[3])}</span></span></div>`}).join('')}</div>${ok?'':`<button class="btn gh blk" data-a=rq>${IC.redo} Repetir el chequeo</button>`}${navRow('Ir a la práctica con la guitarra')}`}
+if(qi>=n){const sc=ST.a.filter(a=>a&&a[1]).length,ok=sc>=4;return`<span class=eb>Chequeo de esta lección</span><h1>${sc} de ${n}${ok?' · aprobado':''}</h1><p class=lead>${ok?'Entendiste la lección.':'Conviene releer la teoría y repetir el chequeo (se aprueba con 4 de 5).'}</p>${ok?'':`<button class="btn gh" data-a=rq>${IC.redo} Repetir el chequeo</button>`}<div class=ex>${Q.map((q,j)=>{const a=ST.a[j];return`<div class=ln><span class="n ${a&&a[1]?'ok':'ko'}">${a&&a[1]?'✓':'✕'}</span><span class=fd><b>${esc(q[0])}</b><br><span class=m>${esc(q[1][q[2]])} — ${md(q[3])}</span></span></div>`}).join('')}</div>`}
 const q=Q[qi],r=ST.a[qi],ord=ST.ord[qi]||shufI(q[1].length);
-return`${qi==0&&!r&&lapp(lk())?`<div class="card hl"><b>Ya aprobaste este chequeo.</b><p class="m sm">Podés repetirlo o saltarlo e ir directo a la práctica.</p><button class="btn gh sm" data-a=skipq>Saltar el chequeo ${IC.next}</button></div>`:''}<span class=eb>Chequeo · pregunta ${qi+1} de ${n}</span><div class=seg>${Q.map((_,j)=>`<i class="${ST.a[j]?(ST.a[j][1]?'d':'x'):j==qi?'c':''}"></i>`).join('')}</div><h1 class=q>${esc(q[0])}</h1>${ord.map((oi,j)=>`<button class="opt${r?(oi==q[2]?' ok':r[0]==oi?' ko':''):''}" data-a=lq data-v="${oi}"><span class=lt>${'ABCD'[j]}</span><span class=ot>${esc(q[1][oi])}</span></button>`).join('')}
-${r?`<div class="fb ${r[1]?'g':'b'}"><span class=fi>${r[1]?iconOk:iconNo}</span><div><b>${r[1]?'Correcto.':'No: era “'+esc(q[1][q[2]])+'”.'}</b> ${md(q[3])}</div></div><button class="btn blk" data-a=qnext>${qi<n-1?'Siguiente pregunta':'Ver el resultado'} ${IC.next}</button>`:`<p class="m sm hint">Elegí una respuesta: después vas a ver por qué es correcta o no.</p>`}`}
-if(id=='guit'){const tx=TX[lk()],t=tx?tx.map(k=>{const nd=k[2].filter((_,i)=>S.tk[lk()+k[0]+i]).length,dn_=nd==k[2].length;return`<div class="card blk${dn_?' bdone':''}"><div class=bh><span class="av ${k[0]=='A'?'c0':'c4'}">${k[0]}</span><div class=tt><b>${md(k[1])}</b><span class=bcnt>${dn_?'✓ Bloque completado':nd+' de '+k[2].length+' pasos'}</span></div>${tmb(k[0])}</div><ul class=stl>${k[2].map((p,i)=>{const key=lk()+k[0]+i;return`<li class="${S.tk[key]?'on':''}" data-a=tk data-v="${key}"><span class=cb>${S.tk[key]?'✓':''}</span><span class=tx2>${md(p)}</span></li>`}).join('')}</ul></div>`}).join(''):tasks(w,s).map(k=>`<div class="card blk"><div class=bh><span class="av ${k.b=='A'?'c0':'c4'}">${k.b}</span><div class=tt><b>${k.o?'(Opcional) ':''}${esc(k.t)}</b></div></div></div>`).join('');
-return`<span class=eb>Con la guitarra</span><h1>Práctica de hoy</h1><p class=sub>Bloque A (${bdur('A')/60} min): la teoría tocada en la guitarra. Bloque B (${bdur('B')/60} min): oído y canciones. Hacé los pasos en orden y tocá cada uno para tacharlo. El botón ▶ de cada bloque inicia su reloj.</p>${t}${mesaOn()?mesaBox():''}${sesEx()}${metHtml()}${GLO}${navRow('Ir al cierre')}`}
-if(id=='prueba'){const cp=[4,8,12].includes(w);return`<span class=eb>Prueba semanal</span><h1>${esc(x[0])}</h1><div class="card key"><span class=lb>Criterio de la semana</span><p>${esc(x[2])}</p><label class=ck><input type=checkbox data-a=cr ${S.crit[w]?'checked':''}> Lo cumplí</label></div><div class="card blk"><div class=bh><span class="av c0">1</span><div class=tt><b>Prueba (15 min)</b><span class=m>Hacé el ejercicio del criterio sin apuntes. Para medirte:</span></div></div></div>${sesEx(WD[w])}<div class="card blk"><div class=bh><span class="av c4">2</span><div class=tt><b>Repaso (15 min)</b><span class=m>Elegí dos conceptos de semanas anteriores y explicalos en voz alta sin mirar. Anotá cuál te costó más.</span></div></div></div><div class="card blk"><div class=bh><span class="av c1">3</span><div class=tt><b>Grabación (15 min)</b><span class=m>Grabá 1 minuto explicando la armonía de una canción de tu repertorio, y escuchalo.</span></div></div><label class=ck><input type=checkbox data-a=rc ${S.rec[w]?'checked':''}> Ya la grabé</label></div>${cp?`<div class="card hl"><b>Control de la semana ${w}</b><p class=m>Hacé la prueba de nivel para comparar con tu punto de partida.</p><button class="btn blk" data-a=ltest>${IC.play} Prueba de nivel</button></div>`:''}${navRow('Cerrar la sesión')}`}
-const sc=ST.a.filter(k=>k&&k[1]).length,bq=S.qc[lk()];
-return`<span class=eb>Cierre</span><h1>Terminaste la sesión</h1>${l?`<div class="card blk"><div class=bh><span class="av ${lapp(lk())?'c1':'c2'}">${bq!=null?bq+'/5':'–'}</span><div class=tt><b>Chequeo</b><span class=m>${lapp(lk())?'Lección aprobada.':ST.a.length?`Esta vez: ${sc} de ${l.q.length}. Conviene repasar y repetirlo.`:'Todavía no lo hiciste.'}</span></div></div>${lapp(lk())?'':`<button class="btn gh blk" data-a=rq>${IC.redo} Hacer el chequeo</button>`}</div>`:''}<div class=card><b>¿Cómo te salió?</b><div class=rate>${[1,2,3,4,5].map(n=>`<button class="rb${ST.r==n?' on':''}" data-a=rate data-v=${n}>${n}</button>`).join('')}</div><p class="m sm">1 = me costó mucho · 5 = me salió fácil</p><input type=text id=so placeholder="Canción que trabajaste (opcional)" value="${esc(ST.so||'')}"></div>${ST.r?'':'<p class="m sm hint">Elegí del 1 al 5 para poder guardar.</p>'}<div class=navr><button class="btn gh" data-a=back aria-label="Paso anterior">${IC.prev} Atrás</button><button class=btn data-a=fin ${ST.r?'':'disabled'}>Guardar y seguir ${IC.check}</button></div>`}
-function finish(){S.logs.push({d:today(),w:S.w,s:S.s,m:45,e:ST.r,so:ST.so||''});const was=sLabel([S.w,S.s]),nx=nextS();if(nx){S.w=nx[0];S.s=nx[1]}else{FLASH='<b>¡Terminaste el programa de 12 semanas!</b> Compará tu prueba de nivel final en Progreso.';say(FLASH);save();ST=newST();view='home';WS=S.w;R();window.scrollTo(0,0);return}const wg=weekSess(),gn=goalN();FLASH=`<b>Guardaste ${was}.</b> Meta de la semana: ${wg}/${gn}${wg>=gn?' · ¡cumplida!':''}. Sigue ${sLabel([S.w,S.s])}${S.s==7?' (opcional)':''}.`;say(FLASH);save();ST=newST();T.run=0;T.blk='';T.base=T.left=0;saveT();view='home';WS=S.w;R();window.scrollTo(0,0)}
+return`<span class=eb>Chequeo de esta lección · ${qi+1} de ${n}</span><div class=seg>${Q.map((_,j)=>`<i class="${ST.a[j]?(ST.a[j][1]?'d':'x'):j==qi?'c':''}"></i>`).join('')}</div><h1 class=q>${esc(q[0])}</h1>${ord.map((oi,j)=>`<button class="opt${r?(oi==q[2]?' ok':r[0]==oi?' ko':''):''}" data-a=lq data-v="${oi}"><span class=lt>${'ABCD'[j]}</span><span class=ot>${esc(q[1][oi])}</span></button>`).join('')}
+${r?`<div class="fb ${r[1]?'g':'b'}"><span class=fi>${r[1]?iconOk:iconNo}</span><div><b>${r[1]?'Correcto.':'No: era “'+esc(q[1][q[2]])+'”.'}</b> ${md(q[3])}</div></div><button class="btn blk" data-a=qnext>${qi<n-1?'Siguiente pregunta':'Ver el resultado'} ${IC.next}</button>`:qi==0&&lapp(lk())?`<p class="m sm hint">Ya lo aprobaste antes: podés pasar a la práctica con el botón de arriba.</p>`:''}`}
+if(id=='guit'){const tx=TX[lk()],t=tx?tx.map(k=>{const nd=k[2].filter((_,i)=>S.tk[lk()+k[0]+i]).length,dn_=nd==k[2].length;return`<section class="pb${dn_?' bdone':''}"><div class=pbh><span class="av sm2 ${k[0]=='A'?'c0':'c4'}">${k[0]}</span><div class=tt><b>${md(k[1])}</b><span class=bcnt>${dn_?'✓ Completado':nd+' de '+k[2].length+' pasos'}</span></div>${tmb(k[0])}</div><ul class=stl>${k[2].map((p,i)=>{const key=lk()+k[0]+i;return`<li class="${S.tk[key]?'on':''}" data-a=tk data-v="${key}"><span class=cb>${S.tk[key]?'✓':''}</span><span class=tx2>${md(p)}</span></li>`}).join('')}</ul></section>`}).join(''):tasks(w,s).map(k=>`<section class=pb><div class=pbh><span class="av sm2 ${k.b=='A'?'c0':'c4'}">${k.b}</span><div class=tt><b>${k.o?'(Opcional) ':''}${esc(k.t)}</b></div></div></section>`).join('');
+return`<span class=eb>Con la guitarra · ${(bdur('A')+bdur('B'))/60} min</span><h1>Práctica de hoy</h1><p class=m>Tocá cada paso para tacharlo. El reloj de cada bloque se inicia con ▶.</p>${t}${mesaOn()?mesaBox():''}<h2 class=h2>Ejercicio de esta sesión</h2>${sesEx()}${endBlock()}`}
+if(id=='prueba'){const cp=[4,8,12].includes(w);return`<span class=eb>Prueba de la semana ${w}</span><h1>${esc(x[0])}</h1><div class=key><span class=lb>Criterio de la semana</span><p>${esc(x[2])}</p><label class=ck><input type=checkbox data-a=cr ${S.crit[w]?'checked':''}> Lo cumplí</label></div>
+<ol class=nl><li><b>Prueba (15 min).</b> Hacé el ejercicio del criterio sin apuntes, y medí tu nivel con estas 10 preguntas:${sesEx(WD[w])}</li>
+<li><b>Repaso (15 min).</b> Elegí dos conceptos de semanas anteriores y explicalos en voz alta sin mirar. Anotá cuál te costó más.</li>
+<li><b>Grabación (15 min).</b> Grabá 1 minuto explicando la armonía de una canción de tu repertorio, y escuchalo.<label class=ck><input type=checkbox data-a=rc ${S.rec[w]?'checked':''}> Ya la grabé</label></li>
+${cp?`<li><b>Control de la semana ${w}.</b> Hacé la prueba de nivel para comparar con tu punto de partida. <button class=lnk data-a=ltest>Hacer la prueba de nivel ${IC.next}</button></li>`:''}</ol>${endBlock()}`}
+return''}
+function finish(){S.logs.push({d:today(),w:S.w,s:S.s,m:45,e:ST.r,so:ST.so||''});const was=[S.w,S.s,sname(S.w,S.s)],nx=nextS();if(nx){S.w=nx[0];S.s=nx[1]}save();ST=newST();T.run=0;T.blk='';T.base=T.left=0;saveT();DONE={was,end:!nx};view='done';say('Sesión guardada.');R();window.scrollTo(0,0)}
 
 /* ===== Vistas ===== */
 const VIEW={};
 const hdr=(t,sub,right='')=>`<header class=hd><div><h1 class=brand>${t}<small>${sub}</small></h1></div><div class=hdr>${right}<button class=icb data-a=theme aria-label="Cambiar tema claro u oscuro">${isDark()?IC.moon:IC.sun}</button></div></header>`;
+const avOf=(w,s)=>s==6?'P':s==7?'+':w+'.'+s;
 function weekTile(w){const n=sOrd(w).filter(s=>s!=7).filter(s=>done(w,s)).length,ws=WS||S.w||1;return`<button class="wt${w==ws?' sel':''}" data-a=ws data-v=${w} aria-pressed="${w==ws}"><span class="art ${wc(w)}">${String(w).padStart(2,'0')}${w==S.w?'<i class=now>AHORA</i>':''}${S.crit[w]?'<i class=ck>✓</i>':''}</span><b>${esc(W[w-1][0])}</b><span>${n}/6 sesiones</span></button>`}
-function sessRow(w,s){const k=w+'.'+s,dn_=done(w,s),cur=w==S.w&&s==S.s,av=s==6?'P':s==7?'+':k,l=LX[k];
-const sub=s==6?'Criterio, repaso y grabación':s==7?'Opcional · '+(XW[w]?XW[w][1]:''):l?l.r:'';
-const sc=s==6?(S.crit[w]?'CRIT<small>✓</small>':''):S.qc[k]!=null?`${S.qc[k]}/5<small>CHEQ</small>`:S.q[k]!=null?`${S.q[k]}/3<small>CHEQ</small>`:'';
-return`<button class="rw${cur?' cur':''}" data-a=gs data-v="${w}:${s}"><span class="av ${wc(w)}">${av}</span><span class=tt><b>${esc(sname(w,s))}</b><span>${cur?'<em>Ahora</em> · ':''}${esc(sub)}</span></span><span class=mt>${sc}</span><span class="st${dn_?' ok':''}">${dn_?IC.check:cur?IC.play:''}</span></button>`}
-function homeView(){const fl=FLASH;FLASH='';if(!WS)WS=S.w||1;const ws=WS,les=Object.keys(LX).filter(lapp).length,tl=Object.keys(LX).length,due=errDue().length,wg=weekSess(),gn=goalN();
-return hdr('Guitarra','· 12 semanas',`<span class=pill><i class=dt></i>${IC.flame}${streak()} ${streak()==1?'día':'días'}</span><button class="btn hide-s" data-a=cont>${IC.play} ${S.w?'Continuar':'Empezar'}</button>`)+
-(fl?`<div class="fb g top"><span class=fi>✓</span><div>${fl}</div></div>`:'')+
-(S.w?`<button class=now-card data-a=cont><span class="av big ${wc(S.w)}">${S.s==6?'P':S.s==7?'+':lk()}</span><span class=tt><span class=eb>Continuar · semana ${S.w}</span><b>${esc(sname(S.w,S.s))}</b><span>${esc(W[S.w-1][0])}</span></span><span class=play>${IC.play}</span></button>`:`<div class="card hl start"><span class=eb>Punto de partida</span><h2>Primero medimos tu nivel</h2><p class=m>12 preguntas, unos 10 minutos. Sirve para comparar cuando la repitas en las semanas 4, 8 y 12.</p><div class=brow><button class=btn data-a=cont>${IC.play} Hacer la prueba de nivel</button><button class="btn gh" data-a=st0>Saltear y empezar</button></div></div>`)+
-`<div class=minis><div class=mini><span class=lb>Meta semanal</span><b>${wg}<small>/${gn}</small></b><div class=dots>${Array.from({length:gn},(_,i)=>`<i class="${i<wg?'d':''}"></i>`).join('')}</div></div><div class=mini><span class=lb>Lecciones aprobadas</span><b>${les}<small>/${tl}</small></b><div class=bar><i style="width:${100*les/tl}%"></i></div></div><button class=mini data-a=${due?'rev':'tab'} ${due?'':'data-v=pra'}><span class=lb>Repaso de errores</span><b>${due}<small> hoy</small></b><span class=m>${S.err.length?'Tocá para repasar':'Sin errores guardados'}</span></button><div class=mini><span class=lb>Racha</span><b>${streak()}<small> ${streak()==1?'día':'días'}</small></b><span class=m>${dset().has(today())?'Hoy ya practicaste':'Practicá hoy para sumar'}</span></div></div>`+
-`<h2 class=h2>Semanas <small>12</small></h2><div class=tiles>${W.map((_,i)=>weekTile(i+1)).join('')}</div>`+
-`<h2 class=h2>Semana ${ws} <small>${esc(W[ws-1][0])}</small></h2><div class="card wkinfo"><p><span class=lb>Objetivo</span>${esc(W[ws-1][1])}</p><p><span class=lb>Criterio</span>${esc(W[ws-1][2])}${S.crit[ws]?' <b class=okc>✓ cumplido</b>':''}</p></div><div class=rows>${sOrd(ws).map(s=>sessRow(ws,s)).join('')}</div>`}
-function sesView(){if(ST.k!=lk())ST=newST();const st=steps(),i=Math.min(ST.i,st.length-1),id=st[i],av=S.s==6?'P':S.s==7?'+':lk();
-return`<div class=sbar><button class=icb data-a=home aria-label="Volver al inicio">${IC.back}</button><span class="av ${wc(S.w)}">${av}</span><div class=ttl><b>${esc(sname(S.w,S.s))}</b><span>Semana ${S.w} · ${esc(W[S.w-1][0])}</span></div><div class=tp><button class=icb data-a=back ${i?'':'disabled'} aria-label="Paso anterior">${IC.prev}</button><span class=sl>${SG[id]}<b>${i+1}/${st.length}</b></span><button class="icb acc" data-a=nx ${i<st.length-1&&canNext(id)?'':'disabled'} aria-label="Paso siguiente">${IC.next}</button></div></div>${st.length>1?stepper(st,i):''}<div class=stp>${body(id)}</div>${snav()}`}
-function stepper(st,cur){const g=[];st.forEach((id,i)=>{const n=SG[id],l=g[g.length-1];if(l&&l.n==n)l.to=i;else g.push({n,from:i,to:i})});
-return`<div class=stepper>${g.map(x=>{const s=cur>x.to?'d':cur>=x.from?'c':'';return`<button class="sp ${s}" ${s=='d'?`data-a=go data-v=${x.from} aria-label="Volver a ${x.n}"`:'tabindex=-1'}><i></i>${x.n}</button>`}).join('')}</div>`}
-VIEW.est=()=>QS?quizView():view=='ses'&&S.w?sesView():homeView();
-function quizView(){const q=QS.l[QS.i],n=QS.l.length,col=DCOL[QS.d]||0;
-if(QS.done){const ok=QS.res.filter(Boolean).length,p=Math.round(100*ok/n),miss=QS.l.filter((x,i)=>!QS.res[i]),first=QS.test&&S.w==0,e=S.err.length;
-return`<div class=res><span class=eb>${QS.test?'Prueba de nivel':esc(dn(QS.d))}</span><div class=score><b>${ok}</b><span>de ${n}</span></div><div class="bar big"><i style="width:${p}%;background:var(${p>=80?'--ok':p>=60?'--acc':'--ko'})"></i></div><h1>${p==100?'Perfecto.':p>=80?'Muy bien.':p>=60?'Vas por buen camino.':'Todavía falta práctica.'}</h1>${QS.best>=3?`<span class=pill>${IC.flame}${QS.best} seguidas</span>`:''}<p class=sub>${p>=80?'Seguí así.':p>=60?'Repasá lo que fallaste y volvé a intentar.':'Repetí el ejercicio y volvé a la lección.'}</p>
-${miss.length?`<div class="card rev"><b>Lo que fallaste</b><p class="m sm">Quedó guardado en tu repaso de errores.</p>${miss.map(x=>`<div class=ln><span class="n ko">✕</span><span>${esc(x.t)}<br><span class="m mono">${esc(x.ex)}</span></span></div>`).join('')}</div>`:''}
-${QS.from&&QS.from.sk?`<div class="fb ${p>=80?'g':'b'}"><span class=fi>${p>=80?'✓':'!'}</span><div><b>${p>=80?'Ejercicio de la sesión aprobado.':'Todavía no está aprobado.'}</b> ${p>=80?'Ya podés seguir con la lección.':'Se aprueba con 8 de 10. Podés repetirlo ahora o seguir y volver después.'}</div></div>`:''}
-${first?`<button class="btn blk" data-a=st0>Empezar la semana 1 ${IC.next}</button>`:''}${QS.from&&!first?`<button class="btn blk" data-a=qexit>Volver a la lección ${IC.next}</button>`:''}${e&&!QS.review?`<button class="btn gh blk" data-a=rev>Repasar mis errores (${e})</button>`:''}<button class="btn gh blk" data-a=qagain>${IC.redo} Repetir</button>${QS.from||first?'':`<button class="btn gh blk" data-a=qexit>${IC.prev} Volver a Practicar</button>`}</div>`}
+function sessRow(w,s){const k=w+'.'+s,dn_=done(w,s),cur=w==S.w&&s==S.s,l=LX[k];
+const sub=s==6?'Criterio, repaso y grabación':s==7?'Opcional':l?l.r:'';
+const sc=s==6?(S.crit[w]?'criterio ✓':''):S.qc[k]!=null?`${S.qc[k]}/5`:S.q[k]!=null?`${S.q[k]}/3`:'';
+return`<button class="rw${cur?' cur':''}" data-a=gs data-v="${w}:${s}"><span class="av ${wc(w)}">${avOf(w,s)}</span><span class=tt><b>${esc(sname(w,s))}</b><span>${cur?'<em>Sigue</em> · ':''}${esc(sub)}</span></span><span class=mt>${sc}</span><span class="st${dn_?' ok':''}">${dn_?IC.check:cur?IC.play:''}</span></button>`}
+function homeView(){if(!WS)WS=S.w||1;const ws=WS,due=errDue().length,wg=weekSess(),gn=goalN();
+return hdr('Guitarra','· 12 semanas',`<span class=pill>${IC.flame}${streak()} ${streak()==1?'día':'días'} · ${wg}/${gn} esta semana</span>`)+
+(S.w?`<button class=now-card data-a=cont><span class="av big ${wc(S.w)}">${avOf(S.w,S.s)}</span><span class=tt><span class=eb>Continuar · semana ${S.w}</span><b>${esc(sname(S.w,S.s))}</b><span>${esc(W[S.w-1][0])}</span></span><span class=play>${IC.play}</span></button>`:`<button class=now-card data-a=cont><span class="av big c0">NV</span><span class=tt><span class=eb>Para empezar</span><b>Prueba de nivel</b><span>12 preguntas · unos 10 minutos</span></span><span class=play>${IC.play}</span></button><button class=lnk data-a=st0>Saltear y empezar la semana 1</button>`)+
+(due?`<button class=lnk data-a=rev>Tenés ${due} ${due==1?'error':'errores'} para repasar hoy ${IC.next}</button>`:'')+
+`<h2 class=h2>Semanas</h2><div class=tiles>${W.map((_,i)=>weekTile(i+1)).join('')}</div>`+
+`<h2 class=h2>Semana ${ws} · ${esc(W[ws-1][0])}</h2><p class="m wkp"><b>Objetivo:</b> ${esc(W[ws-1][1])}<br><b>Criterio:</b> ${esc(W[ws-1][2])}${S.crit[ws]?' <b class=okc>✓ cumplido</b>':''}</p><div class=rows>${sOrd(ws).map(s=>sessRow(ws,s)).join('')}</div>`}
+function doneView(){const d=DONE||{was:[S.w,S.s,'']},wg=weekSess(),gn=goalN();
+return`<div class=dv><span class=okb>${IC.check}</span><span class=eb>Sesión guardada</span><h1>${esc(avOf(d.was[0],d.was[1]))} · ${esc(d.was[2])}</h1><p class=lead>Meta de la semana: ${wg} de ${gn} sesiones${wg>=gn?' · ¡cumplida!':''}.</p>
+${d.end?`<p class=lead><b>¡Terminaste el programa de 12 semanas!</b> Hacé la prueba de nivel final y compará en Progreso.</p><button class="btn blk" data-a=startTest>${IC.play} Prueba de nivel final</button>`:`<button class=now-card data-a=cont><span class="av big ${wc(S.w)}">${avOf(S.w,S.s)}</span><span class=tt><span class=eb>Siguiente${S.s==7?' · opcional':''}</span><b>${esc(sname(S.w,S.s))}</b><span>Semana ${S.w} · ${esc(W[S.w-1][0])}</span></span><span class=play>${IC.play}</span></button>`}<button class=lnk data-a=home>Volver al inicio</button></div>`}
+function sesView(){if(ST.k!=lk())ST=newST();const st=steps(),i=Math.min(ST.i,st.length-1),id=st[i],nx=st[i+1],inQ=QS&&QS.from;
+return`<div class=sbar><div class=sr1><button class=bk data-a=home aria-label="Volver a la semana ${S.w}">${IC.back} Semana ${S.w}</button><div class=ttl><b>${esc(avOf(S.w,S.s))} · ${esc(sname(S.w,S.s))}</b></div>${!inQ&&nx?`<button class="btn sm nxt2" data-a=nx ${canNext(id)?'':'disabled'}><span class=hs>Siguiente: </span>${SG[nx]} ${IC.next}</button>`:''}</div>${st.length>1?stepper(st,i):''}</div><div class=stp>${inQ?quizView():body(id)+foot()}</div>`}
+function stepper(st,cur){return`<div class=stepper>${st.map((id,i)=>{const s=i<cur?'d':i==cur?'c':'';return`<button class="sp ${s}" ${i<cur?`data-a=go data-v=${i}`:'tabindex=-1'} aria-label="${SG[id]}${i<cur?' (hecho)':i==cur?' (actual)':''}"><i></i><span>${SG[id]}</span></button>`}).join('')}</div>`}
+VIEW.est=()=>view=='done'?doneView():view=='ses'&&S.w?sesView():QS?quizView():homeView();
+function quizView(){const q=QS.l[QS.i],n=QS.l.length,col=DCOL[QS.d]||0,inS=!!QS.from;
+if(QS.done){const ok=QS.res.filter(Boolean).length,p=Math.round(100*ok/n),miss=QS.l.filter((x,i)=>!QS.res[i]),first=QS.test&&S.w==0,sk=QS.from&&QS.from.sk;
+const msg=sk?(p>=80?'Ejercicio aprobado.':'Todavía no está aprobado (8 de 10). Podés repetirlo ahora o más tarde.'):p>=80?'Muy bien.':p>=60?'Vas por buen camino.':'Todavía falta práctica.';
+return`<div class=res><span class=eb>${QS.test?'Prueba de nivel':esc(dn(QS.d))}</span><div class=score><b>${ok}</b><span>de ${n}</span></div><h1>${msg}</h1>
+${first?`<button class="btn blk" data-a=st0>Empezar la semana 1 ${IC.next}</button>`:inS?`<button class="btn blk" data-a=qexit>Seguir con la sesión ${IC.next}</button>`:`<button class="btn blk" data-a=qexit>Volver a Practicar</button>`}<button class=lnk data-a=qagain>${IC.redo} Repetir este ejercicio</button>
+${miss.length?`<div class="ex rl"><span class=lb>Lo que fallaste · quedó en tu repaso de errores</span>${miss.map(x=>`<div class=ln><span class="n ko">✕</span><span class=fd>${esc(x.t)}<br><span class=m>${esc(x.ex)}</span></span></div>`).join('')}</div>`:''}</div>`}
 const a=QS.ans;
-return`<div class=qs><div class=qtop><button class=icb data-a=qexit aria-label="Salir del ejercicio">${IC.x}</button><div class=seg>${QS.l.map((_,i)=>`<i class="${i<QS.i||(i==QS.i&&a!=null)?(QS.res[i]?'d':'x'):i==QS.i?'c':''}"></i>`).join('')}</div>${QS.cmb>1?`<span class=pill>${IC.flame}${QS.cmb}</span>`:''}</div>
-<div class=qcard><div class=bh><span class="av c${col}">${EXI[QS.d]||'NV'}</span><div class=tt><span class=eb>${QS.test?'Prueba de nivel':esc(dn(QS.d))} · ${QS.i+1}/${n}</span>${QS.i==0&&!QS.test&&DD[QS.d]?`<span class=m>${esc(DD[QS.d])}</span>`:''}</div></div><h1 class=q>${esc(q.t)}</h1>${q.play?`<button class="btn gh sm" data-a=qp>${IC.play} Escuchar de nuevo</button>`:''}</div>
-<button class=lnk data-a=qh>${QS.help?'Ocultar ayuda':'¿Necesitás ayuda? Tocá acá'}</button>${QS.help?helpHtml(q):''}<div id=nohl>${q.o.map((o,j)=>`<button class="opt${MONO.has(q.d)?' mono':''}${a!=null?(j==q.a?' ok':j==a?' ko':''):''}" data-a=qa data-v=${j}><span class=lt>${'ABCD'[j]}</span><span class=ot>${esc(o)}</span></button>`).join('')}</div>${a!=null?`<div class="fb ${a==q.a?'g':'b'}"><span class=fi>${a==q.a?iconOk:iconNo}</span><div><b>${a==q.a?'Correcto.':'No.'}</b> ${esc(q.ex)}</div></div><button class="btn blk" data-a=qn>${QS.i<n-1?'Siguiente':'Ver resultado'} ${IC.next}</button>`:''}${GLO}</div>`}
-VIEW.pra=()=>{if(QS)return quizView();const acc=d=>{const x=S.dr[d];return x?Math.round(100*x.ok/x.n)+'% de aciertos':'Sin practicar'},due=errDue().length,all=S.err.length;
-const tile=d=>`<button class=xt data-a=dstart data-v=${d}><span class="art c${DCOL[d]}">${EXI[d]}</span><b>${esc(DN[d])}</b><span>${acc(d)}</span></button>`;
-return hdr('Practicar','· corrección inmediata')+`<p class="m sm">${lvW()==99?'Las preguntas cubren todo el programa.':`Las preguntas usan lo visto hasta la semana ${S.w}${S.w==1?', sesión '+Math.min(S.s,5):''}.`} Se cambia en Ajustes.</p>
-<div class=feat><div class=tt><span class=eb>Medición</span><h2>Prueba de nivel</h2><p>12 preguntas mezcladas. Hacela en las semanas 0, 4, 8 y 12 para ver tu evolución.</p></div><button class=btn data-a=startTest>${IC.play} Empezar</button></div>
-${all?`<button class="rw card-like" data-a=rev><span class="av c1">RE</span><span class=tt><b>Repaso de errores</b><span>${due?due+' para repasar hoy':'Nada vence hoy; podés repasar igual'} · ${all} guardados</span></span><span class=st>${IC.play}</span></button>`:''}
-${[['Teoría','sin sonido',GT],['En la guitarra','sin sonido',GG],['Oído','con sonido',GO]].map(([h,s,g])=>`<h2 class=h2>${h} <small>${s}</small></h2><div class=grid>${g.map(tile).join('')}</div>`).join('')}
-<details class=card><summary><b>¿Qué practico en cada uno?</b></summary>${Object.keys(DN).map(d=>`<p class=m><b style="color:var(--ink)">${esc(DN[d])}.</b> ${esc(DD[d])}</p>`).join('')}</details>`};
-VIEW.exp=()=>hdr('Explorar','· mapas para ver la teoría')+`<p class=sub>Cinco mapas para entender la teoría con los ojos y los oídos. Tocá todo lo que veas.</p><div class=pills>${Object.keys(DGT).map(d=>`<button class="chip${EXD==d?' on':''}" data-a=exd data-v=${d}>${DGT[d]}</button>`).join('')}</div>${dgCard(EXD)}`;
+return`<div class=qs><div class=qtop><button class=bk data-a=qexit>${IC.x} Salir</button><div class=seg>${QS.l.map((_,i)=>`<i class="${i<QS.i||(i==QS.i&&a!=null)?(QS.res[i]?'d':'x'):i==QS.i?'c':''}"></i>`).join('')}</div><span class="m sm mono">${QS.i+1}/${n}</span></div>
+<span class=eb>${QS.test?'Prueba de nivel':esc(dn(QS.d))}</span><h1 class=q>${esc(q.t)}</h1>${q.play?`<button class="btn gh sm" data-a=qp>${IC.play} Escuchar de nuevo</button>`:''}
+<div id=nohl>${q.o.map((o,j)=>`<button class="opt${MONO.has(q.d)?' mono':''}${a!=null?(j==q.a?' ok':j==a?' ko':''):''}" data-a=qa data-v=${j}><span class=lt>${'ABCD'[j]}</span><span class=ot>${esc(o)}</span></button>`).join('')}</div>${a!=null?`<div class="fb ${a==q.a?'g':'b'}"><span class=fi>${a==q.a?iconOk:iconNo}</span><div><b>${a==q.a?'Correcto.':'No.'}</b> ${esc(q.ex)}</div></div><button class="btn blk" data-a=qn>${QS.i<n-1?'Siguiente pregunta':'Ver resultado'} ${IC.next}</button>`:`<button class=lnk data-a=qh>${QS.help?'Ocultar ayuda':'¿Necesitás ayuda?'}</button>${QS.help?helpHtml(q):''}`}</div>`}
+VIEW.pra=()=>{if(QS)return quizView();const acc=d=>{const x=S.dr[d];return x?Math.round(100*x.ok/x.n)+'%':''},due=errDue().length,all=S.err.length;
+const tile=d=>{const o=DWS[d]||{w:0,s:0},lk_=!unl(d);return`<button class="xt${lk_?' lock':''}" ${lk_?'disabled aria-disabled=true':`data-a=dstart data-v=${d}`}><span class="art c${DCOL[d]}">${EXI[d]}${lk_?'<i class=lk>🔒</i>':''}</span><b>${esc(DN[d])}</b><span>${lk_?`Se abre en la sesión ${o.w}.${o.s==7?'extra':o.s}`:`Sesión ${o.w}.${o.s==7?'extra':o.s}${acc(d)?' · '+acc(d)+' aciertos':''}`}</span></button>`};
+const ds=Object.keys(DN).sort((a,b)=>(DWS[a]||{o:999}).o-(DWS[b]||{o:999}).o),nw=ds.filter(d=>unl(d)&&DWS[d].w==S.w),old=ds.filter(d=>unl(d)&&DWS[d].w<S.w),lock=ds.filter(d=>!unl(d));
+return hdr('Practicar','· 10 preguntas con corrección')+`<p class=m>Cada ejercicio se abre cuando llegás a la sesión donde se enseña. Las preguntas usan solo lo que ya viste.</p>
+<div class=rows><button class=rw data-a=startTest><span class="av c0">NV</span><span class=tt><b>Prueba de nivel</b><span>12 preguntas de todo el programa · semanas 0, 4, 8 y 12</span></span><span class=st>${IC.play}</span></button>${all?`<button class=rw data-a=rev><span class="av c1">RE</span><span class=tt><b>Repaso de errores</b><span>${due?due+' para hoy':'Nada vence hoy'} · ${all} guardados</span></span><span class=st>${IC.play}</span></button>`:''}</div>
+${nw.length?`<h2 class=h2>De esta semana <small>semana ${S.w}</small></h2><div class=grid>${nw.map(tile).join('')}</div>`:''}
+${old.length?`<h2 class=h2>Repaso de semanas anteriores</h2><div class=grid>${old.map(tile).join('')}</div>`:''}
+${lock.length?`<h2 class=h2>Más adelante <small>bloqueados</small></h2><div class=grid>${lock.map(tile).join('')}</div>`:''}
+<h2 class=h2>Herramientas</h2>${metHtml()}`};
+const GLOB=()=>GLO.replace(/^<details[^>]*><summary>.*?<\/summary>/,'').replace(/<\/details>$/,'');
+VIEW.exp=()=>hdr('Explorar','· mapas y palabras')+`<div class=pills>${Object.keys(DGT).map(d=>`<button class="chip${EXD==d?' on':''}" data-a=exd data-v=${d}>${DGT[d]}</button>`).join('')}<button class="chip${EXD=='glo'?' on':''}" data-a=exd data-v=glo>Palabras</button></div>${EXD=='glo'?`<div class="dg pl"><div class=dgh><h3>Palabras que se usan</h3></div>${GLOB()}</div>`:`<div class="dg pl" data-dg="${EXD}">${dgInner(EXD)}</div>`}`;
 VIEW.tut=()=>hdr('Tutor','· preguntas y correcciones')+`<p class=sub>Preguntale lo que no entiendas de la lección, o mandale tu análisis de una canción (tonalidad, grados y qué tan seguro estás) para que lo corrija. Puede equivocarse: ante una duda de teoría, contrastá con la lección.</p>${TC.map(m=>`<div class="msg${m[0]=='u'?' u':''}">${esc(m[1])}</div>`).join('')}<div class=chips><button class=chip data-a=qk data-v=1>Explicámelo de otra forma</button><button class=chip data-a=qk data-v=2>Dame un ejemplo</button><button class=chip data-a=qk data-v=3>Corregí mi análisis</button></div><textarea id=tq rows=3 placeholder="Escribí tu duda o tu análisis">${esc(TD)}</textarea><button class="btn blk" data-a=ask>Preguntar</button>`;
 const pc=(a,b)=>b?Math.round(100*a/b):null;
-const row=(l,p,c)=>`<div class=prow><span class="av sm c${c||0}"></span><span class=pl>${l}</span><div class=bar><i style="width:${p||0}%"></i></div><b>${p==null?'–':p+'%'}</b></div>`;
+const row=(l,p)=>`<div class=prow><span class=pl>${l}</span><div class=bar><i style="width:${p||0}%"></i></div><b>${p==null?'–':p+'%'}</b></div>`;
 VIEW.prog=()=>{const les=Object.keys(LX).filter(lapp).length,tl=Object.keys(LX).length,tot=Object.values(S.dr).reduce((a,x)=>[a[0]+x.n,a[1]+x.ok],[0,0]);
 const ts=S.tests,ch=ts.length>1?pc(ts[ts.length-1].ok,ts[ts.length-1].n)-pc(ts[0].ok,ts[0].n):null,lt=S.t4[S.t4.length-1],ac_=tot[0]?pc(tot[1],tot[0]):null;
-return hdr('Progreso','· cómo vas')+`<div class=minis><div class=mini><span class=lb>Sesiones</span><b>${S.logs.length}</b></div><div class=mini><span class=lb>Lecciones aprobadas</span><b>${les}<small>/${tl}</small></b></div><div class=mini><span class=lb>Aciertos en ejercicios</span><b>${ac_==null?'–':ac_+'<small>%</small>'}</b></div><div class=mini><span class=lb>Racha</span><b>${streak()}<small> ${streak()==1?'día':'días'}</small></b></div></div>
-<div class=card><b>Esta semana</b><div class=wdays>${weekDays().map((d,i)=>`<i class="${dset().has(d)?'d':d==today()?'t':''}">${'LMMJVSD'[i]}</i>`).join('')}</div><div class=prow><span class=pl>Meta: ${goalN()} sesiones</span><div class=bar><i style="width:${Math.min(100,100*weekSess()/goalN())}%"></i></div><b>${weekSess()}/${goalN()}</b></div><p class="m sm">La racha cuenta cualquier día en que terminás una sesión o un ejercicio.</p></div>
-<div class=card><b>Pruebas de nivel</b>${ts.length?testChart(ts.slice(-8)):'<p class=m>Todavía no hiciste ninguna. Está en Practicar.</p>'}${ch!=null?`<p class=m>Cambio desde la primera: ${ch>=0?'+':''}${ch} puntos.</p>`:''}</div>
-<div class=card><b>Aciertos por ejercicio</b>${Object.keys(DN).map(d=>row(esc(DS[d]),S.dr[d]?pc(S.dr[d].ok,S.dr[d].n):null,DCOL[d])).join('')}</div>
-<div class=card><b>Repaso de errores</b><p class=m>${S.err.length?`${S.err.length} guardados, ${errDue().length} para repasar hoy. Cada acierto en el repaso los espacia más; al tercer acierto seguido salen de la lista.`:'No tenés errores guardados. Los que falles en los ejercicios aparecen acá.'}</p>${S.err.length?`<button class="btn gh blk" data-a=rev>Repasar ahora</button>`:''}</div>
-<div class=card><b>Criterios por semana</b><div class=wk>${W.map((_,i)=>`<button class="wkb ${S.crit[i+1]?'d':i+1==S.w?'c':''}${WKC==i+1?' sel':''}" data-a=wkc data-v=${i+1} aria-label="Semana ${i+1}${S.crit[i+1]?', cumplida':''}">${i+1}</button>`).join('')}</div><p class="m sm">Lleno = criterio cumplido. Borde ámbar = semana actual. Tocá una semana para ver su criterio.</p>${WKC?`<div class=wkd><b>Semana ${WKC} · ${esc(W[WKC-1][0])}</b><p class=m>${esc(W[WKC-1][2])}</p><p><b style="color:var(${S.crit[WKC]?'--ok':'--mut'})">${S.crit[WKC]?'✓ Cumplido':'Pendiente'}</b></p><button class="btn gh sm" data-a=gs data-v="${WKC}:1">Ir a la semana ${WKC}</button></div>`:''}</div>
-<div class=card><b>Prueba de canción</b><p class=m>Sacá de oído la estrofa de una canción nueva. Antes de verificar en Mesa, anotá tu confianza.</p><div class=f3><input type=number id=t4a min=0 placeholder="Correctos"><input type=number id=t4n min=1 placeholder="Total"><select id=t4c aria-label=Confianza><option value=baja>Confianza baja<option value=media selected>Confianza media<option value=alta>Confianza alta</select></div><button class="btn gh blk" data-a=t4s>Guardar</button>${S.t4.slice(-4).reverse().map(t=>`<div class=prow><span class=pl>Sem. ${t.w} · confianza ${t.c}</span><div class=bar><i style="width:${pc(t.a,t.n)}%"></i></div><b>${t.a}/${t.n}</b></div>`).join('')}${lt&&lt.c=='alta'&&pc(lt.a,lt.n)<60?'<p><b>Tu confianza fue alta y el acierto bajo.</b> Eso indica exceso de confianza: verificá más antes de dar por buena una hipótesis.</p>':''}</div>`};
-VIEW.cfg=()=>hdr('Ajustes','· preferencias y respaldo')+`<div class=card><div class=cfgrow><b>Tema</b>${segc('th',[['dark','Oscuro'],['light','Claro'],['auto','Automático']],S.cfg.th)}</div><div class=cfgrow><b>Tamaño de letra</b>${segc('fs',[[0,'Normal'],[1,'Grande'],[2,'Muy grande']],S.cfg.fs)}</div><div class=cfgrow><b>Sonido</b>${segc('snd',[[1,'Activado'],[0,'Silenciado']],S.cfg.snd===false?0:1)}</div><div class=cfgrow><b>Meta semanal (sesiones)</b>${segc('goal',[[3,'3'],[4,'4'],[5,'5'],[6,'6']],goalN())}</div><div class=cfgrow><b>Ejercicios de Practicar</b>${segc('lv',[['auto','Según mi semana'],['all','Todo el programa']],S.cfg.lv=='all'?'all':'auto')}</div></div>
-<div class=card><b>Respaldo de tu progreso</b><p class=m>El progreso vive en este navegador. Copiá este texto para guardarlo; pegalo acá y tocá Importar para restaurarlo.</p><textarea id=js rows=5>${esc(JSON.stringify(S))}</textarea><div class=brow><button class="btn gh" data-a=cp>Copiar</button><button class="btn gh" data-a=im>Importar</button><button class="btn gh danger" data-a=wp>Borrar todo</button></div><p id=ms class=m></p></div>`;
+return hdr('Progreso','· cómo vas')+`<div class=stats><div><b>${S.logs.length}</b><span>sesiones</span></div><div><b>${les}<small>/${tl}</small></b><span>lecciones aprobadas</span></div><div><b>${ac_==null?'–':ac_+'%'}</b><span>aciertos en ejercicios</span></div><div><b>${streak()}</b><span>${streak()==1?'día':'días'} de racha</span></div></div>
+<h2 class=h2>Esta semana</h2><div class=wdays>${weekDays().map((d,i)=>`<i class="${dset().has(d)?'d':d==today()?'t':''}">${'LMMJVSD'[i]}</i>`).join('')}</div>${row('Meta: '+goalN()+' sesiones',Math.min(100,Math.round(100*weekSess()/goalN())))}
+<h2 class=h2>Pruebas de nivel</h2>${ts.length?testChart(ts.slice(-8)):'<p class=m>Todavía no hiciste ninguna. Está en Practicar.</p>'}${ch!=null?`<p class=m>Cambio desde la primera: ${ch>=0?'+':''}${ch} puntos.</p>`:''}
+<h2 class=h2>Aciertos por ejercicio</h2>${Object.keys(DN).filter(d=>S.dr[d]).map(d=>row(esc(DS[d]),pc(S.dr[d].ok,S.dr[d].n))).join('')||'<p class=m>Todavía no hiciste ejercicios.</p>'}
+<h2 class=h2>Criterios por semana</h2><div class=wk>${W.map((_,i)=>`<button class="wkb ${S.crit[i+1]?'d':i+1==S.w?'c':''}${WKC==i+1?' sel':''}" data-a=wkc data-v=${i+1} aria-label="Semana ${i+1}${S.crit[i+1]?', cumplida':''}">${i+1}</button>`).join('')}</div><p class="m sm">Lleno = criterio cumplido · borde = semana actual. Tocá una semana para ver su criterio.</p>${WKC?`<p><b>Semana ${WKC} · ${esc(W[WKC-1][0])}:</b> <span class=m>${esc(W[WKC-1][2])}</span> <b style="color:var(${S.crit[WKC]?'--ok':'--mut'})">${S.crit[WKC]?'✓ Cumplido':'Pendiente'}</b></p>`:''}
+<h2 class=h2>Prueba de canción</h2><p class=m>Sacá de oído la estrofa de una canción nueva. Antes de verificar en Mesa, anotá tu confianza.</p><div class=f3><input type=number id=t4a min=0 placeholder="Correctos"><input type=number id=t4n min=1 placeholder="Total"><select id=t4c aria-label=Confianza><option value=baja>Confianza baja<option value=media selected>Confianza media<option value=alta>Confianza alta</select></div><button class="btn gh blk" data-a=t4s>Guardar</button>${S.t4.slice(-4).reverse().map(t=>row(`Sem. ${t.w} · confianza ${t.c}`,pc(t.a,t.n))).join('')}${lt&&lt.c=='alta'&&pc(lt.a,lt.n)<60?'<p><b>Tu confianza fue alta y el acierto bajo.</b> Verificá más antes de dar por buena una hipótesis.</p>':''}`};
+VIEW.cfg=()=>hdr('Ajustes','· preferencias y respaldo')+`<div class=cfgrow><b>Tema</b>${segc('th',[['dark','Oscuro'],['light','Claro'],['auto','Automático']],S.cfg.th)}</div><div class=cfgrow><b>Tamaño de letra</b>${segc('fs',[[0,'Normal'],[1,'Grande'],[2,'Muy grande']],S.cfg.fs)}</div><div class=cfgrow><b>Sonido</b>${segc('snd',[[1,'Activado'],[0,'Silenciado']],S.cfg.snd===false?0:1)}</div><div class=cfgrow><b>Meta semanal (sesiones)</b>${segc('goal',[[3,'3'],[4,'4'],[5,'5'],[6,'6']],goalN())}</div><div class=cfgrow><b>Ejercicios de Practicar</b>${segc('lv',[['auto','Según mi avance'],['all','Desbloquear todo']],S.cfg.lv=='all'?'all':'auto')}</div>
+<h2 class=h2>Respaldo de tu progreso</h2><p class=m>El progreso vive en este navegador. Copiá este texto para guardarlo; pegalo acá y tocá Importar para restaurarlo.</p><textarea id=js rows=5>${esc(JSON.stringify(S))}</textarea><div class=brow><button class="btn gh" data-a=cp>Copiar</button><button class="btn gh" data-a=im>Importar</button><button class="btn gh danger" data-a=wp>Borrar todo</button></div><p id=ms class=m></p>`;
 
 const NAV=[['est','Estudiar'],['pra','Practicar'],['exp','Explorar'],['prog','Progreso'],['tut','Tutor'],['cfg','Ajustes']];
 function R(){const due=errDue().length;$('#nv').innerHTML=`<button class=logo data-a=home aria-label="Inicio">${IC.logo}</button><div class=nvl>${NAV.filter(([k])=>k!='tut'||HT()).map(([k,l])=>`<button class="ni${k==tab?' on':''}${k=='cfg'?' cfg':''}" data-a=tab data-v=${k}${k=='pra'&&due?` aria-label="Practicar, ${due} errores para repasar"`:''}>${IC[k]}<span>${l}</span>${k=='pra'&&due?`<i class=tbb aria-hidden=true>${due>9?'9+':due}</i>`:''}</button>`).join('')}</div>`;$('#app').innerHTML=VIEW[tab]();const ts=document.querySelector('.tiles .wt.sel');if(ts){const c=ts.parentNode;c.scrollLeft=Math.max(0,ts.offsetLeft-c.offsetLeft-8)}updTimer()}
@@ -2108,11 +2208,11 @@ catch(e){TC[TC.length-1]=['t','El tutor no está disponible ahora (falta el perm
 /* ===== Acciones ===== */
 const playN=m=>{try{ac();pluck(mf(m),AC.currentTime+.02,1.3,.28)}catch(e){}};
 const top0=()=>window.scrollTo(0,0);
-const openSes=()=>{metStop();stopSeq();view='ses';tab='est';ST=newST();R();top0()};
+const openSes=()=>{metStop();stopSeq();QS=null;DONE=null;view='ses';tab='est';ST=newST();R();top0()};
 function dPlayFrom(from){const d=(DEMO[lk()]||[])[DP.j];if(!d)return;const seq=d[1].slice(from);playSeq(seq,gapOf(d[1]),null,k=>{if(k<0){DP.on=0}else{DP.i=from+k}updStage()});DP.on=1;DP.i=from;updStage()}
 const A={
-tab:v=>{metStop();stopSeq();tab=v;if(v=='est'&&!QS){}R();top0()},
-home:()=>{metStop();stopSeq();QS=null;tab='est';view='home';WS=S.w||1;R();top0()},
+tab:v=>{if(v=='est'){A.home();return}metStop();stopSeq();tab=v;R();top0()},
+home:()=>{metStop();stopSeq();QS=null;DONE=null;tab='est';view='home';WS=S.w||1;R();top0()},
 cont:()=>{if(!S.w){startQuiz('nivel',0,{});return}openSes()},
 ws:v=>{WS=+v;R()},
 theme:()=>{S.cfg.th=isDark()?'light':'dark';save();applyCfg();R()},
@@ -2143,7 +2243,7 @@ qa:v=>{const q=QS.l[QS.i];if(QS.ans!=null)return;const ok=+v==q.a;QS.ans=+v;QS.r
 qn:()=>{if(QS.i<QS.l.length-1){QS.i++;QS.ans=null;R();top0();setTimeout(autoPlay,200)}else finishQuiz()},
 qh:()=>{QS.help=!QS.help;R()},
 qp:()=>{const q=QS.l[QS.i];playSeq(q.play,q.play.length==1?1.6:1.1,'#nohl')},
-qagain:()=>{if(QS.review)startReview();else startQuiz(QS.d,10,QS.from)},qexit:()=>{stopSeq();const f=QS&&QS.from;QS=null;if(f)tab='est';R();top0()},
+qagain:()=>{if(QS.review)startReview();else if(QS.test)startQuiz('nivel',0,QS.from);else startQuiz(QS.d,10,QS.from)},qexit:()=>{stopSeq();const f=QS&&QS.from;QS=null;if(f)tab='est';R();top0()},
 lstart:v=>startQuiz(v,10,{sk:lk()+'|'+v}),ltest:()=>startQuiz('nivel',0,{}),
 askl:()=>{TD=LS()?'No entiendo esta parte de la lección: ':'Necesito que me expliques la teoría de esta semana: ';tab='tut';R();top0()},
 qk:v=>{TD={1:'Explicame la lección de hoy con otras palabras.',2:'Dame un ejemplo concreto de la lección de hoy.',3:'Corregí mi análisis. Tonalidad: … Grados: … Confianza: …'}[v];R()},
@@ -2157,10 +2257,10 @@ pfn:()=>{const k=kinfo(CF.r,CF.m);playSeq([k.ch[0],k.ch[3],k.m?k.V:k.ch[4],k.ch[
 t4s:()=>{const a=+$('#t4a').value,n=+$('#t4n').value;if(!n||a<0||a>n)return;S.t4.push({d:today(),w:S.w,a,n,c:$('#t4c').value});save();R()},
 cp:()=>{const t=$('#js');t.select();try{navigator.clipboard.writeText(t.value).catch(()=>{})}catch(e){}$('#ms').textContent='Copiado. Si no se copió, seleccioná el texto y copialo a mano.'},
 im:()=>{try{const o=JSON.parse($('#js').value);if(!o||!Array.isArray(o.logs))throw 0;S=Object.assign(DEF(),o);fixS();save();applyCfg();ST=newST();R();$('#ms')&&($('#ms').textContent='Importado.')}catch(e){$('#ms').textContent='El texto no es un respaldo válido.'}},
-wp:()=>{if(!wipe){wipe=1;$('#ms').textContent='Tocá “Borrar todo” otra vez para confirmar.';return}wipe=0;S=DEF();save();applyCfg();ST=newST();QS=null;view='home';WS=0;R()}};
+wp:()=>{if(!wipe){wipe=1;$('#ms').textContent='Tocá “Borrar todo” otra vez para confirmar.';return}wipe=0;S=DEF();save();applyCfg();ST=newST();QS=null;view='home';WS=0;tab='est';R()}};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b&&!b.disabled&&A[b.dataset.a]){if(S.cfg.snd!==false){try{ac()}catch(x){}}A[b.dataset.a](b.dataset.v,b)}});
 document.addEventListener('input',e=>{if(e.target.id=='tq')TD=e.target.value;if(e.target.id=='mr'){MT.bpm=+e.target.value;const m=$('#mbpm');if(m&&m.firstChild)m.firstChild.textContent=MT.bpm}if(e.target.id=='so')ST.so=e.target.value});
-document.addEventListener('keydown',e=>{if(tab!='est'||view!='ses'||QS||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;if(e.key=='ArrowRight'){const b=document.querySelector('.tp [data-a=nx]:not([disabled])');if(b){e.preventDefault();b.click()}}if(e.key=='ArrowLeft'){const b=document.querySelector('.tp [data-a=back]:not([disabled])');if(b){e.preventDefault();b.click()}}});
+document.addEventListener('keydown',e=>{if(tab!='est'||view!='ses'||(QS&&QS.from)||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;if(e.key=='ArrowRight'){const b=document.querySelector('.foot [data-a=nx]:not([disabled])');if(b){e.preventDefault();b.click()}}if(e.key=='ArrowLeft'){const b=document.querySelector('.foot [data-a=back]');if(b){e.preventDefault();b.click()}}});
 try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.cfg.th=='auto'){applyCfg();R()}})}catch(e){}
 
 applyCfg();R();
