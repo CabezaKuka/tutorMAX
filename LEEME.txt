@@ -1,17 +1,69 @@
-GUITARRA 12 SEMANAS (app instalable)
+GUITARRA 12 SEMANAS (app instalable) · versión 13
 
-PUBLICAR EN NETLIFY
+QUÉ HAY EN ESTA CARPETA
+- index.html, css/, js/, fonts/, icons/, sw.js, manifest.webmanifest, _headers: la app.
+  · js/content.js: el plan de 12 semanas y las lecciones (solo texto, para editar contenido).
+  · js/app.js: la lógica. js/mic.js: afinador y ejercicios con micrófono.
+- netlify/functions/tutor.mjs: el tutor (chat con Claude) cuando la app está en Netlify.
+- tests/, tools/, package.json: pruebas automáticas y herramientas (no hacen falta para usar la app).
+
+PUBLICAR EN NETLIFY: OPCIÓN SIMPLE (sin tutor)
 1. Entrá a https://app.netlify.com/drop e iniciá sesión.
-2. Arrastrá la carpeta "guitarra12" (entera, ya descomprimida) a esa página.
+2. Arrastrá esta carpeta entera (ya descomprimida) a esa página.
 3. Netlify te da una dirección https. Esa es tu app.
+Así funciona todo, pero el tutor probablemente no: al arrastrar y soltar, Netlify en general
+no publica funciones. Para el tutor, conectá GitHub (abajo) o usá la terminal: netlify deploy --prod.
+
+PUBLICAR EN NETLIFY: CON TUTOR (conectado a GitHub)
+1. En Netlify: Add new site > Import an existing project > GitHub > este repositorio.
+   netlify.toml ya tiene la configuración: no cambies nada en "Build settings".
+2. En Site configuration > Environment variables, agregá:
+   - ANTHROPIC_API_KEY: tu clave de la API de Anthropic (console.anthropic.com). Nunca va en la app.
+   - TUTOR_CLAVE (recomendado): una palabra que la app te va a pedir para usar el tutor.
+     Sin ella, cualquiera que tenga la dirección puede gastar tu saldo.
+   - Opcionales: TUTOR_LIMITE (preguntas por hora por dispositivo, 30 por defecto) y
+     TUTOR_MODELO (claude-opus-5-5 por defecto).
+3. Volvé a publicar (Deploys > Trigger deploy). La pestaña Tutor aparece sola.
+   Conviene fijar un límite de gasto mensual en console.anthropic.com.
+Cada vez que subas cambios a GitHub, Netlify publica la versión nueva.
 
 INSTALAR EN EL CELULAR (abrí la dirección en el teléfono)
 - Android (Chrome): menú de los 3 puntos > "Instalar app" o "Agregar a la pantalla principal".
 - iPhone (Safari): botón Compartir > "Agregar a inicio". Tiene que ser Safari.
 
 IMPORTANTE
-- El progreso se guarda en cada dispositivo por separado. No se sincroniza entre teléfono y PC.
-  Usá Progreso > Respaldo para copiar y pegar tu progreso de uno a otro.
+- El progreso se guarda en cada dispositivo por separado. Para pasarlo de uno a otro:
+  Ajustes > Respaldo > "Guardar archivo" en uno y "Abrir archivo" en el otro.
 - En iPhone, la app instalada guarda sus datos aparte de Safari. Empezá a usarla desde el ícono instalado.
-- El tutor (chat con Claude) no está en esta versión: solo funciona dentro de Claude.
-- Para actualizar la app: reemplazá los archivos en Netlify y subí el número de CACHE en sw.js (por ejemplo de v3 a v4).
+- El micrófono (afinador y "Tocá en la guitarra") necesita la dirección https y tu permiso.
+
+ACTUALIZAR LA APP
+- La app busca primero la versión publicada: al abrirla con internet ya ves los cambios.
+- Para que aparezca el aviso "Hay una versión nueva" en quien la tenga abierta, subí el número
+  de versión en dos lugares: CACHE en sw.js (guitarra12-v13 → v14) y VER en js/app.js (13 → 14).
+  Las pruebas avisan si no coinciden.
+
+PRUEBAS (para quien modifique el código; necesita Node 20 o más)
+  npm install
+  npx playwright install chromium
+  npm test
+Recorren las 74 sesiones y todos los ejercicios, revisan el contenido, el modo sin conexión,
+el respaldo, el tutor (contra una API simulada) y el micrófono (con un micrófono simulado).
+En GitHub corren solas en cada cambio (pestaña Actions).
+
+USAR LA APP DENTRO DE CLAUDE (un solo archivo)
+  npm run bundle   → dist/guitarra12.html, con todo adentro. Ahí el tutor usa Claude directamente.
+
+NOVEDADES DE LA VERSIÓN 13
+- Arreglado: en el celular la pantalla se corría hacia el costado en casi todas las sesiones.
+- Arreglado: un respaldo con datos inválidos dejaba la app sin abrir.
+- Arreglado: los colores de la pantalla de carga al instalar eran de un diseño viejo.
+- Actualización automática con aviso "Hay una versión nueva · Actualizar".
+- Respaldo como archivo (guardar, abrir y compartir), además del copiar y pegar.
+- Afinador y ejercicio "Tocá en la guitarra" con micrófono (Practicar).
+- Diario de práctica en Progreso: fecha, cómo te salió y canción de cada sesión.
+- Aviso de prueba de nivel en las semanas 4, 8 y 12, y sugerencia de repasar una sesión que costó.
+- Repaso de errores más espaciado (1, 3, 7, 14 y 30 días).
+- Tutor también fuera de Claude (publicando desde GitHub, ver arriba).
+- Fuentes incluidas en la app: funciona sin conexión desde la primera visita.
+- Teclado y lectores de pantalla ya no pierden su lugar al tocar un botón.
