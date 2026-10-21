@@ -5,7 +5,7 @@
 // Al publicar una versión nueva, subí el número acá y en VER (js/app.js): la app muestra
 // el aviso "Hay una versión nueva". `npm test` verifica que coincidan.
 const CACHE='guitarra12-v13';
-const PRE=['./','./index.html','./css/app.css','./css/fonts.css','./js/content.js','./js/app.js','./manifest.webmanifest',
+const PRE=['./','./index.html','./css/app.css','./css/fonts.css','./js/content.js','./js/mic.js','./js/app.js','./manifest.webmanifest',
 './fonts/manrope-latin.woff2','./fonts/jetbrains-mono-latin.woff2',
 './icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png','./icons/favicon-32.png'];
 const FIXED=/\/(icons|fonts)\//;
@@ -15,7 +15,7 @@ self.addEventListener('message',e=>{if(e.data==='skip')self.skipWaiting()});
 const put=(r,res)=>{if(res&&res.ok){const cp=res.clone();caches.open(CACHE).then(c=>c.put(r,cp))}return res};
 self.addEventListener('fetch',e=>{
   const r=e.request,u=new URL(r.url);
-  if(r.method!=='GET'||u.origin!==location.origin||u.pathname.startsWith('/.netlify/'))return;
+  if(r.method!=='GET'||u.origin!==location.origin||/^\/(\.netlify|api)\//.test(u.pathname))return;
   if(FIXED.test(u.pathname)){e.respondWith(caches.match(r).then(hit=>hit||fetch(r).then(res=>put(r,res))));return}
   // Red primero, con 4 s de espera máxima; sin red, la copia guardada
   e.respondWith(new Promise(ok=>{

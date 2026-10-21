@@ -4,9 +4,16 @@
   "description": "Guitarra 12 semanas: app instalable de teoría aplicada y oído para guitarra.",
   "scripts": {
     "test": "node tests/smoke.js",
-    "bundle": "node tools/bundle.js"
+    "bundle": "node tools/bundle.js",
+    "publicar": "node tools/publicar.js"
   },
   "devDependencies": {
     "playwright": "1.56.1"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.137.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

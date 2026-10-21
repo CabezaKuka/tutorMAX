@@ -284,7 +284,7 @@ button.mini{cursor:pointer}
 .chart{display:block;width:100%;max-width:520px;height:auto;margin-top:8px}.chart text{font-family:var(--fm);fill:var(--mut);font-size:11px}.chart .v{fill:var(--ink);font-weight:800;font-size:12px}
 .f3{display:grid;grid-template-columns:1fr 1fr;gap:8px}.f3 select{grid-column:1/-1}
 @media(min-width:620px){.f3{grid-template-columns:1fr 1fr 1.4fr}.f3 select{grid-column:auto}}
-input[type=text],input[type=number],select,textarea{width:100%;font:600 16px var(--fd);padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--sf2);color:var(--ink);margin-top:10px}
+input[type=text],input[type=number],input[type=password],select,textarea{width:100%;font:600 16px var(--fd);padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--sf2);color:var(--ink);margin-top:10px}
 textarea{resize:vertical;font-family:var(--fm);font-size:13px}
 input[type=range]{width:100%;accent-color:var(--acc);margin-top:14px}
 .cfgrow{margin-top:16px}.cfgrow:first-child{margin-top:0}.cfgrow>b{display:block;margin-bottom:8px}
@@ -295,9 +295,21 @@ input[type=range]{width:100%;accent-color:var(--acc);margin-top:14px}
 .mdot.a{background:var(--acc)}.mdot.b{background:var(--ok)}.mdot.p{animation:pl .22s ease-out}
 @keyframes pl{0%{transform:scale(1.6)}100%{transform:scale(1)}}
 .msg{white-space:pre-wrap;margin-top:12px;padding:14px 16px;border-radius:18px 18px 18px 6px;background:var(--sf);border:1px solid var(--line)}.msg.u{background:var(--accs);border-color:transparent;border-radius:18px 18px 6px 18px}
-.upd{position:fixed;z-index:50;left:50%;transform:translateX(-50%);top:calc(var(--navh) + 12px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:10px 10px 10px 18px;border-radius:999px;background:var(--sf);border:1px solid color-mix(in srgb,var(--acc) 45%,var(--line));box-shadow:0 12px 32px -12px rgba(0,0,0,.5);font-weight:700;font-size:14px}
+.upd{position:fixed;z-index:50;left:0;right:0;margin:0 auto;width:max-content;top:calc(var(--navh) + 12px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:10px 10px 10px 18px;border-radius:999px;background:var(--sf);border:1px solid color-mix(in srgb,var(--acc) 45%,var(--line));box-shadow:0 12px 32px -12px rgba(0,0,0,.5);font-weight:700;font-size:14px}
 .bkt{margin-top:14px}.bkt summary{cursor:pointer;min-height:32px}
 label.btn{position:relative}
 .ver{text-align:center;margin-top:18px}
+.tip{margin-top:0;margin-bottom:12px}.tip .bh{flex-wrap:wrap}
+.drows{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.drow{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--line)}.drow:first-child{border-top:0}
+.drow .av{width:38px;height:38px;font-size:12px}.drow .tt{flex:1;min-width:0}.drow .tt b{display:block;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.drow .tt>span{display:block;font-size:13px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rt{flex:none;font:800 13px var(--fm);padding:4px 9px;border-radius:999px;background:var(--sf2)}.rt.r1,.rt.r2{background:var(--kos);color:var(--ko)}.rt.r4,.rt.r5{background:var(--oks);color:var(--ok)}
+.xt .art svg{width:30px;height:30px}
+.tun{text-align:center;padding:24px 18px}.tun .tn{font:800 calc(84px*var(--z,1))/1 var(--fd);letter-spacing:-.04em;min-height:84px}.tun .tn small{font-size:.32em;color:var(--mut);margin-left:3px;letter-spacing:0}
+.tun.in .tn{color:var(--ok)}.tun .mc{min-height:22px;margin-top:6px}.tun.in .mc{color:var(--ok);font-weight:800}
+.meter{position:relative;height:14px;max-width:420px;margin:18px auto 0;border-radius:999px;background:linear-gradient(90deg,var(--kos),var(--sf3) 40%,var(--oks) 47%,var(--oks) 53%,var(--sf3) 60%,var(--kos))}
+.meter i{position:absolute;left:50%;top:-4px;bottom:-4px;width:2px;margin-left:-1px;background:var(--dim)}
+.meter b{position:absolute;left:50%;top:-6px;width:6px;height:26px;margin-left:-3px;border-radius:3px;background:var(--acc);transition:left .12s}.tun.in .meter b{background:var(--ok)}
+.mlive{display:flex;align-items:center;gap:12px}.mlive .mdot{margin:0;width:14px;height:14px;flex:none}.mlive .mdot.p{animation:pl 1s ease-out infinite}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
