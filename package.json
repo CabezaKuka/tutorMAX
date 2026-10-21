@@ -1,0 +1,12 @@
+{
+  "name": "guitarra12",
+  "private": true,
+  "description": "Guitarra 12 semanas: app instalable de teoría aplicada y oído para guitarra.",
+  "scripts": {
+    "test": "node tests/smoke.js",
+    "bundle": "node tools/bundle.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
